@@ -21,30 +21,33 @@ classes that are not in this list, or that something you listed here doesn't
 really fit, that's ok. The point is to start thinking about the high-level
 structure of your program.
 
-dataLogger, linkedList, and weatherData.
+dataLogger, linkedList, and weatherData, along with a class that keeps and manipulates "master" data (extremes, averages, etc.)
 
 dataLogger will take input from the raw climatedata.txt input file into the program.
+linkedList will (obviously) take care of storing and organizing the data inside the program's memory.
+weatherData will keep track of individual "data points" in the file: that's to say, linkedList will hold a list of weatherData elements. Each will individually contain a timestamp, temperature, and windspeed.
 
 2) Which class do you plan to implement first? Why?
 
-<your answer here>
+probably dataLogger! This would be the most obvious choice, because it is what provides input to base the other classes upon. THAT SAID, it would be easier to build linkedList AFTER finishing weatherData, simply because linkedList will need a default object to work with.
 
 3) What is your algorithm for finding the most common temperature and
 windspeed values?
 
-<your answer here>
+SORTS THE DATA??? HOW?
+After the linked list is complete, the data logger will go through it using each type of "thread" and do a simple tally. For each node, if that node is between certain values, increment the variable responsible for keeping track of nodes reflecting that value. As far as the most common go: simply keep track of the total number of entries while adding all of them together, and then divide by that number.
 
 4) One approach to finding all of the values less than -50C is to check each
 value as it is being inserted into the list. If the new value is less than
 -50C then increment a counter. This approach will not work for this
 program. Why not? 
 
-<your answer here>
+Because my dataLogger and linkedList classes aren't supposed to keep track of the actual report data! They are simply meant to intake data and organize it internally (in that order). It is therefore out of their scope to be doing analysis work.
 
 5) What is your testing strategy? Will you only use the given data file or
 will you create smaller data files to help focus your testing?
 
-<your answer here>
+I'm absolutely not going to be using the full data file for testing: I might even cut it down to 1 entry at first just to make sure that everything is properly connected before upping it to a manageable number to make sure that the logic is correct. I will probably be lazy and make a backup file containing the real data before giving the weatherdata.txt name to a smaller file (so that I don't have to go back and change references later).
 
 6) What is your strategy for finding and addressing memory leaks? Will you get
 the whole program working first and then address memory leaks or will you
