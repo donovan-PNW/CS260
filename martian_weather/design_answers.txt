@@ -53,8 +53,5 @@ I'm absolutely not going to be using the full data file for testing: I might eve
 the whole program working first and then address memory leaks or will you
 check on memory leaks as you go?
 
-<your answer here>
-
-
-
+I will check for memory leaks regularly with valgrind, but it will probably take a back seat to other parts of implementation. To some extent, you have to build something before you can debug it!
 
