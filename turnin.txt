@@ -1,0 +1,24 @@
+Turning in assignments using my "turnin" command. This command is found in
+~mike.noel/bin/turnin.
+
+It is simple to run, you just type:
+
+~mike.noel/bin/turnin cs260 myfile.txt
+
+[replace "cs260" with cs201, cs261, or whatever the correct class identifier
+is.]
+
+This will take care of everything. It will give you a "receipt" identifier
+that you can keep if you want to have a record of turning in the file.
+
+You can call this command as many times as you want. Each subsequent call does
+not overwrite the previous one. 
+
+If you have multiple files to turn in you can either call turnin multiple
+times, once per file, or use zip or tar to create a single bundle and turn
+that in. Either way is fine.
+
+Finally, if you don't want to type ~mike.noel/bin everytime you can add that
+directory to your path and then you only need to type "turnin class file" to
+turn something in.
+

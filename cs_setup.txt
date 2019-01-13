@@ -1,0 +1,21 @@
+Keeping your files organized will make your life much easier as you go through
+your Computer Science course. Everyone has a different style on how they like
+to keep things in order and if you have a system that works for you already,
+then feel free to use it. However, if you are new to Computer Science or
+haven't kept your files organized in the past, follow these instructions for
+setting up a directory structure that will make it easy to keep things
+organized.
+
+1) If you don't already have one, create a new directory for all your class
+files. For example: "mkdir ~/classes/cs123". 
+
+2) Go into your class directory. For example, if you used the directory
+mentioned in step 1, the command would be "cd ~/classes/cs123".
+
+3) Make a new directory for labs using the command "mkdir labs".
+
+4) Repeat step #3 for "exams" and "assignments".
+
+Now, when you are ready to start a new lab, exam, or assignment, go to the
+appropriate directory in your class directory and use "mkdir" to make a new
+directory for that new project.
