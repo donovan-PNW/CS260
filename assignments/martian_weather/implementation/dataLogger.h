@@ -20,12 +20,18 @@ public:
     void setWindspeed(int windspeed);
     
     
-    const datalogger& operator=(const datalogger& aDataLogger);
+    const datalogger& operator=(const datalogger& entry);
+    friend std::ostream& operator<<(std::ostream& out, const datalogger& entry);
 
-
-
+private:
+    int timestamp;
+    int temperature;
+    int windspeed; 
 
 };
+
+bool operator< (const datalogger& entry1, const datalogger& entry2);
+bool operator== (const datalogger& entry1, const datalogger& entry2);
 
 
 
