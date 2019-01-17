@@ -2,6 +2,7 @@
 #define DATALOGGER_H
 
 #include <iostream>
+#include <iomanip>
 class datalogger
 {
 public:
