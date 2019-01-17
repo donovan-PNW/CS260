@@ -24,8 +24,8 @@ int main(int argc, char** argv) {
     char* datafile = argv[1];
     ifstream inDatafile(datafile);
     int timestamp;
-    double temperature;
-    double windspeed;
+    int temperature;
+    int windspeed;
     
     while (!inDatafile.eof()) {
 	inDatafile >> timestamp;
