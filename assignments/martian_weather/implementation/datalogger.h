@@ -30,6 +30,7 @@ private:
 
 };
 
+//MAYBE put this into the linkedlist class?
 bool operator< (const datalogger& entry1, const datalogger& entry2);
 bool operator== (const datalogger& entry1, const datalogger& entry2);
 
