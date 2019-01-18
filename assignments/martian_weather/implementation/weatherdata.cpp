@@ -53,18 +53,18 @@ int weatherdata::getWindspeed() const
 }
 
 
-//void setTimestamp(int timestamp)
-//{
-//    this->timestamp = timestamp;
-//}
-//void setTemperature(int temperature)
-//{
-//    this->temperature = temperature;
-//}
-//void setWindspeed(int windspeed)
-//{
-//    this->windspeed = windspeed;
-//}
+void setTimestamp(int timestamp)
+{
+    this->timestamp = timestamp;
+}
+void setTemperature(int temperature)
+{
+    this->temperature = temperature;
+}
+void setWindspeed(int windspeed)
+{
+    this->windspeed = windspeed;
+}
 
 
 
