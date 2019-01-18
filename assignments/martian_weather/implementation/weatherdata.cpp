@@ -1,15 +1,16 @@
-#include "datalogger.h"
+#include "weatherdata.h"
 #include <iostream>
 #include <iomanip>
 
+using namespace std;
 
-datalogger::datalogger():timestamp(-1), temperature(-1), windspeed(-1)
+weatherdata::weatherdata():timestamp(-1), temperature(-1), windspeed(-1)
 {
 }
 
 //ok, what am I doing here? I don't remember needing to set
 //variables first before the actual set functions. Why can't I just punch them in?
-datalogger::datalogger(int timestamp, int temperature, int windspeed) :
+weatherdata::weatherdata(int timestamp, int temperature, int windspeed) :
 timestamp(timestamp),
 temperature(temperature),
 windspeed(windspeed)
@@ -23,7 +24,7 @@ windspeed(windspeed)
 //    setWindspeed(windspeed);
 //}
 
-const datalogger& datalogger::operator=(const datalogger& entry)
+const weatherdata& weatherdata::operator=(const weatherdata& entry)
 {
     //PROBABLY don't need a self copy
     setTimestamp(entry.timestamp);
@@ -33,20 +34,20 @@ const datalogger& datalogger::operator=(const datalogger& entry)
 
 }
 
-datalogger::~datalogger()
+weatherdata::~weatherdata()
 {
 }
 
-int datalogger::getTimestamp() const
+int weatherdata::getTimestamp() const
 {
     return timestamp;
 }
 
-int datalogger::getTemperature() const
+int weatherdata::getTemperature() const
 {
     return temperature;
 }
-int datalogger::getWindspeed() const
+int weatherdata::getWindspeed() const
 {
     return windspeed;
 }
@@ -68,7 +69,7 @@ int datalogger::getWindspeed() const
 
 
 //JUST DO BOOLEAN TO CHECK!!
-bool operator==(const datalogger& entry1, const datalogger& entry2)
+bool operator==(const weatherdata& entry1, const weatherdata& entry2)
 {
     int timestamp1;
     int timestamp2;
@@ -83,7 +84,7 @@ bool operator==(const datalogger& entry1, const datalogger& entry2)
 
 }
 
-std::ostream& operator<<(std::ostream& out, const datalogger& entry)
+std::ostream& operator<<(std::ostream& out, const weatherdata& entry)
 {
     out << std::setw(20) << entry.timestamp
     << std::setw(15) << entry.temperature
@@ -91,7 +92,7 @@ std::ostream& operator<<(std::ostream& out, const datalogger& entry)
     return out;
 }
 
-bool operator<(const datalogger& entry1, const datalogger& entry2)
+bool operator<(const weatherdata& entry1, const weatherdata& entry2)
 {
     int timestamp1;
     int timestamp2;
