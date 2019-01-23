@@ -20,7 +20,7 @@ bool linkedList::insert(const weatherdata& thisEntry)
     entryNode* previousWindspeed = nullptr;
     //reverse and forward?
     //ALSO: do I NEED to assert head?
-    while(currentTime != nullptr && currentTime->entry < thisEntry)
+    while(currentTime != nullptr && currentTime->entry.getTimestamp() <= thisEntry.getTimestamp())
     {
         previousTime = currentTime;
         currentTime = currentTime->nextTime;
@@ -29,8 +29,9 @@ bool linkedList::insert(const weatherdata& thisEntry)
 
     }
 
-    if(currentTime && currentTime->entry == thisEntry)
+    if(currentTime && currentTime->entry.getTimestamp() == thisEntry.getTimestamp())
     {
+        isDuplicate = true; 
         
         //idk, just delete the old one from here right?
         //like, removeEntry() but only if you're working with the clean one?
@@ -61,8 +62,6 @@ bool linkedList::insert(const weatherdata& thisEntry)
         if(previousTime == nullptr)
         {
             timeHead = newEntry;
-            temperatureHead = newEntry;
-            windspeedHead = newEntry;
         }
         else
         {
@@ -71,11 +70,103 @@ bool linkedList::insert(const weatherdata& thisEntry)
             //previousTemperature->nextTemperature = newEntry;
             //previousWindspeed->nextWindspeed = newEntry;
         }
+        
+    while(currentTemperature != nullptr && currentTemperature->entry.getTemperature() < thisEntry.getTemperature())
+    {
+        previousTemperature = currentTemperature;
+        currentTemperature = currentTemperature->nextTemperature;
+    }
+        if(previousTemperature == nullptr)
+        {
+            temperatureHead = newEntry;
+        }
+        else
+        {
+            previousTemperature->nextTemperature = newEntry;
+        }
+    while(currentWindspeed != nullptr && currentWindspeed->entry.getWindspeed() <= thisEntry.getWindspeed())
+    {
+        previousWindspeed = currentWindspeed;
+        currentWindspeed = currentWindspeed->nextWindspeed;
+    }
+        if(previousWindspeed == nullptr)
+        {
+            windspeedHead = newEntry;
+        }
+        else
+        {
+            previousWindspeed->nextWindspeed = newEntry;
+        }
 
     }
 
 
+    listSize++;
     return isDuplicate;
 }
+
+//bool?
+//hey wait. Should I just pass createReport(list, clean or dirty all the way up from createReport)?
+void linkedList::createReport() const
+{
+    entryNode* currentTime;
+    entryNode* currentTemperature;
+    entryNode* currentWindspeed;
+
+    for(currentTime = timeHead; currentTime; currentTime = currentTime->nextTime)
+    {
+                
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//bool remove
+//I THINK i CAN GET AWAY WITH JUST HAVING INSERT() REPLACE ALL OF THE VALUES IN AN EXISTING LIST
+//BUT I WILL NEED TO DO A SCAN AFTERWARD AS A SUBROUTINE TO FIND PROPER PLACES FOR TEMPERATURE AND WINDSPEED. just like above except first you should link previous to oldnode->next 
+
+//EDIT: seriously? for every goddamn pass I need to use the removeData function from weatherlog.cpp
+//so I do need two write this. what the fuck bro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

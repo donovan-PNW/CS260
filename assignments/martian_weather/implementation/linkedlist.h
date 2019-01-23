@@ -18,7 +18,7 @@ public:
     bool insert(const weatherdata& thisEntry);
     //indexNo?
     bool remove(const char* indexNo);
-    bool retrieve(const char* indexNo, weatherdata& thisEntry) const;
+    void createReport() const;
     int getSize() const;
 
     //why not iostream???

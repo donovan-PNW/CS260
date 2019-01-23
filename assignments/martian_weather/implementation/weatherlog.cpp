@@ -39,7 +39,8 @@ int main(int argc, char** argv) {
 
     }
 
-
+//HEY!!! ARE WE TO ASSUME:
+//that after cleanDatalog.removeData() deletes a node, we don't replace it?
 
 // FOR TESTING PURPORSES! GO BACK TO THIS BLOCK AFTER YOU GET IT TO TAKE INFO IN
 //	if (!inDatafile.eof()) {
