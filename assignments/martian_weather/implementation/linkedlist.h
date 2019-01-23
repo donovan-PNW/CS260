@@ -28,15 +28,18 @@ private:
     //question: Should I try going in both directions? that is, a backward pointer
     //AND a frontward pointer? This may go well with entryNode* middle.
     //Also conceptual question: Why are linked lists better? As in, what's a heap?
+    //
     struct entryNode
     {
-        weatherdata thisEntry;
+        weatherdata entry;
         entryNode* nextTime;
         entryNode* nextTemperature;
         entryNode* nextWindspeed;
     };
 
-    entryNode* head;
+    entryNode* timeHead;
+    entryNode* temperatureHead;
+    entryNode* windspeedHead;
     entryNode* middle;
     entryNode* tail;
     int listSize;
