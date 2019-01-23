@@ -669,8 +669,8 @@ badd +34 datalogger.h
 badd +1 datalogger.cpp
 badd +30 weatherlog.cpp
 badd +2 midnightnotes.txt
-badd +0 linkedlist.cpp
-badd +31 linkedlist.h
+badd +1 linkedlist.cpp
+badd +30 linkedlist.h
 argglobal
 silent! argdel *
 $argadd weatherdata.cpp
@@ -685,8 +685,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 84 + 52) / 105)
-exe 'vert 2resize ' . ((&columns * 20 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 84 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 20 + 106) / 212)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -949,8 +949,8 @@ normal! zt
 1
 normal! 018|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 84 + 52) / 105)
-exe 'vert 2resize ' . ((&columns * 20 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 84 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 20 + 106) / 212)
 tabedit datalogger.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -970,13 +970,13 @@ set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 exe '1resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 1resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 103 + 106) / 212)
 exe '2resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 2resize ' . ((&columns * 103 + 106) / 212)
 exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 3resize ' . ((&columns * 1 + 106) / 212)
 exe '4resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 4resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 4resize ' . ((&columns * 1 + 106) / 212)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -1503,13 +1503,13 @@ normal! zt
 normal! 023|
 wincmd w
 exe '1resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 1resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 103 + 106) / 212)
 exe '2resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 2resize ' . ((&columns * 103 + 106) / 212)
 exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 3resize ' . ((&columns * 1 + 106) / 212)
 exe '4resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 4resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 4resize ' . ((&columns * 1 + 106) / 212)
 tabedit weatherdata.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -1529,13 +1529,13 @@ set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 exe '1resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 1resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 103 + 106) / 212)
 exe '2resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 2resize ' . ((&columns * 103 + 106) / 212)
 exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 3resize ' . ((&columns * 1 + 106) / 212)
 exe '4resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 4resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 4resize ' . ((&columns * 1 + 106) / 212)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -2062,13 +2062,13 @@ normal! zt
 normal! 034|
 wincmd w
 exe '1resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 1resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 103 + 106) / 212)
 exe '2resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 103 + 52) / 105)
+exe 'vert 2resize ' . ((&columns * 103 + 106) / 212)
 exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 3resize ' . ((&columns * 1 + 106) / 212)
 exe '4resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 4resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 4resize ' . ((&columns * 1 + 106) / 212)
 tabedit linkedlist.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -2079,138 +2079,9 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 103 + 52) / 105)
-exe 'vert 2resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 106 + 106) / 212)
 argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-set colorcolumn=100
-setlocal colorcolumn=100
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=inc
-setlocal conceallevel=2
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,octal,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-set relativenumber
-setlocal relativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=%!airline#statusline(1)
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tags=
-setlocal terminalscroll=10000
-setlocal termkey=
-setlocal termsize=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-wincmd w
-argglobal
-if bufexists('linkedlist.h') | buffer linkedlist.h | else | edit linkedlist.h | endif
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -2331,16 +2202,145 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 40 - ((0 * winheight(0) + 26) / 52)
+let s:l = 10 - ((9 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-40
-normal! 02|
+10
+normal! 0
+wincmd w
+argglobal
+if bufexists('linkedlist.h') | buffer linkedlist.h | else | edit linkedlist.h | endif
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=100
+setlocal colorcolumn=100
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=inc
+setlocal conceallevel=2
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'cpp'
+setlocal filetype=cpp
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!airline#statusline(1)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'cpp'
+setlocal syntax=cpp
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal terminalscroll=10000
+setlocal termkey=
+setlocal termsize=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 30 - ((29 * winheight(0) + 26) / 52)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+30
+normal! 082|
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 103 + 52) / 105)
-exe 'vert 2resize ' . ((&columns * 1 + 52) / 105)
+exe 'vert 1resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 106 + 106) / 212)
 tabedit midnightnotes.txt
 set splitbelow splitright
 set nosplitbelow
@@ -2473,12 +2473,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((16 * winheight(0) + 26) / 52)
+let s:l = 29 - ((28 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 0
+29
+normal! 017|
 tabnext 4
 set stal=1
 if exists('s:wipebuf') && s:wipebuf != bufnr('%')

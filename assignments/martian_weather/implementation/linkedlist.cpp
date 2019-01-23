@@ -9,4 +9,4 @@ linkedList::linkedList() : head(nullptr), listSize(0)
 {
 }
 
-
+linkedlist::linkedlist
