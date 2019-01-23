@@ -10,19 +10,16 @@ weatherdata::weatherdata():timestamp(-1), temperature(-1), windspeed(-1)
 
 //ok, what am I doing here? I don't remember needing to set
 //variables first before the actual set functions. Why can't I just punch them in?
-weatherdata::weatherdata(int timestamp, int temperature, int windspeed) :
-timestamp(timestamp),
-temperature(temperature),
-windspeed(windspeed)
+weatherdata::weatherdata(int newTimestamp, int newTemperature, int newWindspeed) :
+timestamp(newTimestamp),
+temperature(newTemperature),
+windspeed(newWindspeed)
 {
-
+    timestamp = newTimestamp;
+    temperature = newTemperature;
+    windspeed = newWindspeed;
 }
 
-//{
-//    setTimestamp(timestamp);
-//    setTemperature(temperature);
-//    setWindspeed(windspeed);
-//}
 
 const weatherdata& weatherdata::operator=(const weatherdata& entry)
 {
@@ -42,7 +39,6 @@ int weatherdata::getTimestamp() const
 {
     return timestamp;
 }
-
 int weatherdata::getTemperature() const
 {
     return temperature;
@@ -53,17 +49,17 @@ int weatherdata::getWindspeed() const
 }
 
 
-void setTimestamp(int timestamp)
+void weatherdata::setTimestamp(int newTimestamp)
 {
-    this->timestamp = timestamp;
+    timestamp = newTimestamp;
 }
-void setTemperature(int temperature)
+void weatherdata::setTemperature(int newTemperature)
 {
-    this->temperature = temperature;
+    temperature = newTemperature;
 }
-void setWindspeed(int windspeed)
+void weatherdata::setWindspeed(int newWindspeed)
 {
-    this->windspeed = windspeed;
+    windspeed = newWindspeed;
 }
 
 

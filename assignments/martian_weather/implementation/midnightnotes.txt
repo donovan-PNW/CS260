@@ -20,3 +20,4 @@ ALSO CHECK OUT LINKEDLIST EXAMPLE FOR INSERT FUNCTION
 In your version it would be IN the linkedlist class and it would be:
 linkedlist::insert(const weatherdata& thisEntry)
 so check out the & thing
+OR maybe just have weatherdata fill, THEN call a linkedlist::copy(thisEntry) function from within weatherdata to copy it all over?
