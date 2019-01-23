@@ -5,7 +5,7 @@
 #include <cassert>
 using namespace std;
 
-linkedList::linkedList() : head(nullptr), listSize(0)
+linkedList::linkedList() : timeHead(nullptr), temperatureHead(nullptr), windspeedHead(nullptr), listSize(0)
 {
 }
 
@@ -46,9 +46,32 @@ bool linkedList::insert(const weatherdata& thisEntry)
     }
     //while(current)
 
+    //REMOVE ELSE, JUST LET IT GO STRAIGHT INTO THIS. RAWDATA WILL ADD THEM TOGETHER
     else
     {
-        
+        entryNode * newEntry = new entryNode;
+        newEntry->entry = thisEntry;
+        newEntry->nextTime = nullptr;
+        newEntry->nextTemperature = nullptr;
+        newEntry->nextWindspeed = nullptr;
+
+        //NEED TO DO THIS FOR EACH THREAD 
+        newEntry->nextTime = currentTime;
+ 
+        if(previousTime == nullptr)
+        {
+            timeHead = newEntry;
+            temperatureHead = newEntry;
+            windspeedHead = newEntry;
+        }
+        else
+        {
+            previousTime->nextTime = newEntry;
+            //NOT IN THIS PART! DO THESE SEPARATELY
+            //previousTemperature->nextTemperature = newEntry;
+            //previousWindspeed->nextWindspeed = newEntry;
+        }
+
     }
 
 
