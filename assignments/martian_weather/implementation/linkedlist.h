@@ -40,6 +40,7 @@ private:
     entryNode* timeHead;
     entryNode* temperatureHead;
     entryNode* windspeedHead;
+    //here you're going to need to do an entryNode middle for time temp and wind again
     entryNode* middle;
     entryNode* tail;
     int listSize;
