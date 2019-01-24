@@ -39,6 +39,7 @@ int main(int argc, char** argv) {
 
     }
 
+//TODO 1
 //HEY!!! ARE WE TO ASSUME:
 //that after cleanDatalog.removeData() deletes a node, we don't replace it?
 
@@ -54,6 +55,8 @@ int main(int argc, char** argv) {
 //	}
 //    }
 
+//TODO 2
+//LOOK!! CREATEREPORT IS AT THE TOP OF THIS FILE AND CALLS A FUNCTION THAT YOU NEED TO WRITE
 //    createReport(rawDatalog,"raw data");
 //    cout << endl;
 //    createReport(cleanDatalog,"clean data");

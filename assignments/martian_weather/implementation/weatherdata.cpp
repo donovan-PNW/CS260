@@ -8,6 +8,7 @@ weatherdata::weatherdata():timestamp(-1), temperature(-1), windspeed(-1)
 {
 }
 
+//TODO 4 expand upon this PLZ? is it OK to just put it in using () instead of =?
 //ok, what am I doing here? I don't remember needing to set
 //variables first before the actual set functions. Why can't I just punch them in?
 weatherdata::weatherdata(int newTimestamp, int newTemperature, int newWindspeed) :
@@ -20,7 +21,7 @@ windspeed(newWindspeed)
     windspeed = newWindspeed;
 }
 
-
+//TODO 3: DO I NEED SELF COPY FUNCTIONS??
 const weatherdata& weatherdata::operator=(const weatherdata& entry)
 {
     //PROBABLY don't need a self copy

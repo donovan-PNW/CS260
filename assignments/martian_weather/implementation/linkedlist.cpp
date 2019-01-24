@@ -1,5 +1,9 @@
+//OI!!! YOU NEED TO OVERLOAD ASSIGNMENT OPERATOR FOR POINTER CLASSES
+//
+//
+//
 #include "linkedlist.h"
-//shouldn't these just be included from the header file?
+//TODO 8: shouldn't these just be included from the header file?
 #include <iostream>
 #include <fstream>
 #include <cassert>
@@ -18,6 +22,7 @@ bool linkedList::insert(const weatherdata& thisEntry)
     entryNode* previousTemperature = nullptr;
     entryNode* currentWindspeed = windspeedHead;
     entryNode* previousWindspeed = nullptr;
+    //TODO 7:
     //reverse and forward?
     //ALSO: do I NEED to assert head?
     while(currentTime != nullptr && currentTime->entry.getTimestamp() <= thisEntry.getTimestamp())
@@ -47,6 +52,8 @@ bool linkedList::insert(const weatherdata& thisEntry)
     }
     //while(current)
 
+    //TODO 6: I'm guessing I should just have it plow straight through without the if question?
+    //OR would I be able to just use isDuplicate in some way?
     //REMOVE ELSE, JUST LET IT GO STRAIGHT INTO THIS. RAWDATA WILL ADD THEM TOGETHER
     else
     {
@@ -105,6 +112,7 @@ bool linkedList::insert(const weatherdata& thisEntry)
     return isDuplicate;
 }
 
+//TODO 5 same qustion about createReport. what would this look like?
 //bool?
 //hey wait. Should I just pass createReport(list, clean or dirty all the way up from createReport)?
 void linkedList::createReport() const

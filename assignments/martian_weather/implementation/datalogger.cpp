@@ -32,3 +32,23 @@ void datalogger::addData(const int timestamp, const int temperature, const int w
     int printer = currentEntry.getTimestamp();
 
 }
+
+
+
+
+//containsTimestamp(timestamp)
+//
+//
+
+// &? Like, can I pass datalogger thisList by reference? also -- const?
+//for example: 
+//reporterShell(datalogger& tempList, char rawOrCleanString)
+//{
+//    datalogger thisList = tempList
+//
+//linkedList::createReport(datalogger& thisList, char[] rawOrCleanString) const
+//createReport(thisList)
+//}
+
+// I DO NEED A COPY CONSTRUCTOR !!! :(
+//
