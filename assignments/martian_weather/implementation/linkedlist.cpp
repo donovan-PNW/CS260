@@ -28,8 +28,8 @@ linkedList::~linkedList()
 bool linkedList::insert(const weatherdata& thisEntry)
 {
     bool isDuplicate;
-    entryNode* currentTime = timeHead;
     entryNode* previousTime = nullptr;
+    entryNode* currentTime = timeHead;
     //entryNode* currentTemperature = temperatureHead;
     //entryNode* previousTemperature = nullptr;
     //entryNode* currentWindspeed = windspeedHead;
@@ -51,6 +51,7 @@ bool linkedList::insert(const weatherdata& thisEntry)
     entryNode * newEntry = new entryNode;
     newEntry->entry = thisEntry;
     newEntry->nextTime = nullptr;
+    //std::cout << thisEntry.getTimestamp();
     //DO leave these here(trust me)
     //newEntry->nextTemperature = nullptr;
     //newEntry->nextWindspeed = nullptr;
@@ -61,9 +62,13 @@ bool linkedList::insert(const weatherdata& thisEntry)
     if(previousTime == nullptr)
     {
         timeHead = newEntry;
+        std::cout << newEntry->entry.getTimestamp();
     }
     else
     {
+        previousTime->nextTime = newEntry;
+        std::cout << newEntry->entry.getTimestamp();
+        std::cout << '\n';
         //newEntry->nextTime = currentTime->nextTime;
         //currentTime->nextTime = newEntry;
         //std::cout << newEntry->entry;
