@@ -3,7 +3,6 @@
 //
 //
 #include "linkedlist.h"
-//TODO 8: shouldn't these just be included from the header file?
 #include <iostream>
 #include <fstream>
 #include <cassert>
@@ -36,11 +35,11 @@ bool linkedList::insert(const weatherdata& thisEntry)
     //entryNode* previousWindspeed = nullptr;
     //for above: do I need to set these to nullptr?
     //ALSO: do I NEED to assert head?
-    while(currentTime != nullptr && currentTime->entry.getTimestamp() <= thisEntry.getTimestamp())
-    {
-        previousTime = currentTime;
-        currentTime = currentTime->nextTime;
-    }
+    //while(currentTime != nullptr && currentTime->entry.getTimestamp() <= thisEntry.getTimestamp())
+    //{
+    //    previousTime = currentTime;
+    //    currentTime = currentTime->nextTime;
+    //}
 
     
     //Just making the node, it's hangin' out
@@ -62,19 +61,25 @@ bool linkedList::insert(const weatherdata& thisEntry)
     if(previousTime == nullptr)
     {
         timeHead = newEntry;
+        temperatureHead = newEntry;
+        windspeedHead = newEntry;
         std::cout << newEntry->entry.getTimestamp();
+        std::cout << '\n';
     }
     else
     {
-        previousTime->nextTime = newEntry;
-        std::cout << newEntry->entry.getTimestamp();
-        std::cout << '\n';
-        //newEntry->nextTime = currentTime->nextTime;
-        //currentTime->nextTime = newEntry;
-        //std::cout << newEntry->entry;
-        //NOT IN THIS PART! DO THESE SEPARATELY
-        //previousTemperature->nextTemperature = newEntry;
-        //previousWindspeed->nextWindspeed = newEntry;
+        while(currentTime->nextTime != nullptr && currentTime->entry.getTimestamp() < thisEntry.getTimestamp())
+        {
+            previousTime->nextTime = newEntry;
+            std::cout << newEntry->entry.getTimestamp();
+            std::cout << '\n';
+            //newEntry->nextTime = currentTime->nextTime;
+            //currentTime->nextTime = newEntry;
+            //std::cout << newEntry->entry;
+            //NOT IN THIS PART! DO THESE SEPARATELY
+            //previousTemperature->nextTemperature = newEntry;
+            //previousWindspeed->nextWindspeed = newEntry;
+        }
     }
         
    // while(currentTemperature != nullptr && currentTemperature->entry.getTemperature() < thisEntry.getTemperature())
