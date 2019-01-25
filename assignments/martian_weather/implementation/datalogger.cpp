@@ -27,9 +27,10 @@ datalogger::~datalogger()
 void datalogger::addData(const int timestamp, const int temperature, const int windspeed)
 {
     currentEntry.setTimestamp(timestamp);
+    std::cout << timestamp << endl;
     currentEntry.setTemperature(temperature);
     currentEntry.setWindspeed(windspeed);
-    int printer = currentEntry.getTimestamp();
+    //int printer = currentEntry.getTimestamp();
 
 }
 

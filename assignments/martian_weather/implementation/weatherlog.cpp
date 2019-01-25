@@ -11,7 +11,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
 
-//    datalogger rawDatalog;
+    datalogger rawDatalog;
 //    datalogger cleanDatalog;
 
     if (argc != 2) {
@@ -29,12 +29,12 @@ int main(int argc, char** argv) {
     
     while (!inDatafile.eof()) {
 	inDatafile >> timestamp;
-    cout << timestamp;
+    //cout << timestamp;
 	inDatafile >> temperature;
-    cout << temperature;
+    //cout << temperature;
 	inDatafile >> windspeed;
-    cout << windspeed;
-//    rawDatalog.addData(timestamp, temperature, windspeed);
+    //cout << windspeed;
+    rawDatalog.addData(timestamp, temperature, windspeed);
 
 
     }
