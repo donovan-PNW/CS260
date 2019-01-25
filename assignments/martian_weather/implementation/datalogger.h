@@ -2,7 +2,8 @@
 #define DATALOGGER_H
 #include <iostream>
 #include <fstream>
-#include"weatherdata.h"
+#include "weatherdata.h"
+#include "linkedlist.h"
 
 class datalogger
 {
@@ -16,10 +17,11 @@ public:
     
 
     void addData(int timestamp, int temperature, int windspeed);
+    void addToList();
 
 private:
-    //MAKE IT A NODE????
     weatherdata currentEntry;
+    linkedList workingList;
     int timestamp;
     int temperature;
     int windspeed;
