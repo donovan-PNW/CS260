@@ -18,7 +18,8 @@ public:
 
     void addData(int timestamp, int temperature, int windspeed);
     void addToList();
-    void doTheThing();
+    void printReport(const char* label);
+    void doTheThing(linkedList workingList);
 
 private:
     weatherdata currentEntry;

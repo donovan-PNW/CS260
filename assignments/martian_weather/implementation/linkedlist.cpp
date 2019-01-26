@@ -3,7 +3,6 @@
 //
 //
 #include "linkedlist.h"
-//TODO 8: shouldn't these just be included from the header file?
 #include <iostream>
 #include <fstream>
 #include <cassert>
@@ -125,23 +124,10 @@ void linkedList::printMe() const
         cout << current->entry; 
     }
     std::cout << endl;
+    delete current;
 }
 
 
-//TODO 5 same qustion about createReport. what would this look like?
-//bool?
-//hey wait. Should I just pass createReport(list, clean or dirty all the way up from createReport)?
-//void linkedList::createReport() const
-//{
-//    entryNode* currentTime;
-//    entryNode* currentTemperature;
-//    entryNode* currentWindspeed;
-//
-//    for(currentTime = timeHead; currentTime; currentTime = currentTime->nextTime)
-//    {
-//                
-//    }
-//}
 
 
 
@@ -149,25 +135,6 @@ void linkedList::printMe() const
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//bool remove
-//I THINK i CAN GET AWAY WITH JUST HAVING INSERT() REPLACE ALL OF THE VALUES IN AN EXISTING LIST
-//BUT I WILL NEED TO DO A SCAN AFTERWARD AS A SUBROUTINE TO FIND PROPER PLACES FOR TEMPERATURE AND WINDSPEED. just like above except first you should link previous to oldnode->next 
-
-//EDIT: seriously? for every goddamn pass I need to use the removeData function from weatherlog.cpp
-//so I do need two write this. what the fuck bro.
 
 
 

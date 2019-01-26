@@ -4,10 +4,10 @@
 
 using namespace std;
 
-//void createReport(datalogger& dl,const char* label)
-//{
-//    dl.printReport(label);
-//}
+void createReport(datalogger& dl,const char* label)
+{
+    dl.printReport(label);
+}
 
 int main(int argc, char** argv) {
 
@@ -35,7 +35,8 @@ int main(int argc, char** argv) {
 
 
     }
-    rawDatalog.doTheThing();
+    //NOTE THAT THIS ISN'T RIGHT!! YOU NEED TO PASS THE NAME THROUGH!
+    createReport(rawDatalog,"raw data");
 
 //TODO 1
 //HEY!!! ARE WE TO ASSUME:

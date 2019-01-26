@@ -29,18 +29,14 @@ void datalogger::addData(const int tempTimestamp, const int tempTemperature, con
     currentEntry.setTimestamp(tempTimestamp);
     currentEntry.setTemperature(tempTemperature);
     currentEntry.setWindspeed(tempWindspeed);
-    //std::cout << currentEntry.getTimestamp();
-    //std::cout << '\n';
     workingList.insert(currentEntry);
-    
-    //workingList.createReport();
-    //int printer = currentEntry.getTimestamp();
-
 }
 
-void datalogger::doTheThing()
+void datalogger::printReport(const char* label)
 {
+    //be sure to COUT label!!
     workingList.printMe();
+
     return;
 }
 
@@ -64,5 +60,3 @@ void datalogger::doTheThing()
 //createReport(thisList)
 //}
 
-// I DO NEED A COPY CONSTRUCTOR !!! :(
-//
