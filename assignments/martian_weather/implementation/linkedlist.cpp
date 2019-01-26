@@ -30,89 +30,71 @@ bool linkedList::insert(const weatherdata& thisEntry)
     bool isDuplicate;
     entryNode* previousTime = nullptr;
     entryNode* currentTime = timeHead;
-    //entryNode* currentTemperature = temperatureHead;
-    //entryNode* previousTemperature = nullptr;
-    //entryNode* currentWindspeed = windspeedHead;
-    //entryNode* previousWindspeed = nullptr;
-    //for above: do I need to set these to nullptr?
+    entryNode* previousTemperature = nullptr;
+    entryNode* currentTemperature = temperatureHead;
+    entryNode* previousWindspeed = nullptr;
+    entryNode* currentWindspeed = windspeedHead;
+    
+    //Just making the node, it's hangin' out
+    entryNode * newEntry = new entryNode;
+    newEntry->entry = thisEntry;
+    newEntry->nextTime = nullptr;
+    newEntry->nextTemperature = nullptr;
+    newEntry->nextWindspeed = nullptr;
     //ALSO: do I NEED to assert head?
     while(currentTime != nullptr && currentTime->entry.getTimestamp() < thisEntry.getTimestamp())
     {
-        //std::cout << "current" << currentTime->entry.getTimestamp() << '\n';
-        //std::cout << "target" << thisEntry.getTimestamp();
         previousTime = currentTime;
         currentTime = currentTime->nextTime;
     }
 
     
-    //Just making the node, it's hangin' out
-    //BUT ALSO TODO YOU NEED TO NOT SET A DIFFERENT ENTRY EACH TIME.
-    //GIVE IT A MEMORY ADDRESS
 
-
-    entryNode * newEntry = new entryNode;
-    newEntry->entry = thisEntry;
-    newEntry->nextTime = nullptr;
-    //std::cout << thisEntry.getTimestamp();
-    //DO leave these here(trust me)
-    //newEntry->nextTemperature = nullptr;
-    //newEntry->nextWindspeed = nullptr;
-
+    //AAAAHHHH FUCK! TODO YOU NEED TO CHECK IF ALL OF THE VALUES ARE THE SAME BEFORE INSERTING. LIKE, IF NEWENTRY.TIME = CURRENT TIME && IF NEWENTRY.TEMP = CURRENT TEMP ETC. CHECK ALL 3. OR SCREW IT. YOU CAN JUST DO THIS IN A SINGLE IF THINGY (LIKE THE WHILE LOOP ABOVE)
     //NEED TO DO THIS FOR EACH THREAD 
     newEntry->nextTime = currentTime;
 
     if(previousTime == nullptr)
     {
         timeHead = newEntry;
-        temperatureHead = newEntry;
-        windspeedHead = newEntry;
-        //std::cout << newEntry->entry.getTimestamp();
-        //std::cout << '\n';
     }
     else
     {
         previousTime->nextTime = newEntry;
-        //std::cout << newEntry->entry.getTimestamp();
-        //std::cout << '\n';
-        //newEntry->nextTime = currentTime->nextTime;
-        //currentTime->nextTime = newEntry;
-        //std::cout << newEntry->entry;
-        //NOT IN THIS PART! DO THESE SEPARATELY
-        //previousTemperature->nextTemperature = newEntry;
-        //previousWindspeed->nextWindspeed = newEntry;
     }
         
-   // while(currentTemperature != nullptr && currentTemperature->entry.getTemperature() < thisEntry.getTemperature())
-   // {
-   //     previousTemperature = currentTemperature;
-   //     currentTemperature = currentTemperature->nextTemperature;
-   // }
-   //     if(previousTemperature == nullptr)
-   //     {
-   //         temperatureHead = newEntry;
-   //     }
-   //     else
-   //     {
-   //         previousTemperature->nextTemperature = newEntry;
-   //     }
-   // while(currentWindspeed != nullptr && currentWindspeed->entry.getWindspeed() <= thisEntry.getWindspeed())
-   // {
-   //     previousWindspeed = currentWindspeed;
-   //     currentWindspeed = currentWindspeed->nextWindspeed;
-   // }
-   //     if(previousWindspeed == nullptr)
-   //     {
-   //         windspeedHead = newEntry;
-   //     }
-   //     else
-   //     {
-   //         previousWindspeed->nextWindspeed = newEntry;
-   //     }
+    while(currentTemperature != nullptr && currentTemperature->entry.getTemperature() < thisEntry.getTemperature())
+    
+    {
+        previousTemperature = currentTemperature;
+        currentTemperature = currentTemperature->nextTemperature;
+    }
+    
+    if(previousTemperature == nullptr)
+    {
+        temperatureHead = newEntry;
+    }
+    else
+    {
+        previousTemperature->nextTemperature = newEntry;
+    }
+    while(currentWindspeed != nullptr && currentWindspeed->entry.getWindspeed() < thisEntry.getWindspeed())
+    {
+        previousWindspeed = currentWindspeed;
+        currentWindspeed = currentWindspeed->nextWindspeed;
+    }
+    if(previousWindspeed == nullptr)
+    {
+        windspeedHead = newEntry;
+    }
+    else
+    {
+        previousWindspeed->nextWindspeed = newEntry;
+    }
 
     
 
 
-    //std::cout << 
     listSize++;
     return isDuplicate;
 }
@@ -123,7 +105,6 @@ void linkedList::printMe() const
     entryNode * current;
     for(current = timeHead; current; current = current->nextTime)
         std::cout << current->entry.getTimestamp() << '\n';
-    std::cout << '\n' << '\n';
 }
 
 

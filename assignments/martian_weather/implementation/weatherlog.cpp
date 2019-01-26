@@ -29,11 +29,8 @@ int main(int argc, char** argv) {
     
     while (!inDatafile.eof()) {
 	inDatafile >> timestamp;
-    //cout << timestamp;
 	inDatafile >> temperature;
-    //cout << temperature;
 	inDatafile >> windspeed;
-    //cout << windspeed;
     rawDatalog.addData(timestamp, temperature, windspeed);
 
 
