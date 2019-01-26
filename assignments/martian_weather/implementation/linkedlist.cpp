@@ -62,6 +62,7 @@ bool linkedList::insert(const weatherdata& thisEntry)
     {
         previousTime->nextTime = newEntry;
     }
+    //std::cout << newEntry->entry.getTemperature() << '\n';
         
     while(currentTemperature != nullptr && currentTemperature->entry.getTemperature() < thisEntry.getTemperature())
     
@@ -69,7 +70,6 @@ bool linkedList::insert(const weatherdata& thisEntry)
         previousTemperature = currentTemperature;
         currentTemperature = currentTemperature->nextTemperature;
     }
-    
     if(previousTemperature == nullptr)
     {
         temperatureHead = newEntry;
@@ -78,7 +78,9 @@ bool linkedList::insert(const weatherdata& thisEntry)
     {
         previousTemperature->nextTemperature = newEntry;
     }
+
     while(currentWindspeed != nullptr && currentWindspeed->entry.getWindspeed() < thisEntry.getWindspeed())
+
     {
         previousWindspeed = currentWindspeed;
         currentWindspeed = currentWindspeed->nextWindspeed;
@@ -104,7 +106,17 @@ void linkedList::printMe() const
 {
     entryNode * current;
     for(current = timeHead; current; current = current->nextTime)
-        std::cout << current->entry.getTimestamp() << '\n';
+        {
+            std::cout << current->entry.getTimestamp() << '\n';
+            cout << current->entry; 
+
+        }
+   // 
+   // for(current = temperatureHead; current; current = current->nextTemperature)
+   //     std::cout << current->entry.getTemperature() << '\n';
+
+   // for(current = windspeedHead; current; current = current->nextWindspeed)
+   //     std::cout << current->entry.getWindspeed() << '\n';
 }
 
 
