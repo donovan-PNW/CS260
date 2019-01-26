@@ -61,6 +61,7 @@ void weatherdata::setTemperature(int newTemperature)
 void weatherdata::setWindspeed(int newWindspeed)
 {
     windspeed = newWindspeed;
+    //std::cout << windspeed << endl;
 }
 
 
@@ -90,19 +91,19 @@ std::ostream& operator<<(std::ostream& out, const weatherdata& entry)
     return out;
 }
 
-bool operator<(const weatherdata& entry1, const weatherdata& entry2)
-{
-    int timestamp1;
-    int timestamp2;
-
-    timestamp1 = entry1.getTimestamp();
-    timestamp2 = entry2.getTimestamp();
-
-    if(timestamp1 > timestamp2)
-        return true;
-    else
-        return false;
-}
+//bool operator<(const weatherdata& entry1, const weatherdata& entry2)
+//{
+//    int timestamp1;
+//    int timestamp2;
+//
+//    timestamp1 = entry1.getTimestamp();
+//    timestamp2 = entry2.getTimestamp();
+//
+//    if(timestamp1 > timestamp2)
+//        return true;
+//    else
+//        return false;
+//}
 
 
 

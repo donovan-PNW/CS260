@@ -24,11 +24,11 @@ datalogger::~datalogger()
 //just take everything and put it right into addData?
 //is it getting these numbers straight from the weatherlog.cpp file?
 //Or are they from t/t/w variables above inside class?
-void datalogger::addData(const int timestamp, const int temperature, const int windspeed)
+void datalogger::addData(const int tempTimestamp, const int tempTemperature, const int tempWindspeed)
 {
-    currentEntry.setTimestamp(timestamp);
-    currentEntry.setTemperature(temperature);
-    currentEntry.setWindspeed(windspeed);
+    currentEntry.setTimestamp(tempTimestamp);
+    currentEntry.setTemperature(tempTemperature);
+    currentEntry.setWindspeed(tempWindspeed);
     //std::cout << currentEntry.getTimestamp();
     //std::cout << '\n';
     workingList.insert(currentEntry);
