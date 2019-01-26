@@ -38,6 +38,7 @@ int main(int argc, char** argv) {
 
 
     }
+    rawDatalog.doTheThing();
 
 //TODO 1
 //HEY!!! ARE WE TO ASSUME:

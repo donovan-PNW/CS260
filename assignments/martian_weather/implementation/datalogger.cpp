@@ -33,10 +33,16 @@ void datalogger::addData(const int timestamp, const int temperature, const int w
     //std::cout << '\n';
     workingList.insert(currentEntry);
     
+    //workingList.createReport();
     //int printer = currentEntry.getTimestamp();
 
 }
 
+void datalogger::doTheThing()
+{
+    workingList.printMe();
+    return;
+}
 
 
 

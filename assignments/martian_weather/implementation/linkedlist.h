@@ -20,6 +20,7 @@ public:
     bool remove(const char* indexNo);
     void createReport() const;
     int getSize() const;
+    void printMe() const;
 
     //why not iostream???
     friend std::ostream& operator <<(std::ostream& out, const linkedList& thisList);

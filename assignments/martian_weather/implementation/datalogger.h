@@ -18,6 +18,7 @@ public:
 
     void addData(int timestamp, int temperature, int windspeed);
     void addToList();
+    void doTheThing();
 
 private:
     weatherdata currentEntry;
