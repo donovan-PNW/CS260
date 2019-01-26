@@ -21,15 +21,48 @@ datalogger::~datalogger()
 {
 }
 
-//just take everything and put it right into addData?
-//is it getting these numbers straight from the weatherlog.cpp file?
-//Or are they from t/t/w variables above inside class?
 void datalogger::addData(const int tempTimestamp, const int tempTemperature, const int tempWindspeed)
 {
     currentEntry.setTimestamp(tempTimestamp);
     currentEntry.setTemperature(tempTemperature);
     currentEntry.setWindspeed(tempWindspeed);
     workingList.insert(currentEntry);
+}
+
+void datalogger::runTheNumbers()
+{
+    int lowTime;
+    int highTime;
+    int totalEntries;
+    int belowneg50;
+    int above0;
+    int mostCommonTemperature;
+    int mostCommonWindspeed;
+
+    int currentTime;
+    int currentTemperature;
+    int currentWindspeed;
+ 
+    currentTime = workingList.pullTime();
+    //**********************************************//
+    //you need to do a while loop with an incrementer
+    //    int listSize
+    //    int index
+    //    for(index=0; index <= listSize, listSize++)
+    //    {
+    //        currentTime = workingList.pullTime(index);
+    //        if(currentTime < lowTime)
+    //        {}
+    //        if(currentTime > highTime)
+    //        {}
+    //    }
+    //currentTemperature = workingList.pullTemperature();
+    //currentWindspeed = workingList.pullWindspeed();
+    //**********************************************//
+
+
+
+
 }
 
 void datalogger::printReport(const char* label)
@@ -47,16 +80,27 @@ void datalogger::printReport(const char* label)
 
 
 //containsTimestamp(timestamp)
-//
-//
 
-// &? Like, can I pass datalogger thisList by reference? also -- const?
-//for example: 
-//reporterShell(datalogger& tempList, char rawOrCleanString)
-//{
-//    datalogger thisList = tempList
-//
-//linkedList::createReport(datalogger& thisList, char[] rawOrCleanString) const
-//createReport(thisList)
-//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

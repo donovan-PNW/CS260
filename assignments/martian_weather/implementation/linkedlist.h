@@ -21,6 +21,9 @@ public:
     void createReport() const;
     int getSize() const;
     void printMe() const;
+    int pullTime(); 
+    int pullTemperature(); const
+    int pullWindspeed(); const
 
     //why not iostream???
     friend std::ostream& operator <<(std::ostream& out, const linkedList& thisList);

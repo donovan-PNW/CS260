@@ -102,7 +102,17 @@ bool linkedList::insert(const weatherdata& thisEntry)
     return isDuplicate;
 }
 
-
+int  linkedList::pullTime() 
+{
+    int timeStamp;
+    entryNode * current;
+    for(current = timeHead; current; current = current ->nextTime)
+    {
+         timeStamp = current->entry.getTimestamp();
+    }
+    return timeStamp;
+    //THIS IS ALL WRONG YOU NEED TO DO IT ONE AT A TIME
+}
 void linkedList::printMe() const
 {
     entryNode * current = new entryNode;
