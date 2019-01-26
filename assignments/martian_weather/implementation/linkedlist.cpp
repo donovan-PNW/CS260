@@ -107,7 +107,7 @@ void linkedList::printMe() const
     entryNode * current;
     for(current = timeHead; current; current = current->nextTime)
         {
-            std::cout << current->entry.getTimestamp() << '\n';
+            //std::cout << current->entry.getTimestamp() << '\n';
             cout << current->entry; 
 
         }

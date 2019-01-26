@@ -85,7 +85,8 @@ std::ostream& operator<<(std::ostream& out, const weatherdata& entry)
 {
     out << std::setw(20) << entry.timestamp
     << std::setw(15) << entry.temperature
-    << std::setw(8) << entry.windspeed;
+    << std::setw(8) << entry.windspeed
+    << '\n';
     return out;
 }
 
