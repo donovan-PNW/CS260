@@ -21,7 +21,8 @@ public:
     void createReport() const;
     int getSize() const;
     void printMe() const;
-    int pullTime(); 
+    int totalizer() const;
+    int pullTime(int target); 
     int pullTemperature(); const
     int pullWindspeed(); const
 

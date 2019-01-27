@@ -26,7 +26,7 @@ linkedList::~linkedList()
 
 bool linkedList::insert(const weatherdata& thisEntry)
 {
-    bool isDuplicate;
+    bool isSuccessful;
     entryNode* previousTime = nullptr;
     entryNode* currentTime = timeHead;
     entryNode* previousTemperature = nullptr;
@@ -99,20 +99,42 @@ bool linkedList::insert(const weatherdata& thisEntry)
 
 
     listSize++;
-    return isDuplicate;
+    return isSuccessful;
 }
 
-int  linkedList::pullTime() 
+int linkedList::pullTime(int target)
 {
-    int timeStamp;
+    int index = 0;
+    int timeStamp = 0;
     entryNode * current;
-    for(current = timeHead; current; current = current ->nextTime)
+    current = timeHead;
+    while(index <= target)
     {
-         timeStamp = current->entry.getTimestamp();
+       // std::cout << "hi\n";
+        index++;
+        current = current->nextTime;
+        //current = current->nextTime;
+        //current = current->nextTime;
     }
+    timeStamp = current->entry.getTimestamp();
+    //std::cout << timeStamp;
     return timeStamp;
     //THIS IS ALL WRONG YOU NEED TO DO IT ONE AT A TIME
 }
+
+int linkedList::totalizer() const
+{
+    int total = 0;
+    entryNode * current;
+    for(current = timeHead; current; current = current ->nextTime)
+    {
+        total++;
+    }
+    return total;
+}
+
+
+
 void linkedList::printMe() const
 {
     entryNode * current = new entryNode;
@@ -136,7 +158,6 @@ void linkedList::printMe() const
     std::cout << endl;
     delete current;
 }
-
 
 
 

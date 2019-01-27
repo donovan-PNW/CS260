@@ -1224,11 +1224,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 55 - ((54 * winheight(0) + 26) / 52)
+let s:l = 72 - ((71 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-55
+72
 normal! 035|
 wincmd w
 argglobal
@@ -2186,12 +2186,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 47 - ((24 * winheight(0) + 26) / 52)
+let s:l = 40 - ((19 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-47
-normal! 040|
+40
+normal! 029|
 wincmd w
 argglobal
 if bufexists('linkedlist.cpp') | buffer linkedlist.cpp | else | edit linkedlist.cpp | endif
@@ -2333,14 +2333,13 @@ normal! zo
 normal! zo
 65
 normal! zo
-let s:l = 106 - ((30 * winheight(0) + 26) / 52)
+let s:l = 101 - ((25 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-106
-normal! 0
+101
+normal! 05|
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 105 + 106) / 212)
 exe 'vert 2resize ' . ((&columns * 106 + 106) / 212)
 tabedit linkedlist.h
