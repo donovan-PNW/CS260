@@ -108,11 +108,11 @@ int linkedList::pullTime(int target)
     int timeStamp = 0;
     entryNode * current;
     current = timeHead;
-    while(index <= target)
+    while(index < target)
     {
        // std::cout << "hi\n";
-        index++;
         current = current->nextTime;
+        index++;
         //current = current->nextTime;
         //current = current->nextTime;
     }

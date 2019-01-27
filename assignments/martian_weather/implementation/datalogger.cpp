@@ -35,7 +35,7 @@ void datalogger::addData(const int tempTimestamp, const int tempTemperature, con
 void datalogger::runTheNumbers()
 {
     //must be more graceful than this?
-    int lowTime = 150000000;
+    int lowTime = 1500000000;
     int highTime = 0;
     int totalEntries = 0;
     int belowneg50 = 0;
@@ -59,15 +59,15 @@ void datalogger::runTheNumbers()
     {
         currentTime = workingList.pullTime(index);
         std::cout << "current time: " << currentTime << '\n';
-        //if(currentTime > highTime)
-        //    highTime = currentTime;
-        //else if(currentTime < lowTime)
-        //    lowTime = currentTime;
+        if(currentTime > highTime)
+            highTime = currentTime;
+        if(currentTime < lowTime)
+            lowTime = currentTime;
 
     }
     
-    //std::cout << "high time: " << highTime
-    //<< "low time: " << lowTime;
+    std::cout << "high time: " << highTime << endl;
+    std::cout << "low time: " << lowTime << endl;
 
     //ok here's what I'm thinking now: just call a function workingList.listSize();
     //which will return listSize (implemented inside linkedlist)
