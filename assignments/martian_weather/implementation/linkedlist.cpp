@@ -47,10 +47,6 @@ bool linkedList::insert(const weatherdata& thisEntry)
         currentTime = currentTime->nextTime;
     }
 
-    
-
-    //AAAAHHHH FUCK! TODO YOU NEED TO CHECK IF ALL OF THE VALUES ARE THE SAME BEFORE INSERTING. LIKE, IF NEWENTRY.TIME = CURRENT TIME && IF NEWENTRY.TEMP = CURRENT TEMP ETC. CHECK ALL 3. OR SCREW IT. YOU CAN JUST DO THIS IN A SINGLE IF THINGY (LIKE THE WHILE LOOP ABOVE)
-    //NEED TO DO THIS FOR EACH THREAD 
     newEntry->nextTime = currentTime;
 
     if(previousTime == nullptr)
@@ -102,26 +98,6 @@ bool linkedList::insert(const weatherdata& thisEntry)
     return isSuccessful;
 }
 
-int linkedList::pullTime(int target)
-{
-    int index = 0;
-    int timeStamp = 0;
-    entryNode * current;
-    current = timeHead;
-    while(index < target)
-    {
-       // std::cout << "hi\n";
-        current = current->nextTime;
-        index++;
-        //current = current->nextTime;
-        //current = current->nextTime;
-    }
-    timeStamp = current->entry.getTimestamp();
-    //std::cout << timeStamp;
-    return timeStamp;
-    //THIS IS ALL WRONG YOU NEED TO DO IT ONE AT A TIME
-}
-
 int linkedList::totalizer() const
 {
     int total = 0;
@@ -133,7 +109,56 @@ int linkedList::totalizer() const
     return total;
 }
 
+int linkedList::pullTime(int target) const
+{
+    int index = 0;
+    int timeStamp = 0;
+    entryNode * current;
+    current = timeHead;
+    while(index < target)
+    {
+       // std::cout << "hi\n";
+        current = current->nextTime;
+        index++;
+    }
+    timeStamp = current->entry.getTimestamp();
+    //std::cout << timeStamp;
+    return timeStamp;
+}
 
+int linkedList::pullTemperature(int target) const
+{
+    int index = 0;
+    int temperature = 0;
+    entryNode * current;
+    current = temperatureHead;
+    while(index < target)
+    {
+       // std::cout << "hi\n";
+        current = current->nextTemperature;
+        index++;
+    }
+    temperature = current->entry.getTemperature();
+    //std::cout << temperature;
+    return temperature;
+}
+
+int linkedList::pullWindspeed(int target) const
+{
+    int index = -1;
+    int windspeed = 0;
+    entryNode * current;
+    current = windspeedHead;
+    while(index < target)
+    {
+       // std::cout << "hi\n";
+        current = current->nextWindspeed;
+        index++;
+    }
+    windspeed = current->entry.getWindspeed();
+    //std::cout << windspeed;
+    return windspeed;
+}
 
 void linkedList::printMe() const
 {

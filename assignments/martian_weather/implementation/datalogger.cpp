@@ -40,8 +40,8 @@ void datalogger::runTheNumbers()
     int totalEntries = 0;
     int belowneg50 = 0;
     int above0 = 0;
-    int mostCommonTemperature;
-    int mostCommonWindspeed;
+    int mostCommonTemperature = 0;
+    int mostCommonWindspeed = 0;
 
     int currentTime = 0;
     int currentTemperature;
@@ -51,10 +51,6 @@ void datalogger::runTheNumbers()
     std::cout << "Totals: " << totalEntries << endl;
 
 
-    //currentTime = workingList.pullTime(0);
-    //std::cout << "currentTime: " << currentTime << endl;
-    //currentTime = workingList.pullTime(5);
-    //std::cout << "currentTime: " << currentTime << endl;
     for(int index = 0; index < totalEntries; index++)
     {
         currentTime = workingList.pullTime(index);
@@ -68,6 +64,35 @@ void datalogger::runTheNumbers()
     
     std::cout << "high time: " << highTime << endl;
     std::cout << "low time: " << lowTime << endl;
+
+
+    for(int index = 0; index < totalEntries; index++)
+    {
+        currentTemperature = workingList.pullTemperature(index);
+        std::cout << "current temperature: " << currentTemperature << '\n';
+        //if(currentTemperature > highTemperature)
+        //    highTemperature = currentTemperature;
+        //if(currentTemperature < lowTemperature)
+        //    lowTemperature = currentTemperature;
+
+    }
+
+    //std::cout << "high temperature: " << highTemperature << endl;
+    //std::cout << "low temperature: " << lowTemperature << endl;
+
+    for(int index = 0; index < totalEntries; index++)
+    {
+        currentWindspeed = workingList.pullWindspeed(index);
+        std::cout << "current windspeed: " << currentWindspeed << '\n';
+        //if(currentWindspeed > highWindspeed)
+        //    highWindspeed = currentWindspeed;
+        //if(currentWindspeed < lowWindspeed)
+        //    lowWindspeed = currentWindspeed;
+
+    }
+
+    //std::cout << "high windspeed: " << highWindspeed << endl;
+    //std::cout << "low windspeed: " << lowWindspeed << endl;
 
     //ok here's what I'm thinking now: just call a function workingList.listSize();
     //which will return listSize (implemented inside linkedlist)

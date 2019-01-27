@@ -22,9 +22,9 @@ public:
     int getSize() const;
     void printMe() const;
     int totalizer() const;
-    int pullTime(int target); 
-    int pullTemperature(); const
-    int pullWindspeed(); const
+    int pullTime(int target) const; 
+    int pullTemperature(int target) const;
+    int pullWindspeed(int target) const;
 
     //why not iostream???
     friend std::ostream& operator <<(std::ostream& out, const linkedList& thisList);
