@@ -25,6 +25,8 @@ public:
     int pullTime(int target) const; 
     int pullTemperature(int target) const;
     int pullWindspeed(int target) const;
+    int pullTempByTime(int target) const;
+    int pullWindByTime(int target) const;
 
     //why not iostream???
     friend std::ostream& operator <<(std::ostream& out, const linkedList& thisList);

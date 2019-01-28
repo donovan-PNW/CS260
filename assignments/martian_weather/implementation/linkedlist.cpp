@@ -161,6 +161,39 @@ int linkedList::pullWindspeed(int target) const
     return windspeed;
 }
 
+int linkedList::pullTempByTime(int target) const
+{
+    int index = 0;
+    int temperature = 0;
+    entryNode * current;
+    current = timeHead;
+    while(index < target-1)
+    {
+       // std::cout << "hi\n";
+        current = current->nextTime;
+        index++;
+    }
+    temperature = current->entry.getTemperature();
+    return temperature;
+}
+
+int linkedList::pullWindByTime(int target) const
+{
+    int index = 0;
+    int windspeed= 0;
+    entryNode * current;
+    current = timeHead;
+    while(index < target-1)
+    {
+       // std::cout << "hi\n";
+        current = current->nextTime;
+        index++;
+    }
+    windspeed = current->entry.getWindspeed();
+    //std::cout << timeStamp;
+    return windspeed;
+}
+
 void linkedList::printMe() const
 {
     entryNode * current = new entryNode;
