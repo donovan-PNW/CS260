@@ -102,7 +102,7 @@ void datalogger::runTheNumbers()
         else
         
             currentScore = 1;
-            currentPlayer = workingList.pullTemperature(index);
+        currentPlayer = workingList.pullTemperature(index);
         
     }
 
@@ -151,7 +151,7 @@ void datalogger::runTheNumbers()
             }
         else
             currentScore = 1;
-            currentPlayer = workingList.pullWindspeed(index);
+        currentPlayer = workingList.pullWindspeed(index);
             
     }
     std::cout << "First Place: " << firstPlace << endl;
