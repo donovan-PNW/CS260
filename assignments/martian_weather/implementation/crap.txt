@@ -35,3 +35,171 @@
           1480906168           -226     361
 
 Totals: 11
+currentTempHere: 9
+currentTempHere: 8
+currentTempHere: 7
+currentTempHere: 6
+currentTempHere: 5
+currentTempHere: 4
+currentTempHere: 3
+currentTempHere: 2
+currentTempHere: 1
+1currentTempHere: 9
+1currentTempHere: 9
+1currentTempHere: 9
+1currentTempHere: 4
+1currentTempHere: 9
+1currentTempHere: 4
+1currentTempHere: 4
+1currentTempHere: 4
+1currentTempHere: 4
+1currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 0
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 9
+2currentTempHere: 9
+2currentTempHere: 9
+avgT0: 4.5
+avgT1: 6
+avgT2: 5.1
+avgT3: 0.9
+avgT4: 0
+avgT5: 0
+avgT6: 0
+avgT7: 0
+avgT8: 0
+avgT9: 0
+all of avg0: 45
+all of avg1: 60
+all of avg2: 51
+current windspeed here 0
+current windspeed here 1
+current windspeed here 2
+current windspeed here 5
+current windspeed here 4
+current windspeed here 5
+current windspeed here 5
+current windspeed here 5
+current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 9
+2current windspeed here 9
+2current windspeed here 9
+2current windspeed here 9
+2current windspeed here 3
+2current windspeed here 2
+2current windspeed here 1
+2current windspeed here 6
+2current windspeed here 6
+2current windspeed here 6
+2current windspeed here 6
+avgw0: 3.5
+avgw1: 8.1
+avgw2: 5.7
+avgw3: 1.8
+avgw4: 0
+avgw5: 0
+avgw6: 0
+avgw7: 0
+avgw8: 0
+avgw9: 0
+all of avg0: 35
+all of avg1: 81
+all of avg2: 57
+currentTempHere: 9
+currentTempHere: 8
+currentTempHere: 7
+currentTempHere: 6
+currentTempHere: 5
+currentTempHere: 4
+currentTempHere: 3
+currentTempHere: 2
+currentTempHere: 1
+1currentTempHere: 9
+1currentTempHere: 9
+1currentTempHere: 9
+1currentTempHere: 4
+1currentTempHere: 9
+1currentTempHere: 4
+1currentTempHere: 4
+1currentTempHere: 4
+1currentTempHere: 4
+1currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 0
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 4
+2currentTempHere: 9
+2currentTempHere: 9
+2currentTempHere: 9
+avgT0: 4.5
+avgT1: 6
+avgT2: 5.1
+avgT3: 0.9
+avgT4: 0
+avgT5: 0
+avgT6: 0
+avgT7: 0
+avgT8: 0
+avgT9: 0
+all of avg0: 45
+all of avg1: 60
+all of avg2: 51
+current windspeed here 0
+current windspeed here 1
+current windspeed here 2
+current windspeed here 5
+current windspeed here 4
+current windspeed here 5
+current windspeed here 5
+current windspeed here 5
+current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 8
+1current windspeed here 9
+2current windspeed here 9
+2current windspeed here 9
+2current windspeed here 9
+2current windspeed here 3
+2current windspeed here 2
+2current windspeed here 1
+2current windspeed here 6
+2current windspeed here 6
+2current windspeed here 6
+2current windspeed here 6
+avgw0: 3.5
+avgw1: 8.1
+avgw2: 5.7
+avgw3: 0.9
+avgw4: 0
+avgw5: 0
+avgw6: 0
+avgw7: 0
+avgw8: 0
+avgw9: 0
+all of avg0: 35
+all of avg1: 81
+all of avg2: 57

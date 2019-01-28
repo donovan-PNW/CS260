@@ -131,25 +131,27 @@ void datalogger::runTheNumbers()
         
     }
 
-    for(index = 0; index < totalEntries; index++)
+    for(index = 0; index < (totalEntries+1); index++)
     {
-        currentTemperature = workingList.pullTempByTime(index);
-        //std::cout << "current temperature: " << currentTemper:w
-        //ature << '\n';
-        caseCondition = (index+1)/10;
+        currentTemperature = workingList.pullTempByTime(index-1);
+        std::cout << "current temperature: " << currentTemperature << '\n';
+        caseCondition = (index)/10.0;
+        std::cout << "index: " << index << "case condition: " << caseCondition;
         switch(caseCondition)
         {
             case (0):
                 totalT0+= currentTemperature;
-                //std::cout << "currentTempHere: " << currentTemperature << endl;
+                std::cout << "currentTempHere: " << currentTemperature;
                 //std::cout << "0 " << totalT0 << endl;
                 break;
             case (1):
                 totalT1+= currentTemperature;
+                std::cout << "1currentTempHere: " << currentTemperature;
                 //std::cout << "1 " << totalT1 << endl;
                 break;
             case (2):
                 totalT2+= currentTemperature;
+                std::cout << "2currentTempHere: " << currentTemperature;
                 //std::cout << "2 " << totalT2 << endl;
                 break;
             case (3):
@@ -283,26 +285,60 @@ void datalogger::runTheNumbers()
         currentPlayer = workingList.pullWindspeed(index);
             
     }
-    for(int index = 0; index < (totalEntries + 1); index++)
+
+    //int avgCounter = 0;
+
+    //if(avgCounter <= 9)
+    //{
+    //    while(avgCounter <= 9)
+    //    {
+    //        int thisWind;
+    //            
+    //        thisWind = workingList.pullWindByTime(avgCounter);
+    //        totalw0 += thisWind;
+    //        cout << "0-9: " << avgCounter << " this value: " 
+    //            << thisWind <<" total: "<< totalw0 << endl;
+    //        avgCounter++;
+    //    }
+    //}
+    //cout << "total this w: " << totalw0 << endl;
+
+    //if(avgCounter <= 19)
+    //{
+    //    int thisWind;
+
+    //    thisWind = workingList.pullWindByTime(avgCounter);
+    //    totalw1 += thisWind;
+    //    cout << "10-19: " << avgCounter << " this value: " 
+    //        << thisWind <<" total: "<< totalw1 << endl;
+    //    avgCounter++;
+    //}
+    //cout << "total this w: " << totalw1 << endl;
+
+   //BECAUSE IT'S GOING BY THE LIST IN THE ORDER IN TIME! iT WAS RIGHT ALL ALONG!!!!: 
+    for(int index = 0; index < (totalEntries); index++)
     {
         currentWindspeed = workingList.pullWindByTime(index);
 
-        caseCondition = (index+1)/10;
+        caseCondition = (index)/10;
         switch(caseCondition)
         {
             case (0):
                 totalw0+= currentWindspeed;
-                std::cout << "current windspeed here " << currentWindspeed << endl;
+                std::cout << index << " current windspeed here " << currentWindspeed << endl;
+                //std::cout << "case condition: " << caseCondition << " " << endl;
                 //std::cout << "0 " << totalw0 << endl;
                 break;
             case (1):
                 totalw1+= currentWindspeed;
-                std::cout << "1current windspeed here " << currentWindspeed << endl;
+                std::cout << index << "CASE 1! 1current windspeed here " << currentWindspeed << endl;
+                //std::cout << "case condition: " << caseCondition << " " << endl;
                 //std::cout << "1 " << totalw1 << endl;
                 break;
             case (2):
                 totalw2+= currentWindspeed;
-                std::cout << "2current windspeed here " << currentWindspeed << endl;
+                std::cout << index << "I SHOULD BE TWO 2current windspeed here " << currentWindspeed << endl;
+                //std::cout << "case condition: " << caseCondition << " " << endl;
                 //std::cout << "2 " << totalw2 << endl;
                 break;
             case (3):
