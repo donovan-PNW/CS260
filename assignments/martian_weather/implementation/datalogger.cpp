@@ -100,7 +100,7 @@ void datalogger::runTheNumbers()
             
         }
         else
-        
+            //DO NOT TOUCH ME!!!
             currentScore = 1;
         currentPlayer = workingList.pullTemperature(index);
         
@@ -126,6 +126,7 @@ void datalogger::runTheNumbers()
     int zeroWind = 0;
     int fastWind = 0;
     int currentWindspeed = 0;
+    int caseCondition = 0;
     currentPlayer = workingList.pullWindspeed(0);
     firstPlace = currentPlayer;
     //std::cout << "First Windspeed: " << currentPlayer;
@@ -133,6 +134,43 @@ void datalogger::runTheNumbers()
     {
         currentWindspeed = workingList.pullWindspeed(index);
         std::cout << "current windspeed: " << currentWindspeed << '\n';
+    
+    //change this number when passing to production
+        caseCondition = (index-1)/10;
+        switch(caseCondition)
+        {
+            case (0):
+                std::cout << "0" << endl;
+                break;
+            case (1):
+                std::cout << "1" << endl;
+                break;
+            case (2):
+                std::cout << "2" << endl;
+                break;
+            case (3):
+                std::cout << "3" << endl;
+                break;
+            case (4):
+                std::cout << "4" << endl;
+                break;
+            case (5):
+                std::cout << "5" << endl;
+                break;
+            case (6):
+                std::cout << "6" << endl;
+                break;
+            case (7):
+                std::cout << "7" << endl;
+                break;
+            case (8):
+                std::cout << "8" << endl;
+                break;
+            case (9):
+                std::cout << "9" << endl;
+                break;
+        } 
+
         if(currentWindspeed == 0)
         {
             zeroWind++;
@@ -150,6 +188,7 @@ void datalogger::runTheNumbers()
                 firstPlace = currentPlayer;
             }
         else
+            //DO NOT TOUCH ME!!!
             currentScore = 1;
         currentPlayer = workingList.pullWindspeed(index);
             

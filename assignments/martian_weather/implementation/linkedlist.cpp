@@ -115,7 +115,7 @@ int linkedList::pullTime(int target) const
     int timeStamp = 0;
     entryNode * current;
     current = timeHead;
-    while(index < target)
+    while(index < target-1)
     {
        // std::cout << "hi\n";
         current = current->nextTime;
@@ -132,7 +132,7 @@ int linkedList::pullTemperature(int target) const
     int temperature = 0;
     entryNode * current;
     current = temperatureHead;
-    while(index < target-1)
+    while(index < target)
     {
        // std::cout << "hi\n";
         current = current->nextTemperature;
@@ -150,7 +150,7 @@ int linkedList::pullWindspeed(int target) const
     int windspeed = 0;
     entryNode * current;
     current = windspeedHead;
-    while(index < target)
+    while(index < target-1)
     {
        // std::cout << "hi\n";
         current = current->nextWindspeed;

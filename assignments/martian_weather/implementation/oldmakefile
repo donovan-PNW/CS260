@@ -6,14 +6,14 @@ exec: weatherdata.o datalogger.o linkedlist.o weatherlog.o
 weatherdata.o: weatherdata.cpp
 	g++ -g -std=c++11 -no-pie -c weatherdata.cpp
 
-datalogger.o: datalogger.cpp
-	g++ -g -std=c++11 -no-pie -c datalogger.cpp
+weatherdata.o: weatherdata.cpp
+	g++ -g -std=c++11 -no-pie -c weatherdata.cpp
 
-linkedlist.o: linkedlist.cpp
-	g++ -g -std=c++11 -no-pie -c linkedlist.cpp
+weatherdata.o: weatherdata.cpp
+	g++ -g -std=c++11 -no-pie -c weatherdata.cpp
 
-weatherlog.o: weatherlog.cpp
-	g++ -g -std=c++11 -no-pie -c weatherlog.cpp
+weatherdata.o: weatherdata.cpp
+	g++ -g -std=c++11 -no-pie -c weatherdata.cpp
 
 make clean:
 	rm -rf exec *.o
