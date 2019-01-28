@@ -43,17 +43,17 @@ void datalogger::runTheNumbers()
     int mostCommonTemperature = 0;
     int mostCommonWindspeed = 0;
 
-    int currentTime = 0;
-    int currentTemperature;
-    int currentWindspeed;
  
     totalEntries = workingList.totalizer() - 1;
+    //WHY DO I NEED TO SHIFT THIS TO GET IT TO WORK?
     std::cout << "Totals: " << totalEntries << endl;
 
-
+//**TIME*******************************************************//
+    
+    int currentTime = 0;
     for(int index = 0; index < totalEntries; index++)
     {
-        currentTime = workingList.pullTime(index);
+        currentTime = workingList.pullTime(index+1);
         std::cout << "current time: " << currentTime << '\n';
         if(currentTime > highTime)
             highTime = currentTime;
@@ -65,60 +65,52 @@ void datalogger::runTheNumbers()
     std::cout << "high time: " << highTime << endl;
     std::cout << "low time: " << lowTime << endl;
 
+//**TEMPERATURE*************************************************//
 
+
+    int highScore = 1;
+    int currentScore = 0;
+    int currentPlayer;
+    int firstPlace;
+    int currentTemperature = 0;
+    
+    currentPlayer = workingList.pullTemperature(0);
+    std::cout << "first temperature: " << currentTemperature << endl;
     for(int index = 0; index < totalEntries; index++)
     {
         currentTemperature = workingList.pullTemperature(index);
         std::cout << "current temperature: " << currentTemperature << '\n';
-        //if(currentTemperature > highTemperature)
-        //    highTemperature = currentTemperature;
-        //if(currentTemperature < lowTemperature)
-        //    lowTemperature = currentTemperature;
-
+        if(currentTemperature == currentPlayer)
+        {
+            currentScore++;
+            if(currentScore > highScore)
+                {
+                    highScore = currentScore;
+                    firstPlace = currentPlayer;
+                }
+            
+        }
+        else
+            currentScore = 1;
+            currentPlayer = workingList.pullTemperature(index);
     }
+
+    std::cout << "First Place: " << firstPlace << endl;
+    std::cout << "High score: " << highScore << endl;
 
     //std::cout << "high temperature: " << highTemperature << endl;
     //std::cout << "low temperature: " << lowTemperature << endl;
+
+//**WINDSPEED***************************************************//
+
+
+    int currentWindspeed = 0;
 
     for(int index = 0; index < totalEntries; index++)
     {
         currentWindspeed = workingList.pullWindspeed(index);
         std::cout << "current windspeed: " << currentWindspeed << '\n';
-        //if(currentWindspeed > highWindspeed)
-        //    highWindspeed = currentWindspeed;
-        //if(currentWindspeed < lowWindspeed)
-        //    lowWindspeed = currentWindspeed;
-
     }
-
-    //std::cout << "high windspeed: " << highWindspeed << endl;
-    //std::cout << "low windspeed: " << lowWindspeed << endl;
-
-    //ok here's what I'm thinking now: just call a function workingList.listSize();
-    //which will return listSize (implemented inside linkedlist)
-    //this will just do a for loop
-    //**********************************************//
-    //you need to do a while loop with an incrementer
-    //    int listSize
-    //    int index
-    //    //if this gives a seg fault try index < listSize
-    //    //also if you need to get the last one off, you can
-    //    //just use listSize-1.
-    //    for(index=0; index <= listSize, listSize++)
-    //    {
-    //        currentTime = workingList.pullTime(index);
-    //        if(currentTime < lowTime)
-    //        {}
-    //        if(currentTime > highTime)
-    //        {}
-    //    }
-    //currentTemperature = workingList.pullTemperature();
-    //currentWindspeed = workingList.pullWindspeed();
-    //**********************************************//
-
-
-
-
 }
 
 void datalogger::printReport(const char* label)

@@ -128,7 +128,7 @@ int linkedList::pullTime(int target) const
 
 int linkedList::pullTemperature(int target) const
 {
-    int index = 0;
+    int index = -1;
     int temperature = 0;
     entryNode * current;
     current = temperatureHead;
@@ -146,6 +146,7 @@ int linkedList::pullTemperature(int target) const
 int linkedList::pullWindspeed(int target) const
 {
     int index = -1;
+    //WHY THE FUCK DOESN'T THIS WORK WITH ANYTHING BUT -1??
     int windspeed = 0;
     entryNode * current;
     current = windspeedHead;
