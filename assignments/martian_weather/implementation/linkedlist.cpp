@@ -163,7 +163,7 @@ int linkedList::pullWindspeed(int target) const
 
 int linkedList::pullTempByTime(int target) const
 {
-    int index = 0;
+    int index = -1;
     int temperature = 0;
     entryNode * current;
     current = timeHead;
