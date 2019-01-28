@@ -131,55 +131,57 @@ void datalogger::runTheNumbers()
         
     }
 
-    for(index = 0; index < (totalEntries+1); index++)
+    for(index = 0; index < (totalEntries); index++)
     {
-        currentTemperature = workingList.pullTempByTime(index-1);
-        std::cout << "current temperature: " << currentTemperature << '\n';
+        currentTemperature = workingList.pullTempByTime(index);
+        //DON'T TURN THIS ONE ON! FOR GET ABOUT IT
+        //std::cout << "current temperature: " << currentTemperature << '\n';
+        //std::cout << endl;
         caseCondition = (index)/10.0;
         std::cout << "index: " << index << "case condition: " << caseCondition;
         switch(caseCondition)
         {
             case (0):
                 totalT0+= currentTemperature;
-                std::cout << "currentTempHere: " << currentTemperature;
+                std::cout << "currentTempHere: " << currentTemperature << endl;
                 //std::cout << "0 " << totalT0 << endl;
                 break;
             case (1):
                 totalT1+= currentTemperature;
-                std::cout << "1currentTempHere: " << currentTemperature;
+                std::cout << "1currentTempHere: " << currentTemperature << endl;
                 //std::cout << "1 " << totalT1 << endl;
                 break;
             case (2):
                 totalT2+= currentTemperature;
-                std::cout << "2currentTempHere: " << currentTemperature;
+                std::cout << "2currentTempHere: " << currentTemperature << endl;
                 //std::cout << "2 " << totalT2 << endl;
                 break;
             case (3):
-                totalT3+= currentTemperature;
-                //std::cout << "3 " << totalT3 << endl;
+                //totalT3+= currentTemperature;
+                ////std::cout << "3 " << totalT3 << endl;
                 break;
             case (4):
-                totalT4+= currentTemperature;
+                //totalT4+= currentTemperature;
                 //std::cout << "4 " << totalT4 << endl;
                 break;
             case (5):
-                totalT5+= currentTemperature;
+                //totalT5+= currentTemperature;
                 //std::cout << "5 " << totalT5 << endl;
                 break;
             case (6):
-                totalT6+= currentTemperature;
+                //totalT6+= currentTemperature;
                 //std::cout << "6 " << totalT6 << endl;
                 break;
             case (7):
-                totalT7+= currentTemperature;
+                //totalT7+= currentTemperature;
                 //std::cout << "7 " << totalT7 << endl;
                 break;
             case (8):
-                totalT8+= currentTemperature;
+                //totalT8+= currentTemperature;
                 //std::cout << "8 " << totalT8 << endl;
                 break;
             case (9):
-                totalT9+= currentTemperature;
+                //totalT9+= currentTemperature;
                 //std::cout << "9 " << totalT9 << endl;
                 break;
         } 
