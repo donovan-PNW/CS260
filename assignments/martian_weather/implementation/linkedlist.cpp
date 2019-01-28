@@ -179,8 +179,8 @@ int linkedList::pullTempByTime(int target) const
 
 int linkedList::pullWindByTime(int target) const
 {
-    int index = 0;
-    int windspeed= 0;
+    int index = -1;
+    int windspeed = 0;
     entryNode * current;
     current = timeHead;
     while(index < target-1)
