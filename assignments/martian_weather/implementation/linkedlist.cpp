@@ -150,7 +150,7 @@ int linkedList::pullWindspeed(int target) const
     int windspeed = 0;
     entryNode * current;
     current = windspeedHead;
-    while(index < target)
+    while(index < target-1)
     {
        // std::cout << "hi\n";
         current = current->nextWindspeed;

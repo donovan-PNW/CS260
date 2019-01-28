@@ -35,11 +35,7 @@ void datalogger::addData(const int tempTimestamp, const int tempTemperature, con
 void datalogger::runTheNumbers()
 {
     //must be more graceful than this?
-    int lowTime = 1500000000;
-    int highTime = 0;
     int totalEntries = 0;
-    int belowneg50 = 0;
-    int above0 = 0;
     int mostCommonTemperature = 0;
     int mostCommonWindspeed = 0;
 
@@ -50,7 +46,10 @@ void datalogger::runTheNumbers()
 
 //**TIME*******************************************************//
     
+    int lowTime = 1500000000;
+    int highTime = 0;
     int currentTime = 0;
+
     for(int index = 0; index < totalEntries; index++)
     {
         currentTime = workingList.pullTime(index+1);
@@ -68,6 +67,8 @@ void datalogger::runTheNumbers()
 //**TEMPERATURE*************************************************//
 
 
+    int belowneg50 = 0;
+    int above0 = 0;
     int highScore = 1;
     int currentScore = 0;
     int currentPlayer;
@@ -75,19 +76,27 @@ void datalogger::runTheNumbers()
     int currentTemperature = 0;
     
     currentPlayer = workingList.pullTemperature(0);
-    std::cout << "first temperature: " << currentTemperature << endl;
+    firstPlace = currentPlayer;
     for(int index = 0; index < totalEntries; index++)
     {
         currentTemperature = workingList.pullTemperature(index);
         std::cout << "current temperature: " << currentTemperature << '\n';
+        if(currentTemperature < (-50))
+        {
+            belowneg50++;
+        }
+        if(currentTemperature > 0)
+        {
+            above0++;
+        }
         if(currentTemperature == currentPlayer)
         {
             currentScore++;
             if(currentScore > highScore)
-                {
-                    highScore = currentScore;
-                    firstPlace = currentPlayer;
-                }
+            {
+                highScore = currentScore;
+                firstPlace = currentPlayer;
+            }
             
         }
         else
@@ -97,20 +106,56 @@ void datalogger::runTheNumbers()
 
     std::cout << "First Place: " << firstPlace << endl;
     std::cout << "High score: " << highScore << endl;
+    std::cout << "Belowneg50 " << belowneg50 << endl;
+    std::cout << "above0 " << above0 << endl;
 
     //std::cout << "high temperature: " << highTemperature << endl;
     //std::cout << "low temperature: " << lowTemperature << endl;
 
 //**WINDSPEED***************************************************//
 
+    //these are for if you make it into a separate function
+    highScore = 0;
+    currentScore = 0;
+    currentPlayer = 0;
+    firstPlace = 0;
+    currentScore = 0;
 
+    int zeroWind = 0;
+    int fastWind = 0;
     int currentWindspeed = 0;
-
+    currentPlayer = workingList.pullWindspeed(0);
+    firstPlace = currentPlayer;
+    //std::cout << "First Windspeed: " << currentPlayer;
     for(int index = 0; index < totalEntries; index++)
     {
         currentWindspeed = workingList.pullWindspeed(index);
         std::cout << "current windspeed: " << currentWindspeed << '\n';
+        if(currentWindspeed == 0)
+        {
+            zeroWind++;
+        }
+        if(currentWindspeed > 25)
+        {
+            fastWind++;
+        }
+        if(currentWindspeed == currentPlayer)
+            
+            currentScore++;
+            if(currentScore > highScore)
+            {
+                highScore = currentScore;
+                firstPlace = currentPlayer;
+            }
+        else
+            currentScore = 1;
+            currentPlayer = workingList.pullWindspeed(index);
+            
     }
+    std::cout << "First Place: " << firstPlace << endl;
+    std::cout << "High score: " << highScore << endl;
+    std::cout << "zeroWind " << zeroWind << endl;
+    std::cout << "fastWind " << fastWind << endl;
 }
 
 void datalogger::printReport(const char* label)
