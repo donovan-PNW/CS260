@@ -69,9 +69,9 @@ void datalogger::runTheNumbers()
 
     int belowneg50 = 0;
     int above0 = 0;
-    int highScore = 1;
-    int currentScore = 0;
-    int currentPlayer;
+    int highScore = 0;
+    int currentScore = 1;
+    int currentPlayer = 0;
     int firstPlace;
     int currentTemperature = 0;
     
@@ -100,8 +100,10 @@ void datalogger::runTheNumbers()
             
         }
         else
+        
             currentScore = 1;
             currentPlayer = workingList.pullTemperature(index);
+        
     }
 
     std::cout << "First Place: " << firstPlace << endl;
@@ -116,7 +118,7 @@ void datalogger::runTheNumbers()
 
     //these are for if you make it into a separate function
     highScore = 0;
-    currentScore = 0;
+    currentScore = 1;
     currentPlayer = 0;
     firstPlace = 0;
     currentScore = 0;
