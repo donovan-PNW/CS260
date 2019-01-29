@@ -128,7 +128,7 @@ int linkedList::pullTime(int target) const
 
 int linkedList::pullTemperature(int target) const
 {
-    int index = -1;
+    int index = 0;
     int temperature = 0;
     entryNode * current;
     current = temperatureHead;

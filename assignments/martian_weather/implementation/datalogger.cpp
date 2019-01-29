@@ -76,8 +76,8 @@ void datalogger::runTheNumbers()
 //**TEMPERATURE*************************************************//
 
 
-    int belowneg50 = 0;
-    int above0 = 0;
+    belowneg50 = 0;
+    above0 = 0;
     int highScore = 0;
     int currentScore = 0;
     int currentPlayer = 0;
@@ -112,7 +112,7 @@ void datalogger::runTheNumbers()
 
     currentPlayer = workingList.pullTemperature(0);
     firstPlace = currentPlayer;
-    for(index = 0; index < totalEntries; index++)
+    for(index = 1; index < totalEntries+1; index++)
     {
         currentTemperature = workingList.pullTemperature(index);
         std::cout << "TEMP" << endl;
@@ -123,13 +123,15 @@ void datalogger::runTheNumbers()
         //std::cout << "current temperature: " << currentTemperature << '\n';
 
 
-        if(currentTemperature < (-50))
+        if(currentTemperature < (-50.))
         {
             belowneg50++;
+            std::cout << "cold" << endl;
         }
         if(currentTemperature > 0)
         {
             above0++;
+            std::cout << "hot" << endl;
         }
         if(currentTemperature == currentPlayer)
         {
@@ -246,8 +248,8 @@ void datalogger::runTheNumbers()
     firstPlace = 0;
     currentScore = 0;
 
-    int zeroWind = 0;
-    int fastWind = 0;
+    zeroWind = 0;
+    fastWind = 0;
     int currentWindspeed = 0;
 
     //windspeeds over intervals, added up
@@ -292,7 +294,7 @@ void datalogger::runTheNumbers()
         {
             zeroWind++;
         }
-        if(currentTemperature >= 25)
+        if(currentWindspeed >= 25)
         {
             fastWind++;
         }
@@ -423,12 +425,38 @@ void datalogger::printReport(const char* label)
     std::cout << left << "Time range: " << right << setw(22) << lowTime << " - " <<  highTime << endl;
     std::cout << left << setw(30) << "number of entries" << right << setw(30) << totalEntries << endl; 
     std::cout << left << setw(5) << "Number of entries with < -50C temperature" << right << setw(19) << belowneg50 << endl;
-    std::cout << left << std::setw(30) << "Number of entries with < 0C temperature" << std::fixed << std::right << std::setw(21) << above0 << endl;
+    std::cout << left << std::setw(30) << "Number of entries with > 0C temperature" << std::fixed << std::right << std::setw(21) << above0 << endl;
     std::cout << left << setw(30) << "most common temperature" << right <<  setw(30)  << mostCommonTemperature << endl;
     std::cout << endl;
     std::cout << left << setw(20) <<"number of entries with 0 windspeed" << right << setw(26) << zeroWind << endl;
     std::cout << left << setw(5) <<"number of entries with >25 m/s windspeed" << right << setw(20) << fastWind << endl;
     std::cout << left << setw(30) <<"most common windspeed" << right << setw(30) << mostCommonWind << endl;
+    std::cout << endl;
+    
+    std::cout << "Average temperature over ranges" << endl;
+    std::cout << "0 through 999" << fixed << setprecision(1) << setw(10) << avgW0 << endl;
+    std::cout << "1000 through 1999" << setw(10) << avgW1 << endl;
+    std::cout << "2000 through 2999" << setw(10) << avgW2 << endl;
+    std::cout << "3000 through 3999" << setw(10) << avgW3 << endl;
+    std::cout << "4000 through 4999" << setw(10) << avgW4 << endl;
+    std::cout << "5000 through 5999" << setw(10) << avgW5 << endl;
+    std::cout << "6000 through 6999" << setw(10) << avgW6 << endl;
+    std::cout << "7000 through 7999" << setw(10) << avgW7 << endl;
+    std::cout << "8000 through 8999" << setw(10) << avgW8 << endl;
+    std::cout << "9000 through 9999" << setw(10) << avgW9 << endl;
+    std::cout << endl;
+
+    std::cout << "Average windspeed over ranges" << endl;
+    std::cout << "0 through 999" << fixed << setprecision(2) << setw(11) << avgT0 << endl;
+    std::cout << "1000 through 1999" << setw(11) << avgT1 << endl;
+    std::cout << "2000 through 2999" << setw(11) << avgT2 << endl;
+    std::cout << "3000 through 3999" << setw(11) << avgT3 << endl;
+    std::cout << "4000 through 4999" << setw(11) << avgT4 << endl;
+    std::cout << "5000 through 5999" << setw(11) << avgT5 << endl;
+    std::cout << "6000 through 6999" << setw(11) << avgT6 << endl;
+    std::cout << "7000 through 7999" << setw(11) << avgT7 << endl;
+    std::cout << "8000 through 8999" << setw(11) << avgT8 << endl;
+    std::cout << "9000 through 9999" << setw(11) << avgT9 << endl;
 
     
 
