@@ -132,7 +132,7 @@ int linkedList::pullTemperature(int target) const
     int temperature = 0;
     entryNode * current;
     current = temperatureHead;
-    while(index < target)
+    while(index < target-1)
     {
        // std::cout << "hi\n";
         current = current->nextTemperature;

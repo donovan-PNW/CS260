@@ -34,32 +34,32 @@ private:
     int highTime;
     int belowneg50;
     int above0;
-    int mostCommonTemperature;
+    double mostCommonTemperature;
     int zeroWind;
     int fastWind;
     int mostCommonWind;
 
-    double avgT0;
-    double avgT1;
-    double avgT2;
-    double avgT3;
-    double avgT4;
-    double avgT5;
-    double avgT6;
-    double avgT7;
-    double avgT8;
-    double avgT9;
+    int avgT0;
+    int avgT1;
+    int avgT2;
+    int avgT3;
+    int avgT4;
+    int avgT5;
+    int avgT6;
+    int avgT7;
+    int avgT8;
+    int avgT9;
 
-    double avgW0;
-    double avgW1;
-    double avgW2;
-    double avgW3;
-    double avgW4;
-    double avgW5;
-    double avgW6;
-    double avgW7;
-    double avgW8;
-    double avgW9;
+    int avgW0;
+    int avgW1;
+    int avgW2;
+    int avgW3;
+    int avgW4;
+    int avgW5;
+    int avgW6;
+    int avgW7;
+    int avgW8;
+    int avgW9;
 
 
 //TODO ADD LATER

@@ -82,7 +82,7 @@ void datalogger::runTheNumbers()
     int currentScore = 0;
     int currentPlayer = 0;
     int firstPlace;
-    int currentTemperature = 0;
+    double currentTemperature = 0;
     int caseCondition = 0;
     int index = 0;
     
@@ -120,10 +120,11 @@ void datalogger::runTheNumbers()
         std::cout << "current scpre: " << currentScore << endl;
         std::cout << "highest player"  << firstPlace<< endl;
         std::cout << "high score:  " << highScore << '\n';
+        std::cout << "index " << index << endl;
         //std::cout << "current temperature: " << currentTemperature << '\n';
 
 
-        if(currentTemperature < (-50.))
+        if(currentTemperature < (-500))
         {
             belowneg50++;
             std::cout << "cold" << endl;
@@ -154,8 +155,8 @@ void datalogger::runTheNumbers()
 
     for(index = 0; index < (totalEntries); index++)
     {
-        currentTemperature = workingList.pullTempByTime(index);
-        caseCondition = (index)/10.0;
+        currentTemperature = workingList.pullTemperature(index + 1);
+        caseCondition = (index)/1000;
         std::cout << "index: " << index << "case condition: " << caseCondition;
         switch(caseCondition)
         {
@@ -200,16 +201,16 @@ void datalogger::runTheNumbers()
                 break;
         } 
     }
-    avgT0 = totalT0 / 10.0;
-    avgT1 = totalT1 / 10.0;
-    avgT2 = totalT2 / 10.0;
-    avgT3 = totalT3 / 10.0;
-    avgT4 = totalT4 / 10.0;
-    avgT5 = totalT5 / 10.0;
-    avgT6 = totalT6 / 10.0;
-    avgT7 = totalT7 / 10.0;
-    avgT8 = totalT8 / 10.0;
-    avgT9 = totalT9 / 10.0;
+    avgT0 = totalT0 / 1000.0;
+    avgT1 = totalT1 / 1000.0;
+    avgT2 = totalT2 / 1000.0;
+    avgT3 = totalT3 / 1000.0;
+    avgT4 = totalT4 / 1000.0;
+    avgT5 = totalT5 / 1000.0;
+    avgT6 = totalT6 / 1000.0;
+    avgT7 = totalT7 / 1000.0;
+    avgT8 = totalT8 / 1000.0;
+    avgT9 = totalT9 / 1000.0;
 
     std::cout << "avgT0: " << avgT0 << endl;
     std::cout << "avgT1: " << avgT1 << endl;
@@ -226,7 +227,7 @@ void datalogger::runTheNumbers()
     std::cout << "all of avg2: " << totalT2 << endl;
 
 
-    mostCommonTemperature = firstPlace;
+    mostCommonTemperature = firstPlace / 10.;
     std::cout << currentPlayer << endl << endl << endl;
 
 
@@ -294,7 +295,7 @@ void datalogger::runTheNumbers()
         {
             zeroWind++;
         }
-        if(currentWindspeed >= 25)
+        if(currentWindspeed >= 2500)
         {
             fastWind++;
         }
@@ -319,9 +320,9 @@ void datalogger::runTheNumbers()
     }
     for(int index = 0; index < (totalEntries); index++)
     {
-        currentWindspeed = workingList.pullWindByTime(index);
+        currentWindspeed = workingList.pullWindspeed(index + 1);
 
-        caseCondition = (index)/10;
+        caseCondition = (index)/1000.0;
         switch(caseCondition)
         {
             case (0):
@@ -374,16 +375,16 @@ void datalogger::runTheNumbers()
 
     }
 
-    avgW0 = totalw0 / 10.0;
-    avgW1 = totalw1 / 10.0;
-    avgW2 = totalw2 / 10.0;
-    avgW3 = totalw3 / 10.0;
-    avgW4 = totalw4 / 10.0;
-    avgW5 = totalw5 / 10.0;
-    avgW6 = totalw6 / 10.0;
-    avgW7 = totalw7 / 10.0;
-    avgW8 = totalw8 / 10.0;
-    avgW9 = totalw9 / 10.0;
+    avgW0 = totalw0 / 1000.0;
+    avgW1 = totalw1 / 1000.0;
+    avgW2 = totalw2 / 1000.0;
+    avgW3 = totalw3 / 1000.0;
+    avgW4 = totalw4 / 1000.0;
+    avgW5 = totalw5 / 1000.0;
+    avgW6 = totalw6 / 1000.0;
+    avgW7 = totalw7 / 1000.0;
+    avgW8 = totalw8 / 1000.0;
+    avgW9 = totalw9 / 1000.0;
 //**********************************************
 //SAVE ALL THIS SHIT FOR LATER!! DON'T DELETE!
     std::cout << "avgW0: " << avgW0 << endl;
@@ -426,7 +427,7 @@ void datalogger::printReport(const char* label)
     std::cout << left << setw(30) << "number of entries" << right << setw(30) << totalEntries << endl; 
     std::cout << left << setw(5) << "Number of entries with < -50C temperature" << right << setw(19) << belowneg50 << endl;
     std::cout << left << std::setw(30) << "Number of entries with > 0C temperature" << std::fixed << std::right << std::setw(21) << above0 << endl;
-    std::cout << left << setw(30) << "most common temperature" << right <<  setw(30)  << mostCommonTemperature << endl;
+    std::cout << left << setw(30) << "most common temperature" << right <<  fixed << setprecision(1) << setw(30)  << mostCommonTemperature << endl;
     std::cout << endl;
     std::cout << left << setw(20) <<"number of entries with 0 windspeed" << right << setw(26) << zeroWind << endl;
     std::cout << left << setw(5) <<"number of entries with >25 m/s windspeed" << right << setw(20) << fastWind << endl;
@@ -434,29 +435,29 @@ void datalogger::printReport(const char* label)
     std::cout << endl;
     
     std::cout << "Average temperature over ranges" << endl;
-    std::cout << "0 through 999" << fixed << setprecision(1) << setw(10) << avgW0 << endl;
-    std::cout << "1000 through 1999" << setw(10) << avgW1 << endl;
-    std::cout << "2000 through 2999" << setw(10) << avgW2 << endl;
-    std::cout << "3000 through 3999" << setw(10) << avgW3 << endl;
-    std::cout << "4000 through 4999" << setw(10) << avgW4 << endl;
-    std::cout << "5000 through 5999" << setw(10) << avgW5 << endl;
-    std::cout << "6000 through 6999" << setw(10) << avgW6 << endl;
-    std::cout << "7000 through 7999" << setw(10) << avgW7 << endl;
-    std::cout << "8000 through 8999" << setw(10) << avgW8 << endl;
-    std::cout << "9000 through 9999" << setw(10) << avgW9 << endl;
+    std::cout << "0 through 999" << setw(10) << avgT0 << endl;
+    std::cout << "1000 through 1999" << setw(10) << avgT1 << endl;
+    std::cout << "2000 through 2999" << setw(10) << avgT2 << endl;
+    std::cout << "3000 through 3999" << setw(10) << avgT3 << endl;
+    std::cout << "4000 through 4999" << setw(10) << avgT4 << endl;
+    std::cout << "5000 through 5999" << setw(10) << avgT5 << endl;
+    std::cout << "6000 through 6999" << setw(10) << avgT6 << endl;
+    std::cout << "7000 through 7999" << setw(10) << avgT7 << endl;
+    std::cout << "8000 through 8999" << setw(10) << avgT8 << endl;
+    std::cout << "9000 through 9999" << setw(10) << avgT9 << endl;
     std::cout << endl;
 
     std::cout << "Average windspeed over ranges" << endl;
-    std::cout << "0 through 999" << fixed << setprecision(2) << setw(11) << avgT0 << endl;
-    std::cout << "1000 through 1999" << setw(11) << avgT1 << endl;
-    std::cout << "2000 through 2999" << setw(11) << avgT2 << endl;
-    std::cout << "3000 through 3999" << setw(11) << avgT3 << endl;
-    std::cout << "4000 through 4999" << setw(11) << avgT4 << endl;
-    std::cout << "5000 through 5999" << setw(11) << avgT5 << endl;
-    std::cout << "6000 through 6999" << setw(11) << avgT6 << endl;
-    std::cout << "7000 through 7999" << setw(11) << avgT7 << endl;
-    std::cout << "8000 through 8999" << setw(11) << avgT8 << endl;
-    std::cout << "9000 through 9999" << setw(11) << avgT9 << endl;
+    std::cout << "0 through 999" << setw(11) << avgW0 << endl;
+    std::cout << "1000 through 1999" << setw(11) << avgW1 << endl;
+    std::cout << "2000 through 2999" << setw(11) << avgW2 << endl;
+    std::cout << "3000 through 3999" << setw(11) << avgW3 << endl;
+    std::cout << "4000 through 4999" << setw(11) << avgW4 << endl;
+    std::cout << "5000 through 5999" << setw(11) << avgW5 << endl;
+    std::cout << "6000 through 6999" << setw(11) << avgW6 << endl;
+    std::cout << "7000 through 7999" << setw(11) << avgW7 << endl;
+    std::cout << "8000 through 8999" << setw(11) << avgW8 << endl;
+    std::cout << "9000 through 9999" << setw(11) << avgW9 << endl;
 
     
 
