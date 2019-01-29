@@ -220,6 +220,26 @@ void linkedList::printMe() const
 
 
 
+bool linkedList::timeComparison(int timestamp) const
+{
+    bool does = false;
+    entryNode* previousTime = nullptr;
+    entryNode* currentTime = timeHead;
+
+    while(timeHead != nullptr && currentTime->nextTime != nullptr && timestamp >= currentTime->entry.getTimestamp())
+    {
+        previousTime = currentTime;
+        currentTime = currentTime->nextTime;
+        std::cout << "THIS IS MY TIMESTAMP " << timestamp << " " << currentTime->entry.getTimestamp() << endl;
+        if(timestamp == currentTime->entry.getTimestamp())
+        {
+            std::cout << "IN HERE!! This timestamp: " << timestamp << " This node's timestamp:  " << currentTime->entry.getTimestamp() << endl;
+            does = true;
+        }
+        
+    }
+    return does;
+}
 
 
 

@@ -9,8 +9,6 @@ class datalogger
 {
 public:
     datalogger();
-    //do I need this? Like, as in if I have addData(int int int) do I
-    //still need a parameter constructor?
     datalogger(int timestamp, int temperature, int windspeed);
     datalogger(const datalogger& datalogger)=delete;
     ~datalogger();
@@ -21,6 +19,7 @@ public:
     void printReport(const char* label);
     //void doTheThing(linkedList workingList);
     void runTheNumbers();
+    bool containsTimestamp(int timestamp) const;
 
 private:
     weatherdata currentEntry;
@@ -64,7 +63,6 @@ private:
 
 //TODO ADD LATER
 //    void removeData();
-//    void printReport();
 
 };
 

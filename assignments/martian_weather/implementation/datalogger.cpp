@@ -25,6 +25,7 @@ datalogger::datalogger(int tempTimestamp, int tempTemperature, int tempWindspeed
     zeroWind = 0;
     fastWind = 0;
     mostCommonWind = 0;
+    totalEntries = 0;
 
 
     //avgT 0-9 
@@ -415,7 +416,6 @@ void datalogger::runTheNumbers()
 
 void datalogger::printReport(const char* label)
 {
-    //be sure to COUT label!!
     //workingList.printMe();
     runTheNumbers();
 
@@ -459,27 +459,26 @@ void datalogger::printReport(const char* label)
     std::cout << "8000 through 8999" << setw(11) << avgW8 << endl;
     std::cout << "9000 through 9999" << setw(11) << avgW9 << endl;
 
-    
-
-
-    //out << std::std::setw(20) << entry.timestamp
-    //<< std::std::setw(15) << entry.temperature
-    //<< std::std::setw(8) << entry.windspeed
-    //<< '\n';
-
-
 
 
     return;
 }
 
 
+bool datalogger::containsTimestamp(int timestamp) const
+{
+    bool does = false;
+
+    does = workingList.timeComparison(timestamp); 
+
+    return does;
+}
+    
 
 
 
 
 
-//containsTimestamp(timestamp)
 
 
 

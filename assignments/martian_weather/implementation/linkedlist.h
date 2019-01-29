@@ -27,6 +27,8 @@ public:
     int pullWindspeed(int target) const;
     int pullTempByTime(int target) const;
     int pullWindByTime(int target) const;
+    bool timeComparison(int timestamp) const;
+    
 
     //why not iostream???
     friend std::ostream& operator <<(std::ostream& out, const linkedList& thisList);
