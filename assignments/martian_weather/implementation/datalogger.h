@@ -29,6 +29,7 @@ private:
     int temperature;
     int windspeed;
 
+    int totalEntries;
     int lowTime;
     int highTime;
     int belowneg50;

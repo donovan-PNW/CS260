@@ -1,5 +1,6 @@
 #include "datalogger.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -46,7 +47,7 @@ void datalogger::addData(const int tempTimestamp, const int tempTemperature, con
 void datalogger::runTheNumbers()
 {
     //must be more graceful than this?
-    int totalEntries = 0;
+    totalEntries = 0;
  
     totalEntries = workingList.totalizer() - 1;
     //WHY DO I NEED TO SHIFT THIS TO GET IT TO WORK?
@@ -54,8 +55,8 @@ void datalogger::runTheNumbers()
 
 //**TIME*******************************************************//
     
-    int lowTime = 1500000000;
-    int highTime = 0;
+    lowTime = 1500000000;
+    highTime = 0;
     int currentTime = 0;
 
     for(int index = 0; index < totalEntries; index++)
@@ -78,7 +79,7 @@ void datalogger::runTheNumbers()
     int belowneg50 = 0;
     int above0 = 0;
     int highScore = 0;
-    int currentScore = 1;
+    int currentScore = 0;
     int currentPlayer = 0;
     int firstPlace;
     int currentTemperature = 0;
@@ -114,6 +115,11 @@ void datalogger::runTheNumbers()
     for(index = 0; index < totalEntries; index++)
     {
         currentTemperature = workingList.pullTemperature(index);
+        std::cout << "TEMP" << endl;
+        std::cout << "current Player: " << currentPlayer << endl;
+        std::cout << "current scpre: " << currentScore << endl;
+        std::cout << "highest player"  << firstPlace<< endl;
+        std::cout << "high score:  " << highScore << '\n';
         //std::cout << "current temperature: " << currentTemperature << '\n';
 
 
@@ -137,8 +143,10 @@ void datalogger::runTheNumbers()
         }
         else
             //DO NOT TOUCH ME!!!
-            currentScore = 1;
-        currentPlayer = workingList.pullTemperature(index);
+        {
+            currentScore = 0;
+           currentPlayer = workingList.pullTemperature(index + 1);
+        }
         
     }
 
@@ -216,7 +224,8 @@ void datalogger::runTheNumbers()
     std::cout << "all of avg2: " << totalT2 << endl;
 
 
-    mostCommonTemperature = highScore;
+    mostCommonTemperature = firstPlace;
+    std::cout << currentPlayer << endl << endl << endl;
 
 
     //std::cout << "First Place: " << firstPlace << endl;
@@ -232,7 +241,7 @@ void datalogger::runTheNumbers()
 
     //these are for if you make it into a separate function
     highScore = 0;
-    currentScore = 1;
+    currentScore = 0;
     currentPlayer = 0;
     firstPlace = 0;
     currentScore = 0;
@@ -266,36 +275,46 @@ void datalogger::runTheNumbers()
     avgW9 = 0;
 
     caseCondition = 0;
-    currentPlayer = workingList.pullWindspeed(0);
+    currentWindspeed= workingList.pullWindspeed(0);
     firstPlace = currentPlayer;
-    //std::cout << "First Windspeed: " << currentPlayer;
-    for(int index = 0; index < totalEntries; index++)
+    for(index = 0; index < totalEntries; index++)
     {
-        currentWindspeed = workingList.pullWindspeed(index);
-        //std::cout << "current windspeed: " << currentWindspeed << '\n';
+        currentWindspeed= workingList.pullWindspeed(index);
+        std::cout << "wind" << endl;
+        std::cout << "current Player: " << currentPlayer << endl;
+        std::cout << "current scpre: " << currentScore << endl;
+        std::cout << "highest player"  << firstPlace<< endl;
+        std::cout << "high score:  " << highScore << '\n';
+        //std::cout << "current temperature: " << currentTemperature << '\n';
+
+
         if(currentWindspeed == 0)
         {
             zeroWind++;
         }
-        if(currentWindspeed > 25)
+        if(currentTemperature >= 25)
         {
             fastWind++;
         }
         if(currentWindspeed == currentPlayer)
-            
+        {
             currentScore++;
             if(currentScore > highScore)
             {
                 highScore = currentScore;
                 firstPlace = currentPlayer;
             }
-        else
-            //DO NOT TOUCH ME!!!
-            currentScore = 1;
-        currentPlayer = workingList.pullWindspeed(index);
             
-    }
+        }
+        else
+        {
+            //DO NOT TOUCH ME!!!
+            currentScore = 0;
+            currentPlayer = workingList.pullWindspeed(index+1);
+        }
 
+        
+    }
     for(int index = 0; index < (totalEntries); index++)
     {
         currentWindspeed = workingList.pullWindByTime(index);
@@ -380,7 +399,7 @@ void datalogger::runTheNumbers()
     std::cout << "all of avg2: " << totalw2 << endl;
 
 
-    mostCommonWind = highScore;
+    mostCommonWind = firstPlace;
 
 
 
@@ -398,11 +417,33 @@ void datalogger::printReport(const char* label)
     runTheNumbers();
 
 
+    
+//FEEDBACK PLEASE I CAN'T GET SETW TO WORK RIGHT WHY DON'T THEY HAVE THE SAME PARAMETER /VALUES?,
+    std::cout << std::setw(50) << "-- Data Report (" << label <<") --" << endl;
+    std::cout << left << "Time range: " << right << setw(22) << lowTime << " - " <<  highTime << endl;
+    std::cout << left << setw(30) << "number of entries" << right << setw(30) << totalEntries << endl; 
+    std::cout << left << setw(5) << "Number of entries with < -50C temperature" << right << setw(19) << belowneg50 << endl;
+    std::cout << left << std::setw(30) << "Number of entries with < 0C temperature" << std::fixed << std::right << std::setw(21) << above0 << endl;
+    std::cout << left << setw(30) << "most common temperature" << right <<  setw(30)  << mostCommonTemperature << endl;
+    std::cout << endl;
+    std::cout << left << setw(20) <<"number of entries with 0 windspeed" << right << setw(26) << zeroWind << endl;
+    std::cout << left << setw(5) <<"number of entries with >25 m/s windspeed" << right << setw(20) << fastWind << endl;
+    std::cout << left << setw(30) <<"most common windspeed" << right << setw(30) << mostCommonWind << endl;
+
+    
+
+
+    //out << std::std::setw(20) << entry.timestamp
+    //<< std::std::setw(15) << entry.temperature
+    //<< std::std::setw(8) << entry.windspeed
+    //<< '\n';
+
 
 
 
     return;
 }
+
 
 
 
