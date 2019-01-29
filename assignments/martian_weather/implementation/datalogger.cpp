@@ -15,8 +15,20 @@ datalogger::datalogger(int tempTimestamp, int tempTemperature, int tempWindspeed
     timestamp = tempTimestamp;
     temperature = tempTemperature;
     windspeed = tempWindspeed;
-    //int mostCommon = 0;
-    //int highScore = 0;
+
+    lowTime = 0;
+    highTime = 0;
+    belowneg50 = 0;
+    above0 = 0;
+    mostCommonTemperature = 0;
+    zeroWind = 0;
+    fastWind = 0;
+    mostCommonWind = 0;
+
+
+    //avgT 0-9 
+    //avgW 0-9
+
 }
 
 datalogger::~datalogger()
@@ -73,7 +85,6 @@ void datalogger::runTheNumbers()
     int caseCondition = 0;
     int index = 0;
     
-    //poorly named -- total temperatures over these intervals
     //windspeeds over intervals, added up
     int totalT0 = 0;
     int totalT1 = 0;
@@ -87,16 +98,16 @@ void datalogger::runTheNumbers()
     int totalT9 = 0;
 
     //averages of each interval
-    double avgT0 = 0;
-    double avgT1 = 0;
-    double avgT2 = 0;
-    double avgT3 = 0;
-    double avgT4 = 0;
-    double avgT5 = 0;
-    double avgT6 = 0;
-    double avgT7 = 0;
-    double avgT8 = 0;
-    double avgT9 = 0;
+    avgT0 = 0;
+    avgT1 = 0;
+    avgT2 = 0;
+    avgT3 = 0;
+    avgT4 = 0;
+    avgT5 = 0;
+    avgT6 = 0;
+    avgT7 = 0;
+    avgT8 = 0;
+    avgT9 = 0;
 
     currentPlayer = workingList.pullTemperature(0);
     firstPlace = currentPlayer;
@@ -134,9 +145,6 @@ void datalogger::runTheNumbers()
     for(index = 0; index < (totalEntries); index++)
     {
         currentTemperature = workingList.pullTempByTime(index);
-        //DON'T TURN THIS ONE ON! FOR GET ABOUT IT
-        //std::cout << "current temperature: " << currentTemperature << '\n';
-        //std::cout << endl;
         caseCondition = (index)/10.0;
         std::cout << "index: " << index << "case condition: " << caseCondition;
         switch(caseCondition)
@@ -144,44 +152,40 @@ void datalogger::runTheNumbers()
             case (0):
                 totalT0+= currentTemperature;
                 std::cout << "currentTempHere: " << currentTemperature << endl;
-                //std::cout << "0 " << totalT0 << endl;
                 break;
             case (1):
                 totalT1+= currentTemperature;
                 std::cout << "1currentTempHere: " << currentTemperature << endl;
-                //std::cout << "1 " << totalT1 << endl;
                 break;
             case (2):
                 totalT2+= currentTemperature;
                 std::cout << "2currentTempHere: " << currentTemperature << endl;
-                //std::cout << "2 " << totalT2 << endl;
                 break;
             case (3):
-                //totalT3+= currentTemperature;
-                ////std::cout << "3 " << totalT3 << endl;
+                totalT3+= currentTemperature;
                 break;
             case (4):
-                //totalT4+= currentTemperature;
+                totalT4+= currentTemperature;
                 //std::cout << "4 " << totalT4 << endl;
                 break;
             case (5):
-                //totalT5+= currentTemperature;
+                totalT5+= currentTemperature;
                 //std::cout << "5 " << totalT5 << endl;
                 break;
             case (6):
-                //totalT6+= currentTemperature;
+                totalT6+= currentTemperature;
                 //std::cout << "6 " << totalT6 << endl;
                 break;
             case (7):
-                //totalT7+= currentTemperature;
+                totalT7+= currentTemperature;
                 //std::cout << "7 " << totalT7 << endl;
                 break;
             case (8):
-                //totalT8+= currentTemperature;
+                totalT8+= currentTemperature;
                 //std::cout << "8 " << totalT8 << endl;
                 break;
             case (9):
-                //totalT9+= currentTemperature;
+                totalT9+= currentTemperature;
                 //std::cout << "9 " << totalT9 << endl;
                 break;
         } 
@@ -212,13 +216,17 @@ void datalogger::runTheNumbers()
     std::cout << "all of avg2: " << totalT2 << endl;
 
 
+    mostCommonTemperature = highScore;
+
+
     //std::cout << "First Place: " << firstPlace << endl;
     //std::cout << "High score: " << highScore << endl;
     //std::cout << "Belowneg50 " << belowneg50 << endl;
     //std::cout << "above0 " << above0 << endl;
 
-    //std::cout << "high temperature: " << highTemperature << endl;
-    //std::cout << "low temperature: " << lowTemperature << endl;
+
+
+
 
 //**WINDSPEED***************************************************//
 
@@ -246,16 +254,16 @@ void datalogger::runTheNumbers()
     int totalw9 = 0;
 
     //averages of each interval
-    double avgw0 = 0;
-    double avgw1 = 0;
-    double avgw2 = 0;
-    double avgw3 = 0;
-    double avgw4 = 0;
-    double avgw5 = 0;
-    double avgw6 = 0;
-    double avgw7 = 0;
-    double avgw8 = 0;
-    double avgw9 = 0;
+    avgW0 = 0;
+    avgW1 = 0;
+    avgW2 = 0;
+    avgW3 = 0;
+    avgW4 = 0;
+    avgW5 = 0;
+    avgW6 = 0;
+    avgW7 = 0;
+    avgW8 = 0;
+    avgW9 = 0;
 
     caseCondition = 0;
     currentPlayer = workingList.pullWindspeed(0);
@@ -288,36 +296,6 @@ void datalogger::runTheNumbers()
             
     }
 
-    //int avgCounter = 0;
-
-    //if(avgCounter <= 9)
-    //{
-    //    while(avgCounter <= 9)
-    //    {
-    //        int thisWind;
-    //            
-    //        thisWind = workingList.pullWindByTime(avgCounter);
-    //        totalw0 += thisWind;
-    //        cout << "0-9: " << avgCounter << " this value: " 
-    //            << thisWind <<" total: "<< totalw0 << endl;
-    //        avgCounter++;
-    //    }
-    //}
-    //cout << "total this w: " << totalw0 << endl;
-
-    //if(avgCounter <= 19)
-    //{
-    //    int thisWind;
-
-    //    thisWind = workingList.pullWindByTime(avgCounter);
-    //    totalw1 += thisWind;
-    //    cout << "10-19: " << avgCounter << " this value: " 
-    //        << thisWind <<" total: "<< totalw1 << endl;
-    //    avgCounter++;
-    //}
-    //cout << "total this w: " << totalw1 << endl;
-
-   //BECAUSE IT'S GOING BY THE LIST IN THE ORDER IN TIME! iT WAS RIGHT ALL ALONG!!!!: 
     for(int index = 0; index < (totalEntries); index++)
     {
         currentWindspeed = workingList.pullWindByTime(index);
@@ -375,31 +353,36 @@ void datalogger::runTheNumbers()
 
     }
 
-    avgw0 = totalw0 / 10.0;
-    avgw1 = totalw1 / 10.0;
-    avgw2 = totalw2 / 10.0;
-    avgw3 = totalw3 / 10.0;
-    avgw4 = totalw4 / 10.0;
-    avgw5 = totalw5 / 10.0;
-    avgw6 = totalw6 / 10.0;
-    avgw7 = totalw7 / 10.0;
-    avgw8 = totalw8 / 10.0;
-    avgw9 = totalw9 / 10.0;
+    avgW0 = totalw0 / 10.0;
+    avgW1 = totalw1 / 10.0;
+    avgW2 = totalw2 / 10.0;
+    avgW3 = totalw3 / 10.0;
+    avgW4 = totalw4 / 10.0;
+    avgW5 = totalw5 / 10.0;
+    avgW6 = totalw6 / 10.0;
+    avgW7 = totalw7 / 10.0;
+    avgW8 = totalw8 / 10.0;
+    avgW9 = totalw9 / 10.0;
 //**********************************************
 //SAVE ALL THIS SHIT FOR LATER!! DON'T DELETE!
-    std::cout << "avgw0: " << avgw0 << endl;
-    std::cout << "avgw1: " << avgw1 << endl;
-    std::cout << "avgw2: " << avgw2 << endl;
-    std::cout << "avgw3: " << avgw3 << endl;
-    std::cout << "avgw4: " << avgw4 << endl;
-    std::cout << "avgw5: " << avgw5 << endl;
-    std::cout << "avgw6: " << avgw6 << endl;
-    std::cout << "avgw7: " << avgw7 << endl;
-    std::cout << "avgw8: " << avgw8 << endl;
-    std::cout << "avgw9: " << avgw9 << endl;
+    std::cout << "avgW0: " << avgW0 << endl;
+    std::cout << "avgW1: " << avgW1 << endl;
+    std::cout << "avgW2: " << avgW2 << endl;
+    std::cout << "avgW3: " << avgW3 << endl;
+    std::cout << "avgW4: " << avgW4 << endl;
+    std::cout << "avgW5: " << avgW5 << endl;
+    std::cout << "avgW6: " << avgW6 << endl;
+    std::cout << "avgW7: " << avgW7 << endl;
+    std::cout << "avgW8: " << avgW8 << endl;
+    std::cout << "avgW9: " << avgW9 << endl;
     std::cout << "all of avg0: " << totalw0 << endl;
     std::cout << "all of avg1: " << totalw1 << endl;
     std::cout << "all of avg2: " << totalw2 << endl;
+
+
+    mostCommonWind = highScore;
+
+
 
     //std::cout << "First Place: " << firstPlace << endl;
     //std::cout << "High score: " << highScore << endl;
@@ -413,9 +396,13 @@ void datalogger::printReport(const char* label)
     //be sure to COUT label!!
     //workingList.printMe();
     runTheNumbers();
+
+
+
+
+
     return;
 }
-
 
 
 
