@@ -130,7 +130,7 @@ bool list::insert (const data& aData)
     }
     return ret;
 }
-
+//*****************************************************************
 bool list::remove (const char * key)
 {
     bool ret = false;

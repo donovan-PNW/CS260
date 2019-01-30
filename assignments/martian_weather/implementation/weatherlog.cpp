@@ -12,7 +12,7 @@ void createReport(datalogger& dl,const char* label)
 int main(int argc, char** argv) {
 
     datalogger rawDatalog;
-//    datalogger cleanDatalog;
+    datalogger cleanDatalog;
 
     if (argc != 2) {
 	cout << "Usage: " << argv[0] << " <datafile>" << endl;
@@ -32,27 +32,20 @@ int main(int argc, char** argv) {
 	inDatafile >> temperature;
 	inDatafile >> windspeed;
 
-    //rawDatalog.addData(timestamp, temperature, windspeed);
-
-    
-
-
-// FOR TESTING PURPORSES! GO BACK TO THIS BLOCK AFTER YOU GET IT TO TAKE INFO IN
-//	if (!inDatafile.eof()) {
+	if (!inDatafile.eof()) {
 	    if (rawDatalog.containsTimestamp(timestamp)) {
-            std::cout << "IT DOES!!!" << endl;
-        }
-//		cleanDatalog.removeData(timestamp);
-//	    } else {
-//		cleanDatalog.addData(timestamp,temperature,windspeed);
-//	    }
-//
+		cleanDatalog.removeData(timestamp);
+	    } else {
+		cleanDatalog.addData(timestamp,temperature,windspeed);
+	    }
+
 	    rawDatalog.addData(timestamp, temperature, windspeed);
-//	}
+	}
     }
+
     createReport(rawDatalog,"raw data");
     cout << endl;
-    //createReport(rawDatalog,"clean data");
+    createReport(cleanDatalog,"clean data");
     
     return(0);
 }

@@ -1,7 +1,3 @@
-//OI!!! YOU NEED TO OVERLOAD ASSIGNMENT OPERATOR FOR POINTER CLASSES
-//
-//
-//
 #include "linkedlist.h"
 #include <iostream>
 #include <fstream>
@@ -230,10 +226,10 @@ bool linkedList::timeComparison(int timestamp) const
     {
         previousTime = currentTime;
         currentTime = currentTime->nextTime;
-        std::cout << "THIS IS MY TIMESTAMP " << timestamp << " " << currentTime->entry.getTimestamp() << endl;
+        //std::cout << "THIS IS MY TIMESTAMP " << timestamp << " " << currentTime->entry.getTimestamp() << endl;
         if(timestamp == currentTime->entry.getTimestamp())
         {
-            std::cout << "IN HERE!! This timestamp: " << timestamp << " This node's timestamp:  " << currentTime->entry.getTimestamp() << endl;
+            //std::cout << "IN HERE!! This timestamp: " << timestamp << " This node's timestamp:  " << currentTime->entry.getTimestamp() << endl;
             does = true;
         }
         
@@ -241,6 +237,67 @@ bool linkedList::timeComparison(int timestamp) const
     return does;
 }
 
+void linkedList::deleteNode(int timestamp)
+{
+    
+    entryNode* previousTime = nullptr;
+    entryNode* currentTime = timeHead;
+    entryNode* flag;
+    int testTimestamp;
+    
+    while(currentTime->nextTime != nullptr) 
+    {
+        if(currentTime->entry.getTimestamp() == timestamp)
+        {
+            if(!previousTime)
+            {
+                timeHead= currentTime->nextTime;
+            }
+
+            //std::cout << "DELET THIS" << endl;        
+            //std::cout << "the repeat is: " << currentTime->entry.getTimestamp();
+            else
+                previousTime->nextTime = currentTime->nextTime;
+            delete currentTime;
+            currentTime = nullptr;
+            
+        }
+        previousTime = currentTime;
+        currentTime = currentTime->nextTime;
+    }
+    return;
+
+
+
+    //while(currentTime->nextTime  != nullptr)
+    //{
+    //    testTimestamp = currentTime ->enry.getTimestamp();
+    //    if(timestamp == testTimestamp)
+    //    {
+    //        if(!previousTime)
+    //        {
+    //            std::cout<<"YRULIKETHIS?" <<endl;
+    //            timeHead = currentTime->nextTime;
+    //            delete currentTime;
+    //        }
+    //        else
+    //        {
+    //          std::cout << "Delete this!" << endl;
+    //          previousTime->nextTime = currentTime->nextTime;
+    //          delete currentTime;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        std::cout << "FUCKDICK" << endl;
+    //    }
+    //    previousTime = currentTime;
+    //    currentTime = currentTime->nextTime;
+    //}
+    
+//***************IF IT ISN'T THE FIRST TIME HEAD AND IF IT ISNT AN EMPTY LIST
+return;
+}
 
 
 

@@ -20,6 +20,7 @@ public:
     //void doTheThing(linkedList workingList);
     void runTheNumbers();
     bool containsTimestamp(int timestamp) const;
+    void removeData(int timestamp);
 
 private:
     weatherdata currentEntry;

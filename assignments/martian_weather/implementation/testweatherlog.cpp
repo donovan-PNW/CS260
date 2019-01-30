@@ -32,20 +32,25 @@ int main(int argc, char** argv) {
 	inDatafile >> temperature;
 	inDatafile >> windspeed;
 
+// FOR TESTING PURPORSES! GO BACK TO THIS BLOCK AFTER YOU GET IT TO TAKE INFO IN
 	if (!inDatafile.eof()) {
-	    if (rawDatalog.containsTimestamp(timestamp)) {
-		cleanDatalog.removeData(timestamp);
-	    } else {
+	    if (rawDatalog.containsTimestamp(timestamp))
+        {
+            cout << "REPEAT " << timestamp <<  endl;
+            cleanDatalog.removeData(timestamp);
+	    }
+        else {
 		cleanDatalog.addData(timestamp,temperature,windspeed);
+        //std::cout << "CLEAN" << endl;
 	    }
 
 	    rawDatalog.addData(timestamp, temperature, windspeed);
+        //std::cout << "RAW" << endl;
 	}
     }
-
     createReport(rawDatalog,"raw data");
     cout << endl;
-    createReport(cleanDatalog,"clean data");
+    createReport(rawDatalog,"clean data");
     
     return(0);
 }

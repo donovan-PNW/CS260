@@ -18,7 +18,6 @@ public:
     bool insert(const weatherdata& thisEntry);
     //indexNo?
     bool remove(const char* indexNo);
-    void createReport() const;
     int getSize() const;
     void printMe() const;
     int totalizer() const;
@@ -28,6 +27,7 @@ public:
     int pullTempByTime(int target) const;
     int pullWindByTime(int target) const;
     bool timeComparison(int timestamp) const;
+    void deleteNode(int timestamp);
     
 
     //why not iostream???
