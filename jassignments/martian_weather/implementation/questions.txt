@@ -1,0 +1,9 @@
+Ok. in weatherlog.cpp: after cleanDatalog.removeData(timestamp) deletes a node, does the program then just ignore the entry? it's checking the new node against the old ones in rawdatalog, then deleting an old one if it finds it, but then it doesn't seem to add data to cleanDatalog? Do we just delete and skip all conflicting ones?
+
+for createReport, should I just pass that up through the chain? through datalogger directly to linkedList? how would I do that? (Should I write, like, a wrapper function?) like, make a boolean value out of the text with strcmp, then just pass the same variable through, would that work? Is there a way to pass the list without copying it? just use datalogger& rawdata?
+
+can I just toss self copy functions with delete?
+
+see TODO 4 about syntax.
+
+
