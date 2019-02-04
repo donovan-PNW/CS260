@@ -60,12 +60,8 @@ classes for each of the following:
   The "dock" method prints "Rover (<ID>) returning to base." then uses the
   entries from the stack to issue a sequence of moves to backtrack back to the
   base. It needs to print out each move (just like the move method). Once at
-  the base the rover needs to print "Rover (<ID>) at base. Sending
-  results...". Then it needs to pull each of the results off of the queue and
-  print them. When all results are printed the rover needs to print "Rover
-  (<ID>) result transmission complete.". Finally, the "dock" method needs to
-  print "Rover (<ID>) docked.". You will also need to reset the x and y
-  coordinates to 0 when you dock.
+  the base the rover needs to print "Rover (<ID>) at base and docked". You
+  will also need to reset the x and y coordinates to 0 when you dock.
 
   Refer to the "expected.txt" file to make sure that your printed messages are
   correct.
@@ -75,6 +71,9 @@ classes for each of the following:
 
 - queue -- This class should implement a queue. It is used to store the scan
   results.
+
+- resultdata -- This class holds the items that are on the queue. It needs a
+  print() method.
 
 == Other Files ==
 

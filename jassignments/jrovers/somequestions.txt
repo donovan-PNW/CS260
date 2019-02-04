@@ -1,0 +1,14 @@
+Ok: main question: How does one deal with rover **rovers? I get that it's like an array of rovers, but how do you implement that array?
+
+
+Can x and y coordinates be separate int values? Or should they be linked as an array or something?
+
+Resultspointer! Can it just be a single pointer to a single variable that queue class then deals with on its own? Like a dropbox? Or does it need to be more fancy than that?
+
+resultdata: ?? How does anything hold the queue more than the queue does? The queue holds corescan results, so why do you need a separate class to hold the items in the queue? Does this mean the individual entries? (similar to weatherdata vs linkedlist?) 
+
+Can I use virtual functions as per page 199? isEmpty() for example?
+
+Can I get an example of a <template>? how would you make/use one of these?
+
+stack public methods: virtual with =0 or no virtual and no =0?
