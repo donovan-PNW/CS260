@@ -25,7 +25,9 @@ class stack
     private:
         struct waypoint
         {
-            int coordinates[2];
+            int xCoordinates;
+            int yCoordinates;
+            //int coordinates;[2];
             //I guess I might need this?
             waypoint * next;
             waypoint * back;
