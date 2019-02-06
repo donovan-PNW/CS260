@@ -16,23 +16,24 @@ class stack
         stack();
         stack(const stack& someStack);
         ~stack();
+        const stack& operator=(const stack& someStack);
         //SHOULD THESE BE VIRTUAL WITH A =0 OR NO VIRTUAL WITH NO =0??
         virtual bool isEmpty() const = 0;
-        virtual bool push(const int& xCoordinate, const int& yCoordinate) = 0; //,const int& datastuff)
+        virtual bool push(const int& newXCoordinate, const int& newYCoordinate) = 0; //,const int& datastuff)
         virtual bool pop() = 0;
         //virtual rovers.peek() const = 0
 
     private:
         struct waypoint
         {
-            int xCoordinates;
-            int yCoordinates;
+            int xCoordinate;
+            int yCoordinate;
             //int coordinates;[2];
             //I guess I might need this?
             waypoint * next;
             waypoint * back;
         };
-            waypoint * home;
+            waypoint * topItem;
             int steps;
 
 };
