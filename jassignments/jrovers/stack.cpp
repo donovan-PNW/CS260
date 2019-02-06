@@ -115,18 +115,38 @@ bool stack::push(const int& newXCoordinate, const int& newYCoordinate)
 
 }
 
+bool stack::pop()
+{
+    bool yesPop = false;
+    if(!isEmpty())
+    {
+        waypoint * backFrom = topItem;
+        topItem = topItem->next;
+        backFrom->next = nullptr;
+        delete backFrom;
+        backFrom = nullptr;
+        yesPop = true;
+
+    }
+    return yesPop;
+}
 
 
-//stack::push()
+
+int stack::peekX() const
+{
+    assert(!isEmpty());
+    return topItem->xCoordinate;
+    //MAKE AN ARRAY[2] FOR THIS?
+}
 
 
-
-
-
-
-
-
-
+int stack::peekY() const
+{
+    assert(!isEmpty());
+    return topItem->yCoordinate;
+    //MAKE AN ARRAY[2] FOR THIS?
+}
 
 
 

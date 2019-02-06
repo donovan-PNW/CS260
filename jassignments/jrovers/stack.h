@@ -21,7 +21,8 @@ class stack
         virtual bool isEmpty() const = 0;
         virtual bool push(const int& newXCoordinate, const int& newYCoordinate) = 0; //,const int& datastuff)
         virtual bool pop() = 0;
-        //virtual rovers.peek() const = 0
+        virtual int peekX() const = 0;
+        virtual int peekY() const = 0;
 
     private:
         struct waypoint
