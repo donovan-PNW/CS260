@@ -29,6 +29,10 @@ void rover::move(const int& newX, const int& newY)
 {
     xCoordinate = newX;
     yCoordinate = newY;
+    entry.x = xCoordinate;
+    entry.y = yCoordinate;
+
+    roverStack.push(entry);
 }
 
 void rover::corescan()
@@ -40,7 +44,10 @@ void rover::corescan()
     thisDatapoint.setXCoordinate(xCoordinate);
     thisDatapoint.setYCoordinate(yCoordinate);
     thisDatapoint.setResults(results);
-    resultsPointer.enqueue(thisDatapoint);
+    //TODO: idk EVEN KNOW:w
+    resultsPointer->enqueue(thisDatapoint);
+
+    
     //resultsPointer->enqueue(thisDatapoint);
      
     
@@ -49,6 +56,18 @@ void rover::corescan()
 
 void rover::dock()
 {
+    std::cout << "Rover (" << ID << ") returning to base.";
+    std::cout << "Rover (" << ID << ") moving to location"
+    << xCoordinate << ", " << yCoordinate << "." << endl;
+
+
+    entry.x = 0;
+    entry.y = 0;
+    roverStack.push(entry);
+    
+
+
+    std::cout << "Rover (" << ID << ") at base and docked";
 
 }
 

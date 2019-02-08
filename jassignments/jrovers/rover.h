@@ -13,11 +13,12 @@ class rover
     private:
         stack roverStack;
         resultdata thisDatapoint;
+        coordinates entry;
         int ID;
         int xCoordinate;
         int yCoordinate;
         int results;
-        queue * resultsPointer;
+        queue *resultsPointer;
         //how do I even IDK
 
 
