@@ -59,21 +59,21 @@ void resultdata::print() const
         << " yCoordinate: " << yCoordinate << " results: " << results << endl;
 }
 
-void resultdata::setRoverID(int roverID)
+void resultdata::setRoverID(int newRoverID)
 {
-    this->roverID = roverID;
+    roverID = newRoverID;
 }
-void resultdata::setXCoordinate(int xCoordinate)
+void resultdata::setXCoordinate(int newXCoordinate)
 {
-    this->xCoordinate = xCoordinate;
+    xCoordinate = newXCoordinate;
 }
-void resultdata::setYCoordinate(int yCoordinate)
+void resultdata::setYCoordinate(int newYCoordinate)
 {
-    this->yCoordinate = yCoordinate;
+    yCoordinate = newYCoordinate;
 }
-void resultdata::setResults(int results)
+void resultdata::setResults(int newResults)
 {
-    this->results = results;
+    results = newResults;
 }
 
 

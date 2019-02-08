@@ -1,13 +1,16 @@
 all: exec
 	
-exec: stack.o teststack.o 
-	g++ -g -std=c++11 -no-pie -Wall stack.o teststack.o -o exec
+exec: queue.o testqueue.o resultdata.o 
+	g++ -g -std=c++11 -no-pie -Wall queue.o testqueue.o resultdata.o -o exec
 
-stack.o: stack.cpp
-	g++ -g -std=c++11 -no-pie -c stack.cpp
+queue.o: queue.cpp
+	g++ -g -std=c++11 -no-pie -c queue.cpp
 
-teststack.o: teststack.cpp
-	g++ -g -std=c++11 -no-pie -c teststack.cpp
+testqueue.o: testqueue.cpp
+	g++ -g -std=c++11 -no-pie -c testqueue.cpp
+
+resultdata.o: resultdata.cpp
+	g++ -g -std=c++11 -no-pie -c resultdata.cpp
 
 make clean:
 	rm -rf exec *.o
