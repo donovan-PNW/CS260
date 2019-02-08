@@ -12,10 +12,12 @@ class rover
 {
     private:
         stack roverStack;
+        resultdata thisDatapoint;
         int ID;
         int xCoordinate;
         int yCoordinate;
-        int * resultsPointer;
+        int results;
+        queue * resultsPointer;
         //how do I even IDK
 
 
@@ -29,7 +31,7 @@ class rover
         void deploy();
         //print "Rover (<ID>) deploying..."
         //print "Rover (<ID>) ready"
-        void move(int x, int y);
+        void move(const int& x, const int& y);
         //changes xy coords and stores new location on the stack.
         //prints message saying "Rover (<ID>) moving to location <x>, <y>."
         void corescan();
