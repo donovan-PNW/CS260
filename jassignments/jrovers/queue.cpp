@@ -1,4 +1,6 @@
 #include "queue.h"
+#include "resultdata.h"
+
 
 using namespace std;
 
@@ -8,14 +10,18 @@ queue::queue(): front(0), back(MAX_ENTRIES - 1), count(0)
 {
 }
 
+queue::~queue()
+{
+    
+}
+
 bool queue::isEmpty() const
 {
     return count == 0;
 }
 
-bool queue::enqueue(const resultdata& dataPoint)
+resultdata queue::enqueue(const resultdata& dataPoint)
 {
-    bool result = false;
     if(count < MAX_ENTRIES)
     {
         back = (back + 1) % MAX_ENTRIES;
@@ -26,7 +32,7 @@ bool queue::enqueue(const resultdata& dataPoint)
     return result;
 }
 
-bool queue::dequeue()
+resultdata queue::dequeue()
 {
     bool result = false;
     

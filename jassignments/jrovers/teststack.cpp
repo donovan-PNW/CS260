@@ -8,14 +8,17 @@ void dumpStack(stack &s)
     cout << "Dumping the stack" << endl;
     while (!s.isEmpty())
     {
-	const stack_entry* result = s.pop();
-	cout << "Value: " << result->x << ", " << result->y << endl;
+    //why isn't it working this way?
+	//const coordinates* result = s.pop();
+    //IF THIS DOESN'T WORK TRY JUST GOING NON-POINTER
+	const coordinates result = s.pop();
+	cout << "Value: " << result.x << ", " << result.y << endl;
     }
 }
 
 void pushHelper(stack &s,int x, int y)
 {
-    stack_entry entry;
+    coordinates entry;
 
     entry.x = x;
     entry.y = y;
@@ -24,8 +27,9 @@ void pushHelper(stack &s,int x, int y)
 
 int main()
 {
-    stack s(5);
-    stack_entry entry;
+    stack s;
+    //stack s(5);
+    coordinates entry;
 
     pushHelper(s,1,1);
     dumpStack(s);

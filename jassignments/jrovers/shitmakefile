@@ -1,0 +1,43 @@
+CC=g++
+CPPFLAGS = -no-pie -Wall -std=c++11 -I. -g
+#DEPS = rover.h queue.h stack.h resultdata.h
+#QOBJ = queue.o
+#SOBJ = stack.o
+#OBJ = rover.o rovercontrol.o scandata.o resultdata.o $(QOBJ) $(SOBJ)
+
+all: exec
+
+exec: stack.o teststack.o
+	stack.o teststack.o -o exec
+
+stack.o: stack.cpp
+	$(CC) $(CPPFLAGS) -c stack.cpp 
+
+teststack.o: teststack.cpp
+	$(CC) $(CPPFLAGS) -c teststack.cpp
+
+#%.o: %c $(DEPS)
+#	$(CC) $(CPPFLAGS) -c -o $@ 
+#
+#rovercontrol: $(OBJ)
+#	$(CC) $(CPPFLAGS) -o $@ $^
+#
+#testrover: rovercontrol
+#	./rovercontrol commands.txt > tmp.txt
+#	diff tmp.txt expected.txt > diffout.txt
+#
+#testqueue: $(QOBJ) testqueue.cpp
+#	$(CC) $(CPPFLAGS) -g -o $@ $^
+#	./testqueue
+#
+#teststack: $(SOBJ) teststack.cpp
+#	$(CC) $(CPPFLAGS) -g -o $@ $^
+#	./teststack
+
+
+
+
+
+
+
+

@@ -1,7 +1,6 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "rover.h"
 #include <iostream>
 #include <iomanip>
 #include <cstring>
@@ -10,6 +9,13 @@ using namespace std;
 
 //pg 199
 
+struct coordinates
+{
+    //TODO delet this 0
+    int x = 0;
+    int y = 0;
+};
+
 class stack
 {
     public:
@@ -17,20 +23,18 @@ class stack
         stack(const stack& someStack);
         ~stack();
         const stack& operator=(const stack& someStack);
-        //SHOULD THESE BE VIRTUAL WITH A =0 OR NO VIRTUAL WITH NO =0??
-        virtual bool isEmpty() const = 0;
-        virtual bool push(const int& newXCoordinate, const int& newYCoordinate) = 0; //,const int& datastuff)
-        virtual bool pop() = 0;
-        virtual int peekX() const = 0;
-        virtual int peekY() const = 0;
+        bool isEmpty() const;
+        bool push(const coordinates& newEntry); //,const int& datastuff)
+        coordinates pop();
+        //make new datatype!! or do a waypoint.peek() thing
+        coordinates peek() const;
+        //TODO: UNNEDED
+        int peekY() const;
 
     private:
         struct waypoint
         {
-            int xCoordinate;
-            int yCoordinate;
-            //int coordinates;[2];
-            //I guess I might need this?
+            coordinates thisWaypoint;
             waypoint * next;
             waypoint * back;
         };
@@ -38,5 +42,8 @@ class stack
             int steps;
 
 };
+
+
+
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "rover.h"
+//#include "rover.h"
 #include "resultdata.h"
 #include <iostream>
 #include <iomanip>
@@ -25,10 +25,12 @@ class queue
     public:
 
         queue();
+        ~queue();
+        queue(const int& MAX_RESULTS);
         //no need for copy constructor or destructor????
         bool isEmpty() const;
-        bool enqueue(const resultdata& dataPoint);
-        bool dequeue();
+        resultdata enqueue(const resultdata& dataPoint);
+        resultdata dequeue();
         void peek() const;
 
 };

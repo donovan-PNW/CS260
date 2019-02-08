@@ -1,5 +1,6 @@
 #include <cassert>
-#include "stack.h"
+#include <iostream>
+#include "rover.h"
 using namespace std;
 
 stack::stack() : topItem(nullptr), steps(0)
@@ -19,8 +20,7 @@ stack::stack(const stack& someStack)
         assert(topItem != nullptr);
         //would REALLY like this to be an array of 2. needs pointer to pointer though?
         
-        topItem->xCoordinate = someStack.topItem->xCoordinate;
-        topItem->yCoordinate = someStack.topItem->yCoordinate;
+        topItem->thisWaypoint = someStack.topItem->thisWaypoint;
         
         waypoint* currentLocation = topItem;
         waypoint* sourceNode = someStack.topItem->next;
@@ -32,8 +32,7 @@ stack::stack(const stack& someStack)
             currentLocation->next = new waypoint;
             assert(currentLocation->next != nullptr);
             currentLocation = currentLocation->next;
-            currentLocation->xCoordinate = sourceNode->xCoordinate;
-            currentLocation->yCoordinate = sourceNode->yCoordinate;
+            currentLocation->thisWaypoint = sourceNode->thisWaypoint;
             sourceNode = sourceNode->next;
         }
         currentLocation->next = nullptr;
@@ -65,7 +64,7 @@ const stack& stack::operator= (const stack& someStack)
     {
         topItem = new waypoint;
         assert(topItem != nullptr);
-        topItem->xCoordinate = someStack.topItem->xCoordinate;
+        topItem->thisWaypoint = someStack.topItem->thisWaypoint;
 
         waypoint * currentLocation = topItem;
         waypoint * sourceNode = someStack.topItem->next;
@@ -74,8 +73,7 @@ const stack& stack::operator= (const stack& someStack)
             currentLocation->next = new waypoint;
             assert(currentLocation->next);
             currentLocation = currentLocation->next;
-            currentLocation->xCoordinate = sourceNode->xCoordinate;
-            currentLocation->yCoordinate = sourceNode->yCoordinate;
+            currentLocation->thisWaypoint = sourceNode->thisWaypoint;
             sourceNode = sourceNode->next;
         }
         currentLocation->next = nullptr;
@@ -103,11 +101,10 @@ bool stack::isEmpty() const
     return topItem == nullptr;
 }
 
-bool stack::push(const int& newXCoordinate, const int& newYCoordinate) 
+bool stack::push(const coordinates& newEntry) 
 {
     waypoint* newLocation = new waypoint;
-    newLocation->xCoordinate = newXCoordinate;
-    newLocation->yCoordinate = newYCoordinate;
+    newLocation->thisWaypoint = newEntry;
     newLocation->next = topItem;
     topItem = newLocation;
     
@@ -115,36 +112,28 @@ bool stack::push(const int& newXCoordinate, const int& newYCoordinate)
 
 }
 
-bool stack::pop()
+coordinates stack::pop()
 {
-    bool yesPop = false;
+    coordinates theseCoordinates;
     if(!isEmpty())
     {
+        theseCoordinates = topItem->thisWaypoint;
         waypoint * backFrom = topItem;
         topItem = topItem->next;
         backFrom->next = nullptr;
         delete backFrom;
         backFrom = nullptr;
-        yesPop = true;
 
     }
-    return yesPop;
+    return theseCoordinates;
 }
 
 
 
-int stack::peekX() const
+coordinates stack::peek() const
 {
     assert(!isEmpty());
-    return topItem->xCoordinate;
-    //MAKE AN ARRAY[2] FOR THIS?
-}
-
-
-int stack::peekY() const
-{
-    assert(!isEmpty());
-    return topItem->yCoordinate;
+    return topItem->thisWaypoint;
     //MAKE AN ARRAY[2] FOR THIS?
 }
 

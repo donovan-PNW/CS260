@@ -2,7 +2,8 @@
 #define ROVER_H
 
 #include <iostream>
-//#include "queue.h"
+#include "queue.h"
+#include "stack.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ using namespace std;
 class rover
 {
     private:
+        stack roverStack;
         int ID;
         int xCoordinate;
         int yCoordinate;
@@ -20,6 +22,10 @@ class rover
 
     public:
 
+        rover();
+        rover(const rover& otherRover);
+        rover(const int& ID, const int& MAX_RESULTS, queue& resultqueue);
+        ~rover();
         void deploy();
         //print "Rover (<ID>) deploying..."
         //print "Rover (<ID>) ready"
