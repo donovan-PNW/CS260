@@ -20,29 +20,26 @@ bool queue::isEmpty() const
     return count == 0;
 }
 
-resultdata queue::enqueue(const resultdata& dataPoint)
+void queue::enqueue(const resultdata& dataPoint)
 {
     if(count < MAX_ENTRIES)
     {
         back = (back + 1) % MAX_ENTRIES;
         dataPoints[back] = dataPoint;
         count++;
-        result = true;
     }
-    return result;
 }
 
+//OR JUST VOID FUNCTION AND CALL PRINT BEFORE DELETING??
 resultdata queue::dequeue()
 {
-    bool result = false;
-    
+    resultdata thisDatapoint = dataPoints[front];
     if(!isEmpty())
     {
         front = (front+1) % MAX_ENTRIES;
         count--;
-        result = true;
     }
-    return result;
+    return thisDatapoint;
 }
 
 void queue::peek() const

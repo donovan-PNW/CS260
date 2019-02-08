@@ -26,10 +26,10 @@ class queue
 
         queue();
         ~queue();
-        queue(const int& MAX_RESULTS);
+        queue(const int& MAX_ENTRIES); 
         //no need for copy constructor or destructor????
         bool isEmpty() const;
-        resultdata enqueue(const resultdata& dataPoint);
+        void enqueue(const resultdata& dataPoint);
         resultdata dequeue();
         void peek() const;
 
