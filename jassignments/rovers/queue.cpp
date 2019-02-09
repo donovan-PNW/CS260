@@ -10,11 +10,20 @@ queue::queue(): front(0), back(1 - 1), count(0)
 }
 
 //PROLLY DON'T NEED THE FIRST ONE
-queue::queue(const int& MAX_ENTRIES): front(0), back(MAX_ENTRIES - 1), count(0)
+queue::queue(const int& MAX_RESULTS): front(0), back(MAX_RESULTS - 1), count(0), maxSize(MAX_RESULTS)
 {
+    testArray = new int[MAX_RESULTS];
+    dataPoints = new resultdata[MAX_RESULTS];
     
-}
 
+
+    //for(int i= 0; i<MAX_RESULTS; i++)
+    //{
+    //    resultdata initData();
+    //    resultdata[i] = initData;
+    //    
+    //}
+}
 //queue::queue(const queue& otherqueue)
 //{
 //
@@ -22,6 +31,7 @@ queue::queue(const int& MAX_ENTRIES): front(0), back(MAX_ENTRIES - 1), count(0)
 
 queue::~queue()
 {
+    delete [] dataPoints;
 }
 
 
@@ -35,9 +45,9 @@ bool queue::isEmpty() const
 
 void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
 {
-    if(count < MAX_ENTRIES)
+    if(count < maxSize)
     {
-        back = (back + 1) % MAX_ENTRIES;
+        back = (back + 1) % maxSize;
         dataPoints[back] = dataPoint;
         //std::cout << "BEING FED IN: \n";
         //dataPoint.print();
@@ -68,7 +78,7 @@ resultdata queue::dequeue()
     //std::cout << "TOTAL COUNT: " << count << endl;
     //if(!isEmpty())
     //{
-    front = (front+1) % MAX_ENTRIES;
+    front = (front+1) % maxSize;
     count--;
     //}
     return thisDatapoint;

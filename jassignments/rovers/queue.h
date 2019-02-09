@@ -33,8 +33,9 @@ class queue
         int front;
         int back;
         int count;
-        int size;
-        resultdata dataPoints[MAX_ENTRIES]; 
+        int maxSize;
+        int* testArray = nullptr;
+        resultdata* dataPoints = nullptr; 
 
 };
 
