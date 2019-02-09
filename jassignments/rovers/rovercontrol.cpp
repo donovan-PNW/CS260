@@ -42,6 +42,7 @@ int main(int argc, char** argv) {
     int commandArg1;
     int commandArg2;
 
+    std::cout << "this is output" << endl;
     infile >> command;
     while (strcmp(command,CMD_END) != 0) {
 	infile >> roverID;

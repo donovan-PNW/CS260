@@ -98,7 +98,11 @@ stack::~stack()
 
 bool stack::isEmpty() const
 {
-    return topItem == nullptr;
+    bool isEmpty = false;
+    if(topItem == nullptr)
+        isEmpty = true;
+
+    return isEmpty;
 }
 
 bool stack::push(const coordinates& newEntry) 
@@ -125,6 +129,12 @@ coordinates stack::pop()
         backFrom = nullptr;
 
     }
+    //else
+    //{
+    //    delete topItem;
+    //    topItem = nullptr;
+    //    topItem->next = nullptr;
+    //}
     return theseCoordinates;
 }
 
