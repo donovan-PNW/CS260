@@ -39,11 +39,11 @@ void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
     {
         back = (back + 1) % MAX_ENTRIES;
         dataPoints[back] = dataPoint;
-        std::cout << "BEING FED IN: \n";
-        dataPoint.print();
-        std::cout << "ACTUALLY IN QUEUE: " << endl;
-        dataPoints[back].print();
-        std::cout << endl;
+        //std::cout << "BEING FED IN: \n";
+        //dataPoint.print();
+        //std::cout << "ACTUALLY IN QUEUE: " << endl;
+        //dataPoints[back].print();
+        //std::cout << endl;
         //std::cout << "AT BACK = " << back << endl;
         //std::cout << "TOTAL COUNT: " << count << endl;
         //std::cout << endl << endl;
@@ -62,10 +62,10 @@ resultdata queue::dequeue()
 {
     //OK. Why isn't this just dataPoints[front]; ?
     resultdata thisDatapoint = dataPoints[front+1];
-    std::cout << "BEING PULLED OUT: \n";
-    thisDatapoint.print();
-    std::cout << "AT FRONT = " << front << endl;
-    std::cout << "TOTAL COUNT: " << count << endl;
+    //std::cout << "BEING PULLED OUT: \n";
+    //thisDatapoint.print();
+    //std::cout << "AT FRONT = " << front << endl;
+    //std::cout << "TOTAL COUNT: " << count << endl;
     //if(!isEmpty())
     //{
     front = (front+1) % MAX_ENTRIES;

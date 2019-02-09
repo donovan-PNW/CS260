@@ -55,8 +55,10 @@ const resultdata& resultdata::operator=(const resultdata& otherResultdata)
 
 void resultdata::print() const
 {
-    std::cout << "Rover: " << roverID << " xCoordinate: " << xCoordinate
-        << " yCoordinate: " << yCoordinate << " results: " << results << endl;
+    std::cout << "Reading from rover #" << roverID << " at "
+    << xCoordinate << ", " << yCoordinate << " is " << results << endl;
+    //std::cout << "Rover: " << roverID << " xCoordinate: " << xCoordinate
+    //    << " yCoordinate: " << yCoordinate << " results: " << results << endl;
 }
 
 void resultdata::setRoverID(int newRoverID)

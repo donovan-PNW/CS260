@@ -25,8 +25,8 @@ rover::~rover()
 
 void rover::deploy()
 {
-    std::cout << "Rover (" << ID << ") deploying..." << endl;
-    std::cout << "Rover (" << ID << ") ready" << endl;
+    std::cout << "Rover (ID "<< ID << ") deploying..." << endl;
+    std::cout << "Rover (ID "<< ID << ") ready" << endl;
 }
 
 void rover::move(const int& newX, const int& newY)
@@ -35,23 +35,24 @@ void rover::move(const int& newX, const int& newY)
     yCoordinate = newY;
     entry.x = xCoordinate;
     entry.y = yCoordinate;
-    std::cout << "Rover (" << ID << ") moving to location"
+    std::cout << "Rover (ID "<< ID << ") moving to location"
     << xCoordinate << ", " << yCoordinate << "." << endl;
     roverStack.push(entry);
 }
 
 void rover::corescan()
 {
-    std::cout << "Rover (" << ID << ") scanning.";
+    std::cout << "Rover (ID "<< ID << ") scanning.";
+    std::cout << endl;
     //when to use static???
     results = scandata::getScandata(xCoordinate,yCoordinate);
     thisDatapoint.setRoverID(ID);
     thisDatapoint.setXCoordinate(xCoordinate);
     thisDatapoint.setYCoordinate(yCoordinate);
     thisDatapoint.setResults(results);
-    std::cout << "rover thisDatapoint: ";
-    thisDatapoint.print();
-    std::cout << endl;
+    //std::cout << "rover thisDatapoint: ";
+    //thisDatapoint.print();
+    //std::cout << endl;
     //TODO: idk EVEN KNOW:w
     experimental->enqueue(thisDatapoint);
     //experimental->printah();
@@ -66,19 +67,21 @@ void rover::corescan()
 
 void rover::dock()
 {
-    std::cout << "Rover (" << ID << ") returning to base.";
+    std::cout << "Rover (ID " << ID << ") returning to base.";
     entry = roverStack.pop();
     while(!roverStack.isEmpty())
     {
-        std::cout << "Passing waypoint (" << entry.x << ", " << entry.y << ")" << endl; 
+        std::cout << "Rover (ID " << ID << ") moving to location " << entry.x << ", " << entry.y << endl; 
         entry = roverStack.pop();
     }
 
     entry.x = 0;
     entry.y = 0;
+    //sloppy
+        std::cout << "Rover (ID " << ID << ") moving to location " << entry.x << ", " << entry.y << endl; 
     roverStack.push(entry);
 
-    std::cout << "Rover (" << ID << ") at base and docked";
+    std::cout << "Rover (ID "<< ID << ") at base and docked" << endl;;
 
 }
 

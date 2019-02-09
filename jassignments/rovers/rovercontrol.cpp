@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
     //while(testNumber >= 0){
     while (!resultqueue.isEmpty()) {
 	resultdata data = resultqueue.dequeue();
-    std::cout << "yo" << endl;
+    //std::cout << "yo" << endl;
 	data.print();
     testNumber--;
     }
