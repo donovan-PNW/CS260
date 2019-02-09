@@ -70,8 +70,8 @@ int main(int argc, char** argv) {
 
     // print report
     int testNumber = 10;
-    while(testNumber >= 0){
-    //while (!resultqueue.isEmpty()) {
+    //while(testNumber >= 0){
+    while (!resultqueue.isEmpty()) {
 	resultdata data = resultqueue.dequeue();
     std::cout << "yo" << endl;
 	data.print();

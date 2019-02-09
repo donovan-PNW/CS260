@@ -54,7 +54,7 @@ void rover::corescan()
     std::cout << endl;
     //TODO: idk EVEN KNOW:w
     experimental->enqueue(thisDatapoint);
-    experimental->printah();
+    //experimental->printah();
     //resultsPointer->enqueue(thisDatapoint);
 
     

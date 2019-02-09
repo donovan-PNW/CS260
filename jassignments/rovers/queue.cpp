@@ -28,7 +28,7 @@ queue::~queue()
 bool queue::isEmpty() const
 {
     bool totesEmpty= false;
-    if(count == 0);
+    if((count - 1) == 0)
         totesEmpty= true;
     return totesEmpty;
 }
