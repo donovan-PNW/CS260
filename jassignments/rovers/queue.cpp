@@ -10,7 +10,6 @@ queue::queue(): front(0), back(1 - 1), count(0)
 }
 
 //PROLLY DON'T NEED THE FIRST ONE
-//
 queue::queue(const int& MAX_ENTRIES): front(0), back(MAX_ENTRIES - 1), count(0)
 {
     
@@ -28,7 +27,10 @@ queue::~queue()
 
 bool queue::isEmpty() const
 {
-    return count == 0;
+    bool totesEmpty= false;
+    if(count == 0);
+        totesEmpty= true;
+    return totesEmpty;
 }
 
 void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
@@ -39,6 +41,8 @@ void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
         dataPoints[back] = dataPoint;
         std::cout << "BEING FED IN: \n";
         dataPoint.print();
+        std::cout << "ACTUALLY IN QUEUE: " << endl;
+        dataPoints[back].print();
         std::cout << endl;
         //std::cout << "AT BACK = " << back << endl;
         //std::cout << "TOTAL COUNT: " << count << endl;
@@ -62,17 +66,36 @@ resultdata queue::dequeue()
     thisDatapoint.print();
     std::cout << "AT FRONT = " << front << endl;
     std::cout << "TOTAL COUNT: " << count << endl;
-    if(!isEmpty())
-    {
-        front = (front+1) % MAX_ENTRIES;
-        count--;
-    }
+    //if(!isEmpty())
+    //{
+    front = (front+1) % MAX_ENTRIES;
+    count--;
+    //}
     return thisDatapoint;
 }
 
-//void queue::peek() const
-//{
-//    dataPoints[front].print();
-//}
+void queue::printah() const
+{
+    int frontah = front;
+    while(frontah <= count)
+    {
+        dataPoints[frontah].print();
+        std::cout << "frontah: " << frontah << "diana" << endl;
+        frontah++;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

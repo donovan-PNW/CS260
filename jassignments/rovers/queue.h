@@ -27,7 +27,7 @@ class queue
         bool isEmpty() const;
         void enqueue(const resultdata& dataPoint);
         resultdata dequeue();
-        void peek() const;
+        void printah() const;
 
     private:
         int front;

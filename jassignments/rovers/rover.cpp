@@ -13,7 +13,7 @@ rover::rover(const int& newID, const int& MAX_RESULTS, queue& theResultqueue)
 {
     ID = newID;
     //resultsPointer = &theResultqueue;
-    experimental = theResultqueue;
+    experimental = &theResultqueue;
     xCoordinate = 0;
     yCoordinate = 0;
     results = 0;
@@ -49,8 +49,12 @@ void rover::corescan()
     thisDatapoint.setXCoordinate(xCoordinate);
     thisDatapoint.setYCoordinate(yCoordinate);
     thisDatapoint.setResults(results);
+    std::cout << "rover thisDatapoint: ";
+    thisDatapoint.print();
+    std::cout << endl;
     //TODO: idk EVEN KNOW:w
-    experimental.enqueue(thisDatapoint);
+    experimental->enqueue(thisDatapoint);
+    experimental->printah();
     //resultsPointer->enqueue(thisDatapoint);
 
     
