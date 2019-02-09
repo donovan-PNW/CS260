@@ -17,6 +17,9 @@ rover::rover(const int& newID, const int& MAX_RESULTS, queue& theResultqueue)
     xCoordinate = 0;
     yCoordinate = 0;
     results = 0;
+    entry.x = 0;
+    entry.y = 0;
+    roverStack.push(entry);
 }
 
 rover::~rover()
@@ -76,10 +79,13 @@ void rover::dock()
         entry = roverStack.pop();
     }
 
+    //sloppy
+    entry = roverStack.pop();
+    std::cout << "Rover (ID " << ID << ") moving to location " << entry.x << ", " << entry.y << "." << endl; 
+
     entry.x = 0;
     entry.y = 0;
-    //sloppy
-    std::cout << "Rover (ID " << ID << ") moving to location " << entry.x << ", " << entry.y << "." << endl; 
+    //std::cout << "Rover (ID " << ID << ") moving to location " << entry.x << ", " << entry.y << "." << endl; 
     roverStack.push(entry);
 
     std::cout << "Rover (ID "<< ID << ") at base and docked." << endl;;

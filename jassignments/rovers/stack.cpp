@@ -98,9 +98,9 @@ stack::~stack()
 
 bool stack::isEmpty() const
 {
-    bool isEmpty = false;
-    if(topItem == nullptr)
-        isEmpty = true;
+    bool isEmpty = true;
+    if(topItem)
+        isEmpty = false;
 
     return isEmpty;
 }
@@ -122,11 +122,19 @@ coordinates stack::pop()
     if(!isEmpty())
     {
         theseCoordinates = topItem->thisWaypoint;
-        waypoint * backFrom = topItem;
-        topItem = topItem->next;
-        backFrom->next = nullptr;
-        delete backFrom;
-        backFrom = nullptr;
+        if(topItem->next != nullptr)
+        {
+            waypoint * backFrom = topItem;
+            topItem = topItem->next;
+            backFrom->next = nullptr;
+            delete backFrom;
+            backFrom = nullptr;
+        }
+        else
+        {
+            delete topItem;
+            topItem = nullptr;
+        }
 
     }
     //else

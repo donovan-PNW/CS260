@@ -166,6 +166,7 @@ Rover (ID 3) moving to location 6915, 7136.
 Rover (ID 3) moving to location 6246, 6605.
 Rover (ID 3) moving to location 5993, 6543.
 Rover (ID 3) moving to location 5223, 6371.
+Rover (ID 3) moving to location 5014, 5986.
 Rover (ID 3) moving to location 0, 0.
 Rover (ID 3) at base and docked.
 Rover (ID 6) moving to location 9994, 9697.
@@ -244,6 +245,7 @@ Rover (ID 6) moving to location 7225, 7066.
 Rover (ID 6) moving to location 6966, 6435.
 Rover (ID 6) moving to location 6509, 6136.
 Rover (ID 6) moving to location 6304, 5619.
+Rover (ID 6) moving to location 5900, 5193.
 Rover (ID 6) moving to location 0, 0.
 Rover (ID 6) at base and docked.
 Rover (ID 7) moving to location 7904, 6387.
@@ -268,6 +270,7 @@ Rover (ID 5) moving to location 9119, 6925.
 Rover (ID 5) moving to location 8437, 6221.
 Rover (ID 5) moving to location 7633, 5921.
 Rover (ID 5) moving to location 6819, 5848.
+Rover (ID 5) moving to location 5838, 5002.
 Rover (ID 5) moving to location 0, 0.
 Rover (ID 5) at base and docked.
 Rover (ID 6) deploying...
@@ -325,6 +328,7 @@ Rover (ID 4) moving to location 6025, 5224.
 Rover (ID 4) moving to location 5204, 6187.
 Rover (ID 4) moving to location 5936, 6095.
 Rover (ID 4) moving to location 5637, 5769.
+Rover (ID 4) moving to location 4989, 5060.
 Rover (ID 4) moving to location 0, 0.
 Rover (ID 4) at base and docked.
 Rover (ID 5) scanning.
@@ -379,6 +383,7 @@ Rover (ID 1) moving to location 5075, 5453.
 Rover (ID 1) moving to location 4747, 6440.
 Rover (ID 1) moving to location 5144, 6364.
 Rover (ID 1) moving to location 5960, 5904.
+Rover (ID 1) moving to location 5505, 5695.
 Rover (ID 1) moving to location 0, 0.
 Rover (ID 1) at base and docked.
 Rover (ID 7) moving to location 7886, 6428.
@@ -430,6 +435,7 @@ Rover (ID 2) moving to location 6068, 5586.
 Rover (ID 2) moving to location 5893, 5423.
 Rover (ID 2) moving to location 5497, 4992.
 Rover (ID 2) moving to location 4852, 5223.
+Rover (ID 2) moving to location 5499, 4379.
 Rover (ID 2) moving to location 0, 0.
 Rover (ID 2) at base and docked.
 Rover (ID 3) scanning.
@@ -489,8 +495,10 @@ Rover (ID 7) moving to location 7893, 6441.
 Rover (ID 7) moving to location 7875, 6458.
 Rover (ID 7) moving to location 7270, 5698.
 Rover (ID 7) moving to location 6446, 5096.
+Rover (ID 7) moving to location 5474, 5092.
 Rover (ID 7) moving to location 0, 0.
 Rover (ID 7) at base and docked.
+Reading from rover #4 at 5704, 4872 is 52
 Reading from rover #1 at 5075, 5453 is -66
 Reading from rover #7 at 7893, 6441 is -21
 Reading from rover #3 at 8566, 8812 is -92

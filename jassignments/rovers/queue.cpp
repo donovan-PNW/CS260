@@ -28,7 +28,7 @@ queue::~queue()
 bool queue::isEmpty() const
 {
     bool totesEmpty= false;
-    if((count - 1) == 0)
+    if((count) == 0)
         totesEmpty= true;
     return totesEmpty;
 }
@@ -61,7 +61,7 @@ void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
 resultdata queue::dequeue()
 {
     //OK. Why isn't this just dataPoints[front]; ?
-    resultdata thisDatapoint = dataPoints[front+1];
+    resultdata thisDatapoint = dataPoints[front];
     //std::cout << "BEING PULLED OUT: \n";
     //thisDatapoint.print();
     //std::cout << "AT FRONT = " << front << endl;
