@@ -8,9 +8,6 @@ void dumpStack(stack &s)
     cout << "Dumping the stack" << endl;
     while (!s.isEmpty())
     {
-    //why isn't it working this way?
-	//const coordinates* result = s.pop();
-    //IF THIS DOESN'T WORK TRY JUST GOING NON-POINTER
 	const coordinates result = s.pop();
 	cout << "Value: " << result.x << ", " << result.y << endl;
     }

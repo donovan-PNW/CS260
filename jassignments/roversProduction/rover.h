@@ -19,8 +19,6 @@ class rover
         int yCoordinate;
         int results;
         queue *resultsPointer;
-        queue *experimental;
-        //how do I even IDK
 
 
 
