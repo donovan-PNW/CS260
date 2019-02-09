@@ -33,15 +33,16 @@ bool queue::isEmpty() const
 
 void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
 {
-    std::cout << "BEING FED IN: \n";
     if(count < MAX_ENTRIES)
     {
         back = (back + 1) % MAX_ENTRIES;
         dataPoints[back] = dataPoint;
+        std::cout << "BEING FED IN: \n";
         dataPoint.print();
-        std::cout << "AT BACK = " << back << endl;
-        std::cout << "TOTAL COUNT: " << count << endl;
-    std::cout << endl << endl;
+        std::cout << endl;
+        //std::cout << "AT BACK = " << back << endl;
+        //std::cout << "TOTAL COUNT: " << count << endl;
+        //std::cout << endl << endl;
         count++;
     }
     else
@@ -55,7 +56,8 @@ void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
 //resultdata queue::dequeue()
 resultdata queue::dequeue()
 {
-    resultdata thisDatapoint = dataPoints[front];
+    //OK. Why isn't this just dataPoints[front]; ?
+    resultdata thisDatapoint = dataPoints[front+1];
     std::cout << "BEING PULLED OUT: \n";
     thisDatapoint.print();
     std::cout << "AT FRONT = " << front << endl;

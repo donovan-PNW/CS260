@@ -20,7 +20,7 @@ int main()
 {
     queue q;
 
-    q.enqueue(resultdata(1,1,1,1));
+    q.enqueue(resultdata(4,4,4,4));
     dumpQueue(q);
 
     q.enqueue(resultdata(1,1,1,1));
