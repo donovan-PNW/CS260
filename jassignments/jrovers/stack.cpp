@@ -137,8 +137,11 @@ coordinates stack::peek() const
     //MAKE AN ARRAY[2] FOR THIS?
 }
 
-
-
+//const coordinates& stack::operator=(const coordinates& someCoordinates)
+//{
+//    coordinates returns
+//
+//}
 
 
 

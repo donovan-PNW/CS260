@@ -23,6 +23,7 @@ class stack
         stack(const stack& someStack);
         ~stack();
         const stack& operator=(const stack& someStack);
+        const coordinates& operator=(const coordinates& someCoordinates);
         bool isEmpty() const;
         bool push(const coordinates& newEntry); //,const int& datastuff)
         coordinates pop();

@@ -12,7 +12,11 @@ rover::rover(): ID(0), xCoordinate(0), yCoordinate(0), results(0)
 rover::rover(const int& newID, const int& MAX_RESULTS, queue& theResultqueue)
 {
     ID = newID;
-    resultsPointer = &theResultqueue;
+    //resultsPointer = &theResultqueue;
+    experimental = theResultqueue;
+    xCoordinate = 0;
+    yCoordinate = 0;
+    results = 0;
 }
 
 rover::~rover()
@@ -31,7 +35,8 @@ void rover::move(const int& newX, const int& newY)
     yCoordinate = newY;
     entry.x = xCoordinate;
     entry.y = yCoordinate;
-
+    std::cout << "Rover (" << ID << ") moving to location"
+    << xCoordinate << ", " << yCoordinate << "." << endl;
     roverStack.push(entry);
 }
 
@@ -45,7 +50,8 @@ void rover::corescan()
     thisDatapoint.setYCoordinate(yCoordinate);
     thisDatapoint.setResults(results);
     //TODO: idk EVEN KNOW:w
-    resultsPointer->enqueue(thisDatapoint);
+    experimental.enqueue(thisDatapoint);
+    //resultsPointer->enqueue(thisDatapoint);
 
     
     //resultsPointer->enqueue(thisDatapoint);
@@ -57,15 +63,16 @@ void rover::corescan()
 void rover::dock()
 {
     std::cout << "Rover (" << ID << ") returning to base.";
-    std::cout << "Rover (" << ID << ") moving to location"
-    << xCoordinate << ", " << yCoordinate << "." << endl;
-
+    entry = roverStack.pop();
+    while(!roverStack.isEmpty())
+    {
+        std::cout << "Passing waypoint (" << entry.x << ", " << entry.y << ")" << endl; 
+        entry = roverStack.pop();
+    }
 
     entry.x = 0;
     entry.y = 0;
     roverStack.push(entry);
-    
-
 
     std::cout << "Rover (" << ID << ") at base and docked";
 

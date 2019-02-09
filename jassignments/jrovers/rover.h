@@ -4,9 +4,9 @@
 #include <iostream>
 #include "queue.h"
 #include "stack.h"
+#include "scandata.h"
 
 using namespace std;
-
 
 class rover
 {
@@ -19,6 +19,7 @@ class rover
         int yCoordinate;
         int results;
         queue *resultsPointer;
+        queue experimental;
         //how do I even IDK
 
 

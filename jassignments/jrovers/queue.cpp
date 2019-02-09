@@ -5,18 +5,24 @@
 using namespace std;
 
 
-queue::queue(): front(0), back(MAX_ENTRIES - 1), count(0)
+queue::queue(): front(0), back(1 - 1), count(0)
 {
 }
+
 //PROLLY DON'T NEED THE FIRST ONE
-queue::queue(const int& zMAX_ENTRIES): front(0), back(zMAX_ENTRIES - 1), count(0)
+//
+queue::queue(const int& MAX_ENTRIES): front(0), back(MAX_ENTRIES - 1), count(0)
 {
     
 }
 
+//queue::queue(const queue& otherqueue)
+//{
+//
+//}
+
 queue::~queue()
 {
-    
 }
 
 
@@ -50,7 +56,6 @@ void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
 resultdata queue::dequeue()
 {
     resultdata thisDatapoint = dataPoints[front];
-    //resultdata thisDatapoint = dataPoints[front];
     std::cout << "BEING PULLED OUT: \n";
     thisDatapoint.print();
     std::cout << "AT FRONT = " << front << endl;

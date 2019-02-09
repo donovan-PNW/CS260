@@ -12,27 +12,29 @@
 using namespace std;
 
 //USE THE VALUE FROM IN THE MAIN DRIVER DUDE!
-const int MAX_ENTRIES = 5;
+//FUCK IT! WE'LL DO IT LIVE
+const int MAX_ENTRIES = 128;
 
 class queue
 {
-    private:
-        resultdata dataPoints[MAX_ENTRIES];
-        int front;
-        int back;
-        int count;
 
     public:
-
         queue();
-        queue(const int& MAX_ENTRIES); 
+        queue(const int& MAX_RESULTS); 
         ~queue();
-        queue(const queue& otherqueue)=delete;
+        //queue(const queue& otherqueue)=delete;
         //no need for copy constructor or destructor????
         bool isEmpty() const;
         void enqueue(const resultdata& dataPoint);
         resultdata dequeue();
         void peek() const;
+
+    private:
+        int front;
+        int back;
+        int count;
+        int size;
+        resultdata dataPoints[MAX_ENTRIES]; 
 
 };
 
