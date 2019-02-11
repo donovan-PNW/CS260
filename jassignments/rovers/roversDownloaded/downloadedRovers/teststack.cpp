@@ -8,14 +8,14 @@ void dumpStack(stack &s)
     cout << "Dumping the stack" << endl;
     while (!s.isEmpty())
     {
-	const coordinates result = s.pop();
-	cout << "Value: " << result.x << ", " << result.y << endl;
+	const stack_entry* result = s.pop();
+	cout << "Value: " << result->x << ", " << result->y << endl;
     }
 }
 
 void pushHelper(stack &s,int x, int y)
 {
-    coordinates entry;
+    stack_entry entry;
 
     entry.x = x;
     entry.y = y;
@@ -24,9 +24,8 @@ void pushHelper(stack &s,int x, int y)
 
 int main()
 {
-    stack s;
-    //stack s(5);
-    coordinates entry;
+    stack s(5);
+    stack_entry entry;
 
     pushHelper(s,1,1);
     dumpStack(s);

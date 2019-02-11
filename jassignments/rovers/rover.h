@@ -18,16 +18,16 @@ class rover
         int xCoordinate;
         int yCoordinate;
         int results;
+        int count = 0;
         queue *resultsPointer;
-        queue *experimental;
-        //how do I even IDK
 
 
 
     public:
 
         rover();
-        rover(const rover& otherRover);
+        rover(const rover& otherRover)=delete;
+        rover operator=(rover& otherRvover)=delete;
         rover(const int& ID, const int& MAX_RESULTS, queue& resultqueue);
         ~rover();
         void deploy();

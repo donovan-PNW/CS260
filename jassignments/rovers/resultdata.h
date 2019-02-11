@@ -19,7 +19,6 @@ class resultdata
     public:
 
         resultdata();
-        //maybe fix this later if I feel like it?
         resultdata(const resultdata& otherResultdata);
         resultdata(int newRoverID, int newXCoordinate, int newYCoordinate, int newResults);
         ~resultdata();

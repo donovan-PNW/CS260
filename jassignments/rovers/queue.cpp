@@ -9,25 +9,13 @@ queue::queue(): front(0), back(1 - 1), count(0)
 {
 }
 
-//PROLLY DON'T NEED THE FIRST ONE
 queue::queue(const int& MAX_RESULTS): front(0), back(MAX_RESULTS - 1), count(0), maxSize(MAX_RESULTS)
 {
-    //testArray = new int[MAX_RESULTS];
     dataPoints = new resultdata[MAX_RESULTS];
     
 
 
-    //for(int i= 0; i<MAX_RESULTS; i++)
-    //{
-    //    resultdata initData();
-    //    resultdata[i] = initData;
-    //    
-    //}
 }
-//queue::queue(const queue& otherqueue)
-//{
-//
-//}
 
 queue::~queue()
 {
@@ -43,7 +31,7 @@ bool queue::isEmpty() const
     return totesEmpty;
 }
 
-void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
+void queue::enqueue(const resultdata& dataPoint)
 {
     if(count < maxSize)
     {
@@ -59,41 +47,23 @@ void queue::enqueue(const resultdata& dataPoint)//resultdata& dataPoint)
         //std::cout << endl << endl;
         count++;
     }
-    else
-    {
-        std::cout << "queue full! Cannot accept any extra data points until items at the front of the queue are dequeued." << endl;
-    }
-   
 }
 
-//OR JUST VOID FUNCTION AND CALL PRINT BEFORE DELETING??
-//resultdata queue::dequeue()
 resultdata queue::dequeue()
 {
-    //OK. Why isn't this just dataPoints[front]; ?
     resultdata thisDatapoint = dataPoints[front];
     //std::cout << "BEING PULLED OUT: \n";
     //thisDatapoint.print();
     //std::cout << "AT FRONT = " << front << endl;
     //std::cout << "TOTAL COUNT: " << count << endl;
-    //if(!isEmpty())
-    //{
-    front = (front+1) % maxSize;
-    count--;
-    //}
+    if(!isEmpty())
+    {
+        front = (front+1) % maxSize;
+        count--;
+    }
     return thisDatapoint;
 }
 
-void queue::printah() const
-{
-    int frontah = front;
-    while(frontah <= count)
-    {
-        dataPoints[frontah].print();
-        std::cout << "frontah: " << frontah << "diana" << endl;
-        frontah++;
-    }
-}
 
 
 

@@ -11,6 +11,7 @@ using namespace std;
 
 struct coordinates
 {
+    //TODO delet this 0
     int x = 0;
     int y = 0;
 };
@@ -24,18 +25,22 @@ class stack
         const stack& operator=(const stack& someStack);
         const coordinates& operator=(const coordinates& someCoordinates);
         bool isEmpty() const;
-        bool push(const coordinates& newEntry); 
+        bool push(const coordinates& newEntry); //,const int& datastuff)
         coordinates pop();
-        //coordinates peek() const;
+        //make new datatype!! or do a waypoint.peek() thing
+        coordinates peek() const;
+        //TODO: UNNEDED
+        int peekY() const;
 
     private:
         struct waypoint
         {
             coordinates thisWaypoint;
             waypoint * next;
+            waypoint * back;
         };
-        waypoint * topItem;
-        int steps;
+            waypoint * topItem;
+            int steps;
 
 };
 

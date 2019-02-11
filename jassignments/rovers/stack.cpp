@@ -9,7 +9,6 @@ stack::stack() : topItem(nullptr), steps(0)
 
 stack::stack(const stack& someStack)
 {
-    //waypoint* originalChain = someStack.topItem;
     if(someStack.topItem == nullptr)
     {
         topItem=nullptr; 
@@ -18,15 +17,9 @@ stack::stack(const stack& someStack)
     {
         topItem = new waypoint;
         assert(topItem != nullptr);
-        //would REALLY like this to be an array of 2. needs pointer to pointer though?
-        
         topItem->thisWaypoint = someStack.topItem->thisWaypoint;
-        
         waypoint* currentLocation = topItem;
         waypoint* sourceNode = someStack.topItem->next;
-        //I don't need this next pointer, but I might need to set up a back one.
-        //waypoint* next = someStack.topItem->next;
-        //waypoint* back = nullptr;
         while(sourceNode != nullptr)
         {
             currentLocation->next = new waypoint;
@@ -49,7 +42,7 @@ const stack& stack::operator= (const stack& someStack)
     else
     {
         waypoint * currentLocation = topItem;
-        while(topItem);
+        while(topItem)
         {
             currentLocation = currentLocation->next;
             delete topItem;
@@ -84,16 +77,8 @@ const stack& stack::operator= (const stack& someStack)
 
 stack::~stack()
 {
-    //IT'S ACTUALLY THIS ACCORDING TO BOOK
-    //while(!isEmpty())
-    //pop();
-    waypoint * currentLocation = topItem;
-    while(topItem)
-    {
-        currentLocation = topItem->next;
-        delete topItem;
-        topItem = currentLocation;
-    }
+    while(!isEmpty())
+        pop();
 }
 
 bool stack::isEmpty() const
@@ -119,6 +104,9 @@ bool stack::push(const coordinates& newEntry)
 coordinates stack::pop()
 {
     coordinates theseCoordinates;
+    theseCoordinates.x=0;
+    theseCoordinates.y=0;
+
     if(!isEmpty())
     {
         theseCoordinates = topItem->thisWaypoint;
@@ -126,7 +114,6 @@ coordinates stack::pop()
         {
             waypoint * backFrom = topItem;
             topItem = topItem->next;
-            backFrom->next = nullptr;
             delete backFrom;
             backFrom = nullptr;
         }
@@ -137,23 +124,16 @@ coordinates stack::pop()
         }
 
     }
-    //else
-    //{
-    //    delete topItem;
-    //    topItem = nullptr;
-    //    topItem->next = nullptr;
-    //}
     return theseCoordinates;
 }
 
 
 
-coordinates stack::peek() const
-{
-    assert(!isEmpty());
-    return topItem->thisWaypoint;
-    //MAKE AN ARRAY[2] FOR THIS?
-}
+//coordinates stack::peek() const
+//{
+//    assert(!isEmpty());
+//    return topItem->thisWaypoint;
+//}
 
 //const coordinates& stack::operator=(const coordinates& someCoordinates)
 //{

@@ -2,7 +2,6 @@
 #include <fstream>
 #include <cstring>
 #include "rover.h"
-#include "resultdata.h"
 
 using namespace std;
 
@@ -68,9 +67,13 @@ int main(int argc, char** argv) {
     }
 
     // print report
+    int testNumber = 10;
+    //while(testNumber >= 0){
     while (!resultqueue.isEmpty()) {
 	resultdata data = resultqueue.dequeue();
+    //std::cout << "yo" << endl;
 	data.print();
+    testNumber--;
     }
 
     // Free up memory for the allocated rovers
