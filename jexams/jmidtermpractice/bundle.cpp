@@ -19,6 +19,8 @@ int  findSmallest(node* head); //ALL RECURSIVE!! find smallest element of given 
 int removeLargest(node* head); //find largest element and removes element
 int  countX(node* head, int x); //counts and returns number of times that x appears on list
 void copyOdd(node* source, node** destination); //copies only odd numbers to a new linked list
+void everyOtherNode(node* head);
+void everyOtherNodeReit(node* head);
 
 node * head    = nullptr;
 node * tail    = nullptr;
@@ -32,6 +34,8 @@ int main()
     print();
     cout << "The smallest number in this list is: " << findSmallest(head) << endl;
     cout << "largest in list: " << removeLargest(head) << endl;
+    cout << "every other node: " << endl;
+    everyOtherNodeReit(head);
     destruct();
 
     return 0;
@@ -219,8 +223,65 @@ int findSmallest(node* head) //is just find largest for this one
     }
     
     return small; 
-
 }
+
+int counter = 0;
+void everyOtherNode(node* head)
+{
+    if(head==nullptr){
+        cout << endl;
+        return;
+    }
+
+    if(counter % 2 != 0)
+    {
+        cout << head->data << " ";
+    }
+    counter++;
+    head = head->next;
+    everyOtherNode(head);
+}
+
+//NODE YOU NEED AN IF FOR HEAD==NULLPRT AND ANOTHER IFF FOR HEAD->NEXT == NULLPTR
+//BECAUSE ODDS AND EVENS ACT DIFFERENTLY
+void everyOtherNodeReit(node* head)
+{
+    if(head==nullptr){
+        cout << endl << endl;;
+        return;
+    }
+    cout << head->data << " ";
+    if(head->next != nullptr)
+    {
+        everyOtherNodeReit(head->next->next);
+    }
+    else
+        cout << endl << endl;
+    cout << head->data << " ";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
