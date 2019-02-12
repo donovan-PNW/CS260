@@ -16,7 +16,7 @@ void build();
 void print();
 void destruct();
 int  findSmallest(node* head); //ALL RECURSIVE!! find smallest element of given list
-void removeLargest(node* head); //find largest element and removes element
+int removeLargest(node* head); //find largest element and removes element
 int  countX(node* head, int x); //counts and returns number of times that x appears on list
 void copyOdd(node* source, node** destination); //copies only odd numbers to a new linked list
 
@@ -31,6 +31,7 @@ int main()
     build();
     print();
     cout << "The smallest number in this list is: " << findSmallest(head) << endl;
+    cout << "largest in list: " << removeLargest(head) << endl;
     destruct();
 
     return 0;
@@ -39,10 +40,10 @@ int main()
 void build()
 {
     srand(time(nullptr));
-    for(int index = 0; index < 100; index++)
+    for(int index = 0; index < 5; index++)
     {
         newNode = new node;
-        newNode->data = rand() % 100 + 1;
+        newNode->data = rand() % 550 + 1;
         newNode->previous = nullptr;
         newNode->next = nullptr;
         if(!head)
@@ -135,44 +136,91 @@ void destruct()
 
 
 
-int runningSmallest = 255; //THESE ARE OUTSIDE THE FUNCTION!!!!
-int thisNumber = 255;
-//TODO CAN THIS BE A VOID????? OTHERWISE I NEED MORE THAN ONE RETURN 
+
+//WAYYYYY MORE EFFICIENT //TODO CAN THIS BE A VOID????? OTHERWISE I NEED MORE THAN ONE RETURN 
 //VOID VOID VOID VOID VOID VOID VOID VOID
 //VOID VOID VOID VOID VOID VOID VOID VOID
 //VOID VOID VOID VOID VOID VOID VOID VOID
-//ALSO WHY THE FUCK ISNT' THIS FUCKING WORKING AS A GOD DAMNED INT GOD DAMN IT
 //CAN i HAVE THOSE NUMBERS OUTSIDE THE FUNCTION?
+//IS THERE ANY WAY TO KEEP THESE INTS IN THE FUNCTION???
 
-int findSmallest(node* head) //ALL RECURSIVE!! find smallest element of given list
+//int runningSmallest = 255; //THESE ARE OUTSIDE THE FUNCTION!!!!
+//int thisNumber = 255;
+//int findSmallest(node* head) //ALL RECURSIVE!! find smallest element of given list
+//{
+//    thisNumber = head->data; //get data as number IMMEDIATELY
+//    if(head->next == nullptr){
+//        thisNumber = head->data;
+//        if(thisNumber < runningSmallest)
+//            runningSmallest = thisNumber;
+//
+//        //cout << "done! Absolute smallest: " << runningSmallest << endl; //base case!
+//        return runningSmallest;
+//    }
+//    else
+//    {
+//        //cout << "thisNumber: " << thisNumber << " ";
+//        if(thisNumber < runningSmallest)
+//            runningSmallest = thisNumber;
+//        //cout << "runningSmallest: " << runningSmallest << endl;
+//        head = head->next;
+//        thisNumber = findSmallest(head); //thisNumber becomes recursive function's output
+//    }
+//}
+
+
+int bigly = 0;
+int removeLargest(node* head) //is just find largest for this one
 {
-    thisNumber = head->data; //get data as number IMMEDIATELY
     if(head->next == nullptr){
-        thisNumber = head->data;
-        if(thisNumber < runningSmallest)
-            runningSmallest = thisNumber;
-
-        //cout << "done! Absolute smallest: " << runningSmallest << endl; //base case!
-        return runningSmallest;
+        if(head->data > bigly) 
+        {
+            bigly = head->data; 
+        }
+        return head->data;
     }
+
     else
     {
-        //cout << "thisNumber: " << thisNumber << " ";
-        if(thisNumber < runningSmallest)
-            runningSmallest = thisNumber;
-        //cout << "runningSmallest: " << runningSmallest << endl;
+        if(!head->previous)
+            bigly = head->data;
         head = head->next;
-        thisNumber = findSmallest(head); //thisNumber becomes recursive function's output
+        if(head->data > removeLargest(head))
+        {
+            bigly = head->data; 
+        }
     }
+     
+    return bigly; 
 
 }
 
 
+int small = 255;
+int findSmallest(node* head) //is just find largest for this one
+{
+    if(head->next == nullptr){
+        if(head->data < small) 
+        {
+            small = head->data; 
+        }
+        return head->data;
+    }
 
+    else
+    {
+        if(!head->previous)
+            small = head->data;
+        head = head->next;
+        if(head->data < findSmallest(head))
+        {
+            small = head->data; 
+        }
+    }
+    
+    return small; 
 
-
-
-
+}
 
 
 
