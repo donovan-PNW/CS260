@@ -20,7 +20,6 @@ int removeLargest(node* head); //find largest element and removes element
 int  countX(node* head, int x); //counts and returns number of times that x appears on list
 void copyOdd(node* source, node** destination); //copies only odd numbers to a new linked list
 void everyOtherNode(node* head);
-void everyOtherNodeReit(node* head);
 
 node * head    = nullptr;
 node * tail    = nullptr;
@@ -32,10 +31,13 @@ int main()
 {
     build();
     print();
-    cout << "The smallest number in this list is: " << findSmallest(head) << endl;
-    cout << "largest in list: " << removeLargest(head) << endl;
-    cout << "every other node: " << endl;
-    everyOtherNodeReit(head);
+    //cout << "The smallest number in this list is: " << findSmallest(head) << endl;
+    //cout << "largest in list: " << removeLargest(head) << endl;
+    //cout << "every other node: " << endl;
+    //everyOtherNode(head);
+    cout << "Number of times 3 occurred in list: "
+    << countX(head, 3) << endl;
+
     destruct();
 
     return 0;
@@ -44,10 +46,10 @@ int main()
 void build()
 {
     srand(time(nullptr));
-    for(int index = 0; index < 5; index++)
+    for(int index = 0; index < 8; index++)
     {
         newNode = new node;
-        newNode->data = rand() % 550 + 1;
+        newNode->data = rand() % 5 + 1;
         newNode->previous = nullptr;
         newNode->next = nullptr;
         if(!head)
@@ -82,7 +84,7 @@ void print()
     }
     cout << endl << endl;
 
-    index = 1;
+//    index = 1;
 //    cout << "Tail to head: \n\n ";
 //    for(current = tail; current; current = current->previous)
 //    {
@@ -200,51 +202,74 @@ int removeLargest(node* head) //is just find largest for this one
 }
 
 
-int small = 255;
-int findSmallest(node* head) //is just find largest for this one
+//int small = 255;
+//int findSmallest(node* head) //is just find largest for this one
+//{
+//    if(head->next == nullptr){
+//        if(head->data < small) 
+//        {
+//            small = head->data; 
+//        }
+//        return head->data;
+//    }
+//
+//    else
+//    {
+//        if(!head->previous)
+//            small = head->data;
+//        head = head->next;
+//        if(head->data < findSmallest(head))
+//        {
+//            small = head->data; 
+//        }
+//    }
+//    
+//    return small; 
+//}
+
+
+int findSmallest(node* head)
 {
-    if(head->next == nullptr){
-        if(head->data < small) 
-        {
-            small = head->data; 
-        }
+    int thisNumber = head->data;
+    if(head->next == nullptr)
+    {
         return head->data;
     }
-
     else
     {
-        if(!head->previous)
-            small = head->data;
-        head = head->next;
-        if(head->data < findSmallest(head))
-        {
-            small = head->data; 
-        }
-    }
-    
-    return small; 
-}
-
-int counter = 0;
-void everyOtherNode(node* head)
-{
-    if(head==nullptr){
-        cout << endl;
-        return;
+        int nextNumber = findSmallest(head->next);
+        int winner;
+        if(thisNumber < nextNumber) 
+            winner = thisNumber;
+        else
+            winner = nextNumber;
+        return winner;
     }
 
-    if(counter % 2 != 0)
-    {
-        cout << head->data << " ";
-    }
-    counter++;
-    head = head->next;
-    everyOtherNode(head);
 }
+
+
+//SEE NEXT FUNCTION BELOW
+//int counter = 0;
+//void everyOtherNode(node* head)
+//{
+//    if(head==nullptr){
+//        cout << endl;
+//        return;
+//    }
+//
+//    if(counter % 2 != 0)
+//    {
+//        cout << head->data << " ";
+//    }
+//    counter++;
+//    head = head->next;
+//    everyOtherNode(head);
+//}
 
 //NODE YOU NEED AN IF FOR HEAD==NULLPRT AND ANOTHER IFF FOR HEAD->NEXT == NULLPTR
 //BECAUSE ODDS AND EVENS ACT DIFFERENTLY
-void everyOtherNodeReit(node* head)
+void everyOtherNode(node* head)
 {
     if(head==nullptr){
         cout << endl << endl;;
@@ -253,11 +278,34 @@ void everyOtherNodeReit(node* head)
     cout << head->data << " ";
     if(head->next != nullptr)
     {
-        everyOtherNodeReit(head->next->next);
+        everyOtherNode(head->next->next);
     }
     else
         cout << endl << endl;
     cout << head->data << " ";
+}
+
+
+
+
+int countX(node* head, int inNumber)
+{
+    //IT SAYS VALTORETURN ISN'T USED BUT IT IS
+    int valToReturn = 0;
+    if(head != nullptr){
+        if(head->data == inNumber)
+        {
+            valToReturn = countX(head->next, inNumber) + 1;
+            cout << valToReturn << " ";
+        }
+        else
+        {
+            valToReturn = countX(head->next, inNumber);
+            cout << "Z ";
+        }
+
+    }
+    return valToReturn;
 }
 
 
