@@ -16,7 +16,9 @@ void build();
 void print();
 void destruct();
 int  findSmallest(node* head); //ALL RECURSIVE!! find smallest element of given list
-int removeLargest(node* head); //find largest element and removes element
+int  findLargest(node* head); //ALL RECURSIVE!! find smallest element of given list
+node *removeLargest(node* current, node* topNode, int champion); //find largest element and removes element
+//node* removeLargest(node* head); //find largest element and removes element
 int  countX(node* head, int x); //counts and returns number of times that x appears on list
 void copyOdd(node* source, node** destination); //copies only odd numbers to a new linked list
 void everyOtherNode(node* head);
@@ -30,13 +32,20 @@ int smallNo = 255;
 int main()
 {
     build();
+    tail->data = 11;
     print();
     //cout << "The smallest number in this list is: " << findSmallest(head) << endl;
-    //cout << "largest in list: " << removeLargest(head) << endl;
+    //cout << "largest in list: " << findLargest(head) << endl;
+    node *deletePointer = removeLargest(head, head, 0);
+    cout << "node to delete: " << deletePointer << endl; 
+    print();
+
+    //int deleteNumber = deletePointer->data; 
+    //cout << "largest to remove: " << deleteNumber << endl;
     //cout << "every other node: " << endl;
     //everyOtherNode(head);
-    cout << "Number of times 3 occurred in list: "
-    << countX(head, 3) << endl;
+    //cout << "Number of times 3 occurred in list: "
+    //<< countX(head, 3) << endl;
 
     destruct();
 
@@ -84,20 +93,20 @@ void print()
     }
     cout << endl << endl;
 
-//    index = 1;
-//    cout << "Tail to head: \n\n ";
-//    for(current = tail; current; current = current->previous)
-//    {
-//        cout <<"|";
-//        cout << fixed;
-//        cout << left;
-//        cout << setw(3);
-//        cout << current->data << " "; 
-//
-//        if(index % 10 == 0 && index != 100) //<--sloppy
-//            cout << endl << " ";
-//        index++;
-//    }
+    index = 1;
+    cout << "Tail to head: \n\n ";
+    for(current = tail; current; current = current->previous)
+    {
+        cout <<"|";
+        cout << fixed;
+        cout << left;
+        cout << setw(3);
+        cout << current->data << " "; 
+
+        if(index % 10 == 0 && index != 100) //<--sloppy
+            cout << endl << " ";
+        index++;
+    }
 //    cout << endl << endl;
 }
 
@@ -175,31 +184,31 @@ void destruct()
 //}
 
 
-int bigly = 0;
-int removeLargest(node* head) //is just find largest for this one
-{
-    if(head->next == nullptr){
-        if(head->data > bigly) 
-        {
-            bigly = head->data; 
-        }
-        return head->data;
-    }
-
-    else
-    {
-        if(!head->previous)
-            bigly = head->data;
-        head = head->next;
-        if(head->data > removeLargest(head))
-        {
-            bigly = head->data; 
-        }
-    }
-     
-    return bigly; 
-
-}
+//int bigly = 0;
+//int removeLargest(node* head) //is just find largest for this one
+//{
+//    if(head->next == nullptr){
+//        if(head->data > bigly) 
+//        {
+//            bigly = head->data; 
+//        }
+//        return head->data;
+//    }
+//
+//    else
+//    {
+//        if(!head->previous)
+//            bigly = head->data;
+//        head = head->next;
+//        if(head->data > removeLargest(head))
+//        {
+//            bigly = head->data; 
+//        }
+//    }
+//     
+//    return bigly; 
+//
+//}
 
 
 //int small = 255;
@@ -290,7 +299,6 @@ void everyOtherNode(node* head)
 
 int countX(node* head, int inNumber)
 {
-    //IT SAYS VALTORETURN ISN'T USED BUT IT IS
     int valToReturn = 0;
     if(head != nullptr){
         if(head->data == inNumber)
@@ -308,30 +316,113 @@ int countX(node* head, int inNumber)
     return valToReturn;
 }
 
+int findLargest(node* thisNode)
+{
+    int biggestNumber = 0;
+    if(thisNode != nullptr)
+    {
+        int nextNumber = findLargest(thisNode->next);
+        if(thisNode->data > nextNumber)
+            biggestNumber = thisNode->data;
+        else
+            biggestNumber = nextNumber;
+    }
+    return biggestNumber;
+
+}
+
+
+
+//node* removeLargest(node* thisNode)
+//{
+//    node* biggest = head;
+//    if(thisNode != nullptr)
+//    {
+//        //int nextNumber = removeLargest(thisNode->next);
+//        //cout << "thisNumber: " << thisNode->data << " nextNumber: " << nextNumber << endl;
+//        node* runningNode = removeLargest(thisNode->next);  
+//        if(thisNode->data > runningNode->data)
+//        {
+//            biggest = thisNode;
+//            cout << &thisNode << endl;
+//            cout << &biggest << endl;
+//            cout << "New high score: ";
+//            cout << "biggestNode data: " <<  thisNode->data << endl;
+//        }
+//        else
+//            biggest = runningNode; 
+//            //biggestNumber = nextNumber;
+//    }
+//
+//    //cout << &biggest;
+//    return biggest;
+//    //return biggest-> data;
+//
+//}
 
 
 
 
+//OR: TRY int removeLargest(node* thisNode, int largestNo)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+node* removeLargest(node* current, node* topNode, int champion)
+{
+    if(current == nullptr)
+    {
+        cout << "final big number:   " << champion << endl;
+        cout << "all time top:       " << topNode<< endl;    
+        node* throwAway = topNode;
+        if(!topNode->previous)
+        {
+            cout << "beginning" << endl; 
+            node* extraThrowaway = topNode;
+            head = head->next;
+            delete topNode;
+            head->previous = nullptr;
+        }
+        if(!topNode->next)
+        {
+            cout << "end" << endl; 
+            topNode->previous->next = nullptr;
+            tail = topNode->previous;
+            delete topNode;
+            topNode = nullptr;
+        }
+        else if(topNode->previous && topNode->next)
+        {
+            cout << "middle: " << endl;
+            //node* throwAway = topNode;
+            topNode->previous->next = topNode->next;
+            topNode->next->previous = topNode->previous;
+            delete topNode;
+            topNode = nullptr;
+            //cout << "middle: " << endl;
+            //node * current = topNode->previous;
+            //node *extraFuckingNodeBecauseWhytheFuckNot = topNode;
+            //topNode = topNode->next;
+            //delete extraFuckingNodeBecauseWhytheFuckNot;
+            //extraFuckingNodeBecauseWhytheFuckNot = nullptr;
+            /////topNode->next->previous = topNode->previous;
+            /////delete topNode;
+            /////topNode = nullptr;
+        }
+        return throwAway;
+    }
+    else
+    {
+        cout << "this number:  " << current->data << endl;
+        if(current->data > champion)
+        {
+            champion = current->data;
+            topNode = current;
+            cout << "this address: " << current << endl;
+            cout << "topNode:      " << topNode << endl;
+            removeLargest(current->next, topNode, champion);
+        }
+        else
+            removeLargest(current->next, topNode, champion);
+    }
+}
 
 
 
