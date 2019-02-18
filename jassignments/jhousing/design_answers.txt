@@ -1,0 +1,54 @@
+=== Design and Implementation Plan Questions ===
+
+Below are a few questions about how you will design your program and your
+implementation plan. It is crucial to have a reasonable design and
+implementation plan before you start your program. Without this, success is
+unlikely. The following questions will help guide you in your thinking and
+raise some important questions and issues. There is no single "right" answer
+to each of the questions but there are some "wrong" answers. Some designs and
+plans are better than others. The point here is for you to think about what
+you're going to do.
+
+Make a copy of this file and edit it, adding your answers then turn this
+document in.
+
+----------------------------------------------------------------------
+
+1) The instructions.txt document lists a minimum set of classes that you need
+to have in your program: family, familymgr, hashtable. How will each of these
+classes relate to each other. For example, will some of these classes contain
+other classes as data members? Will some of these classes call methods on the
+other classes?
+
+  familymgr -- hashtable: 
+
+   Familymgr is the the closest part of the program to an end-user, and so every piece of data going to it should (ideally) be in a neat package when it arrives. In my design, hashtable will be the "hub" class as it will take input from familymgr, sort it and store it, and then return that info back to familymgr when called. Therefore, familymgr will have to be able to access hashtable functions when adding and printing data.
+
+  familymgr -- family: 
+  
+    Compared to the other classes, family is a simple data storage class that holds information on idividual families -- it is a single "unit" of data. familymgr will want to be able to create a new family object for each [actual] family and then pass it on to hashtable to store in the list. So it will need some simple create/edit methods. Family will be accessible bhy familymgr and will "make" each family, but will pass it on to hashtable to store (and so it will not hang onto more than one at a time Family will be accessible bhy familymgr and will "make" each family, but will pass it on to hashtable to store (and so it will not hang onto more than one at a time)) 
+
+  family -- hashtable: 
+  
+    This may change, but as for now I'm treating the family class as inert -- it is there to take data when created then give it back later. The hash table, however, will need to be able to access all of each family's traits (ID, name, size, and friends) in order to figure out where to put that family. so even though family won't call anything for hashtable, it will be a data member for hashtable (with many instances of it running).
+
+2) What will be the data type for the array elements in your hashtable? I am
+asking for an actual data type, not just a description of the kind of data
+that will be in your array.
+
+If I'm reading this question right: the data type will be the family class. Each "item" in the hashtable will be an individual family. They'll be sorted by the hashtable class by their unique family ID.
+
+
+3) Your familymgr class should be written in such a way that you could replace
+the hashtable with a linked list (if you had a linked list that held family
+data) very easily. How are you going to design your program so that this
+change could be made quickly?
+
+Assuming that the linked list has methods that familymgr has access to are roughly the same as they are for the hashtable, I would have the linkedlist class be responsible for sorting and storing the data (so that it's completely out of familymgr's hair). Familymgr will be responsible for creating each new instance of a family class. Then it will send it to the hash or list class, which will take care of the database-like functions in-house. Then, when called, the hash or list class will be able to produce family data directly, so that when familymgr asks it for information it can get that information without having to give further instructions or "drive" other processes.  
+
+4) What is your testing strategy? Has your testing strategy changed since the
+first programming assignment (martian_weather) and if so, how?
+
+I'm planning on compiling and running the program every step of the way, typically with a very small data set copied directly from the supplied input file. This helps demonstrate that everything is at least working (program accepts input, hash table puts that information somewhere, program can recognize one family friend etc) before moving on to implement the next thing. I have largely used this as a testing strategy but I'm going to be more stringent this time -- during rovers, I got the output exactly where I wanted it and then did my first leak check in since early in the project. I had a great time putting cout's in every other line of my program to debug it until I tracked it down!
+
+
