@@ -10,26 +10,32 @@ class family
         char *FID;//[20];
         char *familyName;//[20];
         int memberCount;
-        char *familyFriends;
+        char *familyFriend1;
+        char *familyFriend2;
+        char *familyFriend3;
 
     public:
         family();
-        family(const char* FID, const char* name, const int& members);
+        family(const char* newFID, const char* newName, const int& newMembers);
         //NOOOO YOU HAVE TO DO THESE I THINK
-        family(const family& otherFamily)=delete;
-        family operator=(family& otherFamily)=delete;
+        family(const family& otherFamily);
+        const family& operator=(const family& otherFamily);
+        friend std::ostream& operator<<(std::ostream& out, const family& thisFamily);
         ~family();
 
-        char* getFID();
-        char* getFamilyName();
-        int getMemberCount();
-        char* getFamilyFriends();
+        const char* getFID();
+        const char* getFamilyName();
+        const int getMemberCount();
+        const char* getFamilyFriends();
 
 
-        void addFriend(const char* friendFID);
+        bool addFriend(const char* friendFID);
         void setFID(const char* familyID);
-        void setFamilyName(const char* familyName);
+        void setFamilyName(const char* newFamilyName);
         void setMemberCount(const int& howMany);
+        void setF1(const char* friend1);
+        void setF2(const char* friend2);
+        void setF3(const char* friend3);
         
 };
 

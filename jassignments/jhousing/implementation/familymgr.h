@@ -16,7 +16,7 @@ class familymgr
         familymgr();
         familymgr(familymgr& otherFamilyMgr)=delete;
         familymgr operator=(familymgr& otherFamilyMgr)=delete;
-        family addFamily(const family* famPtr);
+        void addFamily(const family famPtr);
         void printAllFamilies();
         void printSmallCircle(const char* FID);
 

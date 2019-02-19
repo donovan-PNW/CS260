@@ -7,7 +7,7 @@ void addFriendHelper(family& fam,const char* myfriend)
 {
     if (!fam.addFriend(myfriend))
     {
-	cout << "Too many friends for " << fam.getId() << endl;
+	cout << "Too many friends for " << fam.getFID() << endl;
     }
 }
 

@@ -9,6 +9,7 @@ class hashTable
 
     private:
         family* tableHead;
+        int tableSize;
         //hmmmm
 
     public:
