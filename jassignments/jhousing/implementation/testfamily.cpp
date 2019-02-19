@@ -5,7 +5,8 @@ using namespace std;
 
 void addFriendHelper(family& fam,const char* myfriend)
 {
-    if (!fam.addFriend(myfriend))
+    fam.addFriend("Friend001");
+    if (true)//!fam.addFriend(myfriend))
     {
 	cout << "Too many friends for " << fam.getFID() << endl;
     }
@@ -25,14 +26,14 @@ int main()
     cout << fam;
 
 
-    addFriendHelper(fam,"Friend002");
-    cout << fam;
+    //addFriendHelper(fam,"Friend002");
+    //cout << fam;
 
-    addFriendHelper(fam,"Friend003");
-    cout << fam;
+    //addFriendHelper(fam,"Friend003");
+    //cout << fam;
 
-    addFriendHelper(fam,"Friend004");
-    cout << fam;
+    //addFriendHelper(fam,"Friend004");
+    //cout << fam;
 
     return(0);
 }
