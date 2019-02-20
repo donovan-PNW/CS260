@@ -5,11 +5,13 @@ using namespace std;
 
 void addFriendHelper(family& fam,const char* myfriend)
 {
+    
+    cout << "THITISsss " << endl;
     fam.addFriend("Friend001");
-    if (true)//!fam.addFriend(myfriend))
-    {
-	cout << "Too many friends for " << fam.getFID() << endl;
-    }
+    //if (true)//!fam.addFriend(myfriend))
+    //{
+        cout << "Too many friends for me ";//<< fam.getFID() << endl;
+    //}
 }
 
 int main()
@@ -20,7 +22,7 @@ int main()
 
     family fam("Test001","Test",3);
     cout << fam;
-
+    cout << "DICKS" << endl;
 
     addFriendHelper(fam,"Friend001");
     cout << fam;

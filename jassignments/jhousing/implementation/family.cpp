@@ -29,11 +29,16 @@ family::family(const char* newFID, const char* newName, const int& newMembers):
     familyFriend2(nullptr),
     familyFriend3(nullptr)
 {
-    std::cout << newFID << endl;
-    std::cout << "SOUP7" << endl;
-    setFID(newFID);
-    setFamilyName(newName);
-    setMemberCount(newMembers);
+    //std::cout << newFID << endl;
+    //std::cout << "SOUP7" << endl;
+    FID = new char[strlen(newFID)+1];
+    strcpy(FID, newFID);
+    familyName = new char[strlen(newName)+1];
+    strcpy(familyName, newName);
+    memberCount = newMembers;
+    //setFID(newFID);
+    //setFamilyName(newName);
+    //setMemberCount(newMembers);
 }
 
 family::family(const family& otherFamily)
@@ -81,7 +86,7 @@ const family& family::operator=(const family& otherFamily)
 }
 
 
-ostream& operator<<(std::ostream& out, const family& thisFamily)
+ostream& operator<<(ostream& out, const family& thisFamily)
 {
     out << "here's yer family dumbass" << endl;
     out << thisFamily.FID << endl << thisFamily.familyName << endl;
@@ -125,14 +130,24 @@ void family::setMemberCount(const int& howMany)
 bool family::addFriend(const char* friendFID)
 {
     bool success = true;
-    if(strlen(this->familyFriend1) == 0)
-        strcpy(this->familyFriend1, friendFID);
-    else if(strlen(this->familyFriend2) == 0)
-        strcpy(this->familyFriend2, friendFID);
-    else if(strlen(this->familyFriend3) == 0)
-        strcpy(this->familyFriend3, friendFID);
-    else
-        success = false;
+    std::cout << "AAAH" << endl;
+    if(!familyFriend1)
+    {
+        familyFriend1 = new char[strlen(friendFID) + 1];
+        strcpy(familyFriend1, friendFID);
+    }
+    if(familyFriend1)
+        std::cout << familyFriend1 << "HI" << endl;
+    //if(familyFriend1 != nullptr)
+    //{
+        std::cout << "FUCKER" << endl;//strcpy(this->familyFriend1, friendFID);
+    //}
+    //else if(this->familyFriend2 == )
+    //    strcpy(this->familyFriend2, friendFID);
+    //else if(strlen(this->familyFriend3) == 0)
+    //    strcpy(this->familyFriend3, friendFID);
+    //else
+    //    success = false;
 
     return success;
 }
@@ -142,36 +157,6 @@ const char* family::getFID()
 {
     return(this->FID);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
