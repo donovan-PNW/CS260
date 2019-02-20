@@ -90,9 +90,17 @@ ostream& operator<<(ostream& out, const family& thisFamily)
 {
     out << "here's yer family dumbass" << endl;
     out << thisFamily.FID << endl << thisFamily.familyName << endl;
-    out << thisFamily.memberCount << endl; //<< thisFamily.familyFriend1 << " " << thisFamily.familyFriend2 << " " << thisFamily.familyFriend3 << endl;
+    out << thisFamily.memberCount << endl; 
+    if(thisFamily.familyFriend1)
+    {
+        out << thisFamily.familyFriend1 << endl;
+    }
+    if(thisFamily.familyFriend2)
+        out << thisFamily.familyFriend2 << endl;
+    if(thisFamily.familyFriend3)
+        out << thisFamily.familyFriend3 << endl;
 
-    std::cout << "RAR" << endl;
+    out << endl << endl;
     return out;
 }
 
@@ -129,25 +137,29 @@ void family::setMemberCount(const int& howMany)
 
 bool family::addFriend(const char* friendFID)
 {
-    bool success = true;
+    bool success = false;
     std::cout << "AAAH" << endl;
-    if(!familyFriend1)
+    if(!this->familyFriend1)
     {
-        familyFriend1 = new char[strlen(friendFID) + 1];
-        strcpy(familyFriend1, friendFID);
+        std::cout << "NEWFRIEND" << friendFID << endl;
+        this->familyFriend1 = new char[strlen(friendFID) + 1];
+        strcpy(this->familyFriend1, friendFID);
+        std::cout << "FREN " << this->familyFriend1 << endl;
+        success = true;
     }
-    if(familyFriend1)
-        std::cout << familyFriend1 << "HI" << endl;
-    //if(familyFriend1 != nullptr)
-    //{
-        std::cout << "FUCKER" << endl;//strcpy(this->familyFriend1, friendFID);
-    //}
-    //else if(this->familyFriend2 == )
-    //    strcpy(this->familyFriend2, friendFID);
-    //else if(strlen(this->familyFriend3) == 0)
-    //    strcpy(this->familyFriend3, friendFID);
-    //else
-    //    success = false;
+    else if(!familyFriend2)
+    {
+        familyFriend2 = new char[strlen(friendFID) + 1];
+        strcpy(familyFriend2, friendFID);
+        success = true;
+    }
+    else if(!familyFriend3)
+    {
+        familyFriend3 = new char[strlen(friendFID) + 1];
+        strcpy(familyFriend3, friendFID);
+        success = true;
+    }
+    
 
     return success;
 }

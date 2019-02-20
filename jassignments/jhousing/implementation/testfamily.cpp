@@ -6,11 +6,11 @@ using namespace std;
 void addFriendHelper(family& fam,const char* myfriend)
 {
     
-    cout << "THITISsss " << endl;
-    fam.addFriend("Friend001");
-    //if (true)//!fam.addFriend(myfriend))
+    bool isTrue = fam.addFriend(myfriend);
+    cout << "IS THIS FUCKING TRUE GOD DAMN IT" << isTrue << endl;
+    if (!isTrue)
     //{
-        cout << "Too many friends for me ";//<< fam.getFID() << endl;
+        cout << "Too many friends for me \n";//<< fam.getFID() << endl;
     //}
 }
 
@@ -22,20 +22,19 @@ int main()
 
     family fam("Test001","Test",3);
     cout << fam;
-    cout << "DICKS" << endl;
 
     addFriendHelper(fam,"Friend001");
     cout << fam;
 
 
-    //addFriendHelper(fam,"Friend002");
-    //cout << fam;
+    addFriendHelper(fam,"Fri002");
+    cout << fam;
 
-    //addFriendHelper(fam,"Friend003");
-    //cout << fam;
+    addFriendHelper(fam,"end003");
+    cout << fam;
 
-    //addFriendHelper(fam,"Friend004");
-    //cout << fam;
+    addFriendHelper(fam,"Friend004");
+    cout << fam;
 
     return(0);
 }
