@@ -88,34 +88,31 @@ const family& family::operator=(const family& otherFamily)
 
 ostream& operator<<(ostream& out, const family& thisFamily)
 {
-    out << "here's yer family dumbass" << endl;
-    out << thisFamily.FID << endl << thisFamily.familyName << endl;
-    out << thisFamily.memberCount << endl; 
+    out << "Family ID: " << thisFamily.FID << endl;
+    out << "  Name: " << thisFamily.familyName << endl;
+    out << "  Members: " << thisFamily.memberCount << endl; 
+    out << "  Friends: " ;
     if(thisFamily.familyFriend1)
     {
-        out << thisFamily.familyFriend1 << endl;
+        out <<  thisFamily.familyFriend1;
     }
     if(thisFamily.familyFriend2)
-        out << thisFamily.familyFriend2 << endl;
+        out <<  " " << thisFamily.familyFriend2;
     if(thisFamily.familyFriend3)
-        out << thisFamily.familyFriend3 << endl;
+        out <<  " " << thisFamily.familyFriend3;
 
-    out << endl << endl;
+    out << endl;
     return out;
 }
 
 
 void family::setFID(const char* familyID)
 {
-    std::cout << "SOUP*" << endl;
     if(this->FID)
         delete[] this->FID;
 
-
-    std::cout << "SOUP9" << endl;
     this->FID = new char[strlen(familyID)+1];
     strcpy(this->FID, familyID);
-    std::cout << "SOUP1" << endl;
 }
 
 void family::setFamilyName(const char* newFamilyName)
@@ -138,13 +135,10 @@ void family::setMemberCount(const int& howMany)
 bool family::addFriend(const char* friendFID)
 {
     bool success = false;
-    std::cout << "AAAH" << endl;
     if(!this->familyFriend1)
     {
-        std::cout << "NEWFRIEND" << friendFID << endl;
         this->familyFriend1 = new char[strlen(friendFID) + 1];
         strcpy(this->familyFriend1, friendFID);
-        std::cout << "FREN " << this->familyFriend1 << endl;
         success = true;
     }
     else if(!familyFriend2)

@@ -7,7 +7,7 @@ void addFriendHelper(family& fam,const char* myfriend)
 {
     
     bool isTrue = fam.addFriend(myfriend);
-    cout << "IS THIS FUCKING TRUE GOD DAMN IT" << isTrue << endl;
+    cout << "TRUE?" << isTrue << endl;
     if (!isTrue)
     //{
         cout << "Too many friends for me \n";//<< fam.getFID() << endl;
