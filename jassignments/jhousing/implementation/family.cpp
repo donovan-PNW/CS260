@@ -29,26 +29,29 @@ family::family(const char* newFID, const char* newName, const int& newMembers):
     familyFriend2(nullptr),
     familyFriend3(nullptr)
 {
-    //std::cout << newFID << endl;
-    //std::cout << "SOUP7" << endl;
+    std::cout << "HIYEEE" << endl;
     FID = new char[strlen(newFID)+1];
     strcpy(FID, newFID);
     familyName = new char[strlen(newName)+1];
     strcpy(familyName, newName);
     memberCount = newMembers;
-    //setFID(newFID);
-    //setFamilyName(newName);
-    //setMemberCount(newMembers);
 }
 
-family::family(const family& otherFamily)
+family::family(const family& otherFamily):
+    FID(nullptr),
+    familyName(nullptr),
+    memberCount(0),
+    familyFriend1(nullptr),
+    familyFriend2(nullptr),
+    familyFriend3(nullptr)
 {
-    FID = otherFamily.FID;
-    familyName = otherFamily.familyName;
-    memberCount = otherFamily.memberCount;
-    familyFriend1 = otherFamily.familyFriend1;
-    familyFriend2 = otherFamily.familyFriend2;
-    familyFriend3 = otherFamily.familyFriend3;
+    std::cout << "KSDJF " << endl;
+    setFID(otherFamily.FID);
+    setFamilyName(otherFamily.familyName);
+    setMemberCount(otherFamily.memberCount);
+    //setF1(otherFamily.familyFriend1);
+    //setF2(otherFamily.familyFriend2);
+    //setF3(otherFamily.familyFriend3);
 }
 
 family::~family()
@@ -76,11 +79,9 @@ const family& family::operator=(const family& otherFamily)
         setFID(otherFamily.FID);
         setFamilyName(otherFamily.familyName);
         setMemberCount(otherFamily.memberCount);
-        //setF1(otherFamily.familyFriend1);
-        //strcpy(this->FID, otherFamily.FID);
-        //strcpy(this->familyName, otherFamily.familyName);
-        //this->memberCount = otherFamily.memberCount;
-        //strcpy(this->familyFriends, otherFamily.familyFriends);
+        setF1(otherFamily.familyFriend1);
+        setF2(otherFamily.familyFriend2);
+        setF3(otherFamily.familyFriend3);
         return *this;
     }
 }
@@ -130,6 +131,32 @@ void family::setMemberCount(const int& howMany)
     this->memberCount = howMany; 
 }
 
+void family::setF1(const char* friend1)
+{
+    if(this->familyFriend1)
+        delete[] this->familyFriend1;
+
+    this->familyFriend1 = new char[strlen(friend1)+1];
+    strcpy(this->familyFriend1, friend1);
+
+}
+void family::setF2(const char* friend2)
+{
+    if(this->familyFriend2)
+        delete[] this->familyFriend2;
+
+    this->familyFriend2 = new char[strlen(friend2)+1];
+    strcpy(this->familyFriend2, friend2);
+
+}
+void family::setF3(const char* friend3)
+{
+    if(this->familyFriend3)
+        delete[] this->familyFriend3;
+
+    this->familyFriend3 = new char[strlen(friend3)+1];
+    strcpy(this->familyFriend3, friend3);
+}
 
 
 bool family::addFriend(const char* friendFID)
