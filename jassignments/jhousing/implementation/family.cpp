@@ -45,13 +45,17 @@ family::family(const family& otherFamily):
     familyFriend2(nullptr),
     familyFriend3(nullptr)
 {
+    std::cout << "YARFF" << endl << endl << endl << endl << endl ;
     std::cout << "KSDJF " << endl;
     setFID(otherFamily.FID);
     setFamilyName(otherFamily.familyName);
     setMemberCount(otherFamily.memberCount);
-    //setF1(otherFamily.familyFriend1);
-    //setF2(otherFamily.familyFriend2);
-    //setF3(otherFamily.familyFriend3);
+    if(otherFamily.familyFriend1)
+        setF1(otherFamily.familyFriend1);
+    if(otherFamily.familyFriend2)
+        setF2(otherFamily.familyFriend2);
+    if(otherFamily.familyFriend3)
+        setF3(otherFamily.familyFriend3);
 }
 
 family::~family()
@@ -138,6 +142,7 @@ void family::setF1(const char* friend1)
 
     this->familyFriend1 = new char[strlen(friend1)+1];
     strcpy(this->familyFriend1, friend1);
+    std::cout << "YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" << endl;
 
 }
 void family::setF2(const char* friend2)

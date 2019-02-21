@@ -28,6 +28,7 @@ int main()
 
         familyPtr = new family(id,name,1);
         familyPtr->addFriend(friendName);
+        std::cout << "FriEND" << friendName << endl;
         //std::cout << i << " YO" << endl;
         std::cout << "Infrom" << &familyPtr << endl;
 

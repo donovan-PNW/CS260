@@ -1,10 +1,10 @@
 all: runner
 
-famjam: testfamily.o family.o
-	g++ -g -Wall -std=c++11 -no-pie testfamily.o family.o -o famjam
-
 runner: hashtable.o testhashtable.o family.o
 	g++ -g -Wall -std=c++11 -no-pie hashtable.o testhashtable.o family.o -o runner
+
+famjam: testfamily.o family.o
+	g++ -g -Wall -std=c++11 -no-pie testfamily.o family.o -o famjam
 
 hashtable.o: hashtable.cpp
 	g++ -g -Wall -std=c++11 -no-pie hashtable.cpp -c
