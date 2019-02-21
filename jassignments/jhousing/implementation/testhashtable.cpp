@@ -1,6 +1,7 @@
 #include <iostream>
 #include "hashtable.h"
 #include "family.h"
+#include <cstring>
 
 using namespace std;
 
@@ -15,29 +16,56 @@ int main()
     cout << "Testing inserts (should show full table)" << endl;
 
     //for (int i=0;i<NUMFAMILIES;i++)
-    for (int i=0;i<NUMFAMILIES;i++)
-    {
-        char id[8];
-        char name[8];
-        char friendName[10];
+    //for (int i=0;i<NUMFAMILIES;i++)
+    //{
+    //    char id[8];
+    //    char name[8];
+    //    char friendName[10];
+    //    family* familyPtr;
+
+    //    sprintf(id,"Test%d",i);
+    //    sprintf(name,"Name%d",i);
+    //    sprintf(friendName,"Friend%d",i);
+
+    //    familyPtr = new family(id,name,1);
+    //    familyPtr->addFriend(friendName);
+    //    std::cout << "FriEND" << friendName << endl;
+    //    //std::cout << i << " YO" << endl ;
+    //    std::cout << "Infrom" << &familyPtr << endl;
+
+    //    ht.addFamily(i, familyPtr);
+    //    //ht.addFamily(id,*familyPtr);
+
+    //    delete familyPtr;
+    //    std::cout << i << " YO" << endl;
+    //}
+
+    //for(int i=0; i<5; i++)
+    //{
         family* familyPtr;
-
-        sprintf(id,"Test%d",i);
-        sprintf(name,"Name%d",i);
-        sprintf(friendName,"Friend%d",i);
-
-        familyPtr = new family(id,name,1);
-        familyPtr->addFriend(friendName);
-        std::cout << "FriEND" << friendName << endl;
-        //std::cout << i << " YO" << endl;
-        std::cout << "Infrom" << &familyPtr << endl;
-
-        ht.addFamily(i, familyPtr);
-        //ht.addFamily(id,*familyPtr);
-
+        familyPtr = new family("Thornburg001", "dusty", 1);
+        familyPtr->addFriend("Jerry");
+        ht.addFamily(0, familyPtr);
         delete familyPtr;
-        std::cout << i << " YO" << endl;
-    }
+        familyPtr = new family("Dirkustin01", "dusty", 1);
+        familyPtr->addFriend("Jerry");
+        ht.addFamily(1, familyPtr);
+        delete familyPtr;
+        familyPtr = new family("Brian", "dusty", 1);
+        familyPtr->addFriend("Jerry");
+        ht.addFamily(2, familyPtr);
+        delete familyPtr;
+        familyPtr = new family("Jeffrey", "dusty", 1);
+        familyPtr->addFriend("Jerry");
+        ht.addFamily(3, familyPtr);
+        delete familyPtr;
+        familyPtr = new family("Taylor", "dusty", 1);
+        familyPtr->addFriend("Jerry");
+        ht.addFamily(4, familyPtr);
+        delete familyPtr;
+
+    //}
+
     ht.dumpTable();
 
     cout << "======================================================================" << endl;

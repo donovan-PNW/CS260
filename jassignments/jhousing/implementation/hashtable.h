@@ -2,9 +2,11 @@
 #define HASHTABLE_H
 #include <iostream>
 #include <cmath>
+#include <cstring>
 #include "family.h"
 using namespace std;
-
+//x = multiplier for hash function
+static int x = 32;
 class hashTable
 {
 
@@ -25,7 +27,7 @@ class hashTable
         //void addFamily(const char* FID, const family** newFamily);
         void addFamily(const int& index, family*& newFamily);
         const void findFamily(const char* FID);
-        unsigned int hashBrowns(const char* FID);
+        size_t hashBrowns(const char* FID);
         const void dumpTable();
         void saysQuack();
 
