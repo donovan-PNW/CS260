@@ -51,7 +51,7 @@ int main()
         familyPtr->addFriend("Jerry");
         ht.addFamily(1, familyPtr);
         delete familyPtr;
-        familyPtr = new family("Dirkustin01", "dusty", 1);
+        familyPtr = new family("Littlefield001", "dusty", 1);
         familyPtr->addFriend("Jerry");
         ht.addFamily(2, familyPtr);
         delete familyPtr;
@@ -70,6 +70,8 @@ int main()
 
     cout << "======================================================================" << endl;
     cout << "Testing searches (should show no errors)" << endl;
+//    Hey you. You still need to do the lookup thing.
+//        Also, you need to add a nextFamily pointer to the family class.
 
     //const family* foundFam;
     //foundFam = ht.lookup("Test44");

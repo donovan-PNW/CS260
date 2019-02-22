@@ -48,6 +48,9 @@ void hashTable::addFamily(const int& index, family*& newFamily)
 
 }
 
+//this works don't fuck with it
+//except ok wait everything works but littlefield001 at what should be table 7366
+//JK it works now! moved modulus to after for loop, as per instructions
 size_t hashTable::hashBrowns(const char* FID)
 {
     size_t hashBrown = 0;
@@ -55,10 +58,11 @@ size_t hashTable::hashBrowns(const char* FID)
 
     for(int index = 0; index < length; index++)
     {
-        hashBrown = (32* hashBrown + FID[index]) % 7877;
+        hashBrown = (32* hashBrown + FID[index]);// % 7877;
     }
 
     //hashBrown = x* (x* (x* (x* (x* (a) + b) + c) + d) + e);
+    hashBrown = hashBrown % 7877;
     std:: cout << "HASHBROWN " << hashBrown << endl;
     //std::cout << "YO BROSEF" << endl;
     return hashBrown;
