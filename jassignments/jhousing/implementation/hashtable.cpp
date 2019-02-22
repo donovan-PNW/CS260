@@ -51,45 +51,13 @@ void hashTable::addFamily(const int& index, family*& newFamily)
 size_t hashTable::hashBrowns(const char* FID)
 {
     size_t hashBrown = 0;
+    int length = strlen(FID);
 
-
-    int length =strlen(FID);
-    hashBrown = FID[0];
-    std::cout << "THISLETTER" << FID[0] << endl;
-    std::cout << "THISLETTER" << FID[0]/1 << endl;
-    std::cout << "HASHMOD " << hashBrown % 7877 << endl;
-    //for(int index = 0; index < length-1; index++)
-    //{
-       // hashBrown = (hashBrown + FID[0]) * 32;
-    //}
-    for(int index = 1; index < length; index++)
+    for(int index = 0; index < length; index++)
     {
-        hashBrown = (hashBrown + hashBrown*pow(32,index));
-        hashBrown = hashBrown % 7877;
-        std::cout << "THISLETTER" << FID[index] << endl;
-        std::cout << "THISPOWER" << pow(32,index) << endl;
-        std::cout << "GIANT" << hashBrown << endl;
-        std::cout << "HASHMOD " << hashBrown % 7877 << endl;
+        hashBrown = (32* hashBrown + FID[index]) % 7877;
     }
 
-
-
-
-
-    //unsigned int a = 0;
-    //unsigned int b = 0;
-    //unsigned int c = 0;
-    //unsigned int d = 0;
-    //unsigned int e = 0;
-
-    //a = strlen(FID);
-    //b = FID[0];
-    //c = FID[1];
-    //d = FID[2];
-    //e = FID[3];
-    //std::cout << a << endl;  
-    //std::cout << b << endl;  
-    //std::cout << c << endl;  
     //hashBrown = x* (x* (x* (x* (x* (a) + b) + c) + d) + e);
     std:: cout << "HASHBROWN " << hashBrown << endl;
     //std::cout << "YO BROSEF" << endl;

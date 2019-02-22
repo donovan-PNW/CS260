@@ -47,15 +47,15 @@ int main()
         familyPtr->addFriend("Jerry");
         ht.addFamily(0, familyPtr);
         delete familyPtr;
-        familyPtr = new family("Dirkustin01", "dusty", 1);
+        familyPtr = new family("Hoff001", "dusty", 1);
         familyPtr->addFriend("Jerry");
         ht.addFamily(1, familyPtr);
         delete familyPtr;
-        familyPtr = new family("Brian", "dusty", 1);
+        familyPtr = new family("Dirkustin01", "dusty", 1);
         familyPtr->addFriend("Jerry");
         ht.addFamily(2, familyPtr);
         delete familyPtr;
-        familyPtr = new family("Jeffrey", "dusty", 1);
+        familyPtr = new family("Dover002", "dusty", 1);
         familyPtr->addFriend("Jerry");
         ht.addFamily(3, familyPtr);
         delete familyPtr;
