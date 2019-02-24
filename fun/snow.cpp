@@ -187,6 +187,7 @@ int main()
 
     
         usleep(640000);
+        cout << endl;
         timeMaster++;
     }
 

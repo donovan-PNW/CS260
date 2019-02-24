@@ -18,7 +18,6 @@ using namespace std;
 //    return temp;
 //
 //}
-
 class pond;
 
 class droplet
@@ -37,7 +36,7 @@ class droplet
         droplet(const int& inRow, const int& inCol);
         droplet(const droplet& someDroplet)=delete;
         ~droplet();
-        bool move(int& inRow, int& inCol, pond**& thisHerePond);
+        void move(int& inRow, int& inCol, pond**& thisHerePond);
         bool isActive();
 
 };
@@ -60,10 +59,11 @@ class pond
         pond()=delete;
         pond(const int& inRows, const int& columns);
         pond(const pond& somepond)=delete;
-        //pond operator=(const pond& somePond);
         ~pond();
         const void ripple();
         void wave();
+        friend void droplet::move(int& inRow, int& inCol, pond**& thisHerePond);
+        //https://stackoverflow.com/questions/10546391/specify-a-class-member-function-as-a-friend-of-another-class
         void setPlace(const int& inRow, const int& inCol, const char& inChar);
 };
 

@@ -1,4 +1,9 @@
 #include "headers.h"
+#include <iostream>
+
+using namespace std;
+
+
 
 pond::pond(const int& inRows, const int& inColumns) : 
     rows(inRows), columns(inColumns)
@@ -31,6 +36,7 @@ pond::~pond()
     thisPond = nullptr;
 }
 
+
 const void pond::ripple() //prints to cout
 {
     for(int i = 0; i < rows; i++)
@@ -50,7 +56,7 @@ void pond::wave()
     }
     else
     {
-        drop0.move();
+        //drop0.move();
     }
 
 }
@@ -95,14 +101,15 @@ bool droplet::isActive()
     return active;
 }
 
-void droplet::move(int& inRow, int& inCol, pond*& thisHerePond)
+bool droplet::move(int& inRow, int& inCol, pond**& thisHerePond)
 {
-    maturity++;
+    thisHerePond.setPlace(inRow, inCol, '*')
+    //thisHerePond[inRow][inCol] = '*';
     if(maturity >= magnitude)
     {
         active = false;
     }
-    pond::setPlace(inRow, inCol, '*')
+    maturity++;
 }
 
 
