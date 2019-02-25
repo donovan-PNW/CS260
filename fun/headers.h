@@ -25,6 +25,7 @@ struct aDot
     int x;
     int y;
     char character;
+    bool ringComplete = false;
 };
 
 class pond;
@@ -33,6 +34,7 @@ class droplet
 {
     private:
         aDot front;
+        int edge = 0;
         int row = 0;
         int col = 0;
         int delay = 0;
@@ -40,8 +42,9 @@ class droplet
         int maturity = 0;
         char* pointsTo = nullptr;
         bool active = false;
-        bool circumference = false;
-        bool switcher = true;
+        bool circumNav= false;
+        size_t switcher = 0;
+        int ringSwitcher = 0;
 
     public:
         droplet();
@@ -51,6 +54,8 @@ class droplet
         //void move(pond*& thisHerePond);
         bool isActive();
         aDot move();
+        aDot ring();
+        aDot ringDark();
 
 };
 
@@ -68,6 +73,9 @@ class pond
         droplet drop5;
         droplet drop6;
         droplet drop7;
+        droplet drop8;
+        droplet drop9;
+        droplet drop10;
     public:
         pond()=delete;
         pond(const int& inRows, const int& columns);

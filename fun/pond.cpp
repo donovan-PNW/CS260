@@ -58,6 +58,61 @@ void pond::wave()
     subWave(drop5);
     subWave(drop6);
     subWave(drop7);
+    subWave(drop8);
+    subWave(drop9);
+    subWave(drop10);
+
+}
+
+void pond::subWave(droplet& inDrop)
+{
+    if(!inDrop.isActive()) 
+    {
+        inDrop = droplet(rand() % rows, rand() % columns);
+    }
+    else
+    {
+        char character;
+        int x;
+        int y;
+        aDot temp;
+        temp = inDrop.move();
+        x = temp.x;
+        y = temp.y;
+        //WHILE X != 9999, TEMP = INDROP.MOVE(),
+        //INSIDE INDROP, CHANGE A VARIABLE EACH TIME MOVE IS CALLED
+        character = temp.character;
+        std::cout << character;
+        std::cout << x << " " << y; 
+        thisPond[x][y] = character;
+        temp = inDrop.ring();
+        //while(!temp.ringComplete)
+        //{
+        x = temp.x;
+        y = temp.y;
+        character = temp.character;
+        if(x < rows)
+        {
+            if(y < columns)
+            {
+                thisPond[x][y] = character;
+            }
+        }
+        //temp = inDrop.ringDark();
+        //{
+
+        //
+        //} 
+        //}
+        //while(inDrop.move())
+        //{
+        //     
+        //}
+    }
+}
+
+
+
     //if(!drop0.isActive()) 
     //{
     //    drop0 = droplet(rand() % rows, rand() % columns);
@@ -104,7 +159,7 @@ void pond::wave()
     //}
     
 
-}
+//}
 
 void pond::setPlace(const int& inRow, const int& inCol, const char& inChar)
 {
@@ -130,7 +185,7 @@ droplet::droplet(const int& inRow, const int& inCol):
     row(inRow), col(inCol) 
 {
     delay = rand() % 5 + 1;
-    magnitude = rand() % 16 + 4;
+    magnitude = rand() % 25 + 4;
     active = true;
 }
 
@@ -154,19 +209,19 @@ aDot droplet::move()
     }
     else if(magnitude > maturity)
     {
-        if(switcher)
+        if(switcher%3 == 0)
         {
             front.x = row;
             front.y = col;
             front.character = '*';
-            switcher = false;
+            switcher++;
         }
         else
         {
             front.x = row;
             front.y = col;
             front.character = ' ';
-            switcher = true;
+            switcher++;
             
         }
     }
@@ -183,31 +238,43 @@ aDot droplet::move()
     return front;
 }
 
-void pond::subWave(droplet& inDrop)
+aDot droplet::ring()
 {
-    if(!inDrop.isActive()) 
+    front.x = row;
+    front.y = col;
+    int radius = maturity;
+    if(ringSwitcher % 3  == 0)
     {
-        inDrop = droplet(rand() % rows, rand() % columns);
+        front.character = '*';
     }
     else
     {
-        char character;
-        int x;
-        int y;
-        aDot temp;
-        temp = inDrop.move();
-        x = temp.x;
-        y = temp.y;
-        character = temp.character;
-        std::cout << character;
-        std::cout << x << " " << y; 
-        thisPond[x][y] = character;
-        //while(inDrop.move())
-        //{
-        //     
-        //}
+        std::cout << "else";
+        front.character = ' ';
     }
+
+    //for(int i = 0; i <= radius; i++)
+    
+    front.x = front.x;
+    front.y = col + radius - 1; //;front.y - 1 + radius; // 1;
+    ringSwitcher++;
+    
+    //front.character = '*';
+   
+    
+    //    std::cout << "MATURITY: " << maturity << "     ";
+        front.ringComplete = true;
+    //}
+    //else
+    //{
+    //    front.x = (row + 1);
+    //    front.y = col; 
+    //}
+    edge++;
+    return front;
 }
+
+
 
 //bool droplet::move(int& inRow, int& inCol, pond**& thisHerePond)
 //{
