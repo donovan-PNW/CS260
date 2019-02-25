@@ -22,7 +22,6 @@ using namespace std;
 
 struct aDot
 {
-    bool done;
     int x;
     int y;
     char character;
@@ -42,6 +41,7 @@ class droplet
         char* pointsTo = nullptr;
         bool active = false;
         bool circumference = false;
+        bool switcher = true;
 
     public:
         droplet();

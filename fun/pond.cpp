@@ -154,9 +154,21 @@ aDot droplet::move()
     }
     else if(magnitude > maturity)
     {
-        front.x = row;
-        front.y = col;
-        front.character = '*';
+        if(switcher)
+        {
+            front.x = row;
+            front.y = col;
+            front.character = '*';
+            switcher = false;
+        }
+        else
+        {
+            front.x = row;
+            front.y = col;
+            front.character = ' ';
+            switcher = true;
+            
+        }
     }
     else
     {
