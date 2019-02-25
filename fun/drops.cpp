@@ -123,7 +123,7 @@ int main()
     //for something to float along!    pond[10][timeMaster] = "A";
 
         cout << endl;
-        usleep(640000);
+        usleep(320000);
         timeMaster++;
     }
 

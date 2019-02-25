@@ -18,12 +18,22 @@ using namespace std;
 //    return temp;
 //
 //}
+//
+
+struct aDot
+{
+    bool done;
+    int x;
+    int y;
+    char character;
+};
 
 class pond;
 
 class droplet
 {
     private:
+        aDot front;
         int row = 0;
         int col = 0;
         int delay = 0;
@@ -31,14 +41,16 @@ class droplet
         int maturity = 0;
         char* pointsTo = nullptr;
         bool active = false;
+        bool circumference = false;
 
     public:
         droplet();
         droplet(const int& inRow, const int& inCol);
         droplet(const droplet& someDroplet)=delete;
         ~droplet();
-        bool move(int& inRow, int& inCol, pond**& thisHerePond);
+        //void move(pond*& thisHerePond);
         bool isActive();
+        aDot move();
 
 };
 
@@ -64,7 +76,10 @@ class pond
         ~pond();
         const void ripple();
         void wave();
+        //friend void droplet::move(pond*& thisHerePond);
+        //https://stackoverflow.com/questions/10546391/specify-a-class-member-function-as-a-friend-of-another-class
         void setPlace(const int& inRow, const int& inCol, const char& inChar);
+        void subWave(droplet& inDrop);
 };
 
 class fish
@@ -88,8 +103,7 @@ class fish
     //    while(magnitude > 0)
     //    {
     //        {
-    //        }
-    //        magnitude--;
+    //        } //        magnitude--;
     //    }
     //}
 //};

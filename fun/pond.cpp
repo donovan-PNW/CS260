@@ -50,14 +50,59 @@ const void pond::ripple() //prints to cout
 
 void pond::wave()
 {
-    if(!drop0.isActive()) 
-    {
-        drop0 = droplet(rows, columns);
-    }
-    else
-    {
-        //drop0.move();
-    }
+    subWave(drop0);
+    subWave(drop1);
+    subWave(drop2);
+    subWave(drop3);
+    subWave(drop4);
+    subWave(drop5);
+    subWave(drop6);
+    subWave(drop7);
+    //if(!drop0.isActive()) 
+    //{
+    //    drop0 = droplet(rand() % rows, rand() % columns);
+    //}
+    //else
+    //{
+    //    char character;
+    //    int x;
+    //    int y;
+    //    aDot temp;
+    //    temp = drop0.move();
+    //    x = temp.x;
+    //    y = temp.y;
+    //    character = temp.character;
+    //    std::cout << character;
+    //    std::cout << x << " " << y; 
+    //    thisPond[x][y] = character;
+    //    //while(drop0.move())
+    //    //{
+    //    //     
+    //    //}
+    //}
+    //if(!drop1.isActive()) 
+    //{
+    //    drop1 = droplet(rand() % rows, rand() % columns);
+    //}
+    //else
+    //{
+    //    char character;
+    //    int x;
+    //    int y;
+    //    aDot temp;
+    //    temp = drop1.move();
+    //    x = temp.x;
+    //    y = temp.y;
+    //    character = temp.character;
+    //    std::cout << character;
+    //    std::cout << x << " " << y; 
+    //    thisPond[x][y] = character;
+    //    //while(drop0.move())
+    //    //{
+    //    //     
+    //    //}
+    //}
+    
 
 }
 
@@ -84,33 +129,84 @@ droplet::droplet()
 droplet::droplet(const int& inRow, const int& inCol):
     row(inRow), col(inCol) 
 {
-    delay = rand() % 20000;
+    delay = rand() % 5 + 1;
     magnitude = rand() % 16 + 4;
     active = true;
 }
 
-
 droplet::~droplet()
 {
-
 }
-
 
 bool droplet::isActive()
 {
     return active;
 }
 
-bool droplet::move(int& inRow, int& inCol, pond**& thisHerePond)
+aDot droplet::move()
 {
-    thisHerePond.setPlace(inRow, inCol, '*')
-    //thisHerePond[inRow][inCol] = '*';
-    if(maturity >= magnitude)
+    if(delay > 0)
     {
+        front.x = row;
+        front.y = col;
+        front.character = ' ';
+        delay--;
+    }
+    else if(magnitude > maturity)
+    {
+        front.x = row;
+        front.y = col;
+        front.character = '*';
+    }
+    else
+    {
+        front.x = row;
+        front.y = col;
+        front.character = ' ';
         active = false;
     }
+    cout << maturity;
     maturity++;
+
+    return front;
 }
+
+void pond::subWave(droplet& inDrop)
+{
+    if(!inDrop.isActive()) 
+    {
+        inDrop = droplet(rand() % rows, rand() % columns);
+    }
+    else
+    {
+        char character;
+        int x;
+        int y;
+        aDot temp;
+        temp = inDrop.move();
+        x = temp.x;
+        y = temp.y;
+        character = temp.character;
+        std::cout << character;
+        std::cout << x << " " << y; 
+        thisPond[x][y] = character;
+        //while(inDrop.move())
+        //{
+        //     
+        //}
+    }
+}
+
+//bool droplet::move(int& inRow, int& inCol, pond**& thisHerePond)
+//{
+//    thisHerePond.setPlace(inRow, inCol, '*')
+//    //thisHerePond[inRow][inCol] = '*';
+//    if(maturity >= magnitude)
+//    {
+//        active = false;
+//    }
+//    maturity++;
+//}
 
 
 
