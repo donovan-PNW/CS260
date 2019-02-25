@@ -22,7 +22,7 @@ int main()
     //    }
     //}
     
-    usleep(640000);
+    //usleep(640000);
 //    char* pond[w.ws_row][w.ws_col];
 //    for(int i = 0; i < (w.ws_row); i++)
 //    {

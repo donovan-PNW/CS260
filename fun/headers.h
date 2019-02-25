@@ -8,6 +8,7 @@
 #include <sys/ioctl.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <cstring>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ class droplet
 {
     private:
         aDot front;
-        int edge = 0;
+        int edge = 1;
         int row = 0;
         int col = 0;
         int delay = 0;
@@ -54,9 +55,7 @@ class droplet
         //void move(pond*& thisHerePond);
         bool isActive();
         aDot move();
-        aDot ring();
-        aDot ringDark();
-
+        aDot ring(char* lightDark);
 };
 
 class pond
