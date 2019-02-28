@@ -49,52 +49,22 @@ hashTable::~hashTable()
 
 void hashTable::addFamily(const int& index, family*& newFamily)
 {
-    family* temporary = nullptr;
     std::cout << "infrom" << &newFamily << endl;
-    temporary = new family(*newFamily);
+    family* temporary = new family(*newFamily);
     if(table[index])
     {
-        temporary->setNextFamily(table[index]);
+        family* upNext = nullptr;
+        upNext = table[index];
+        temporary->setNextFamily(upNext);
         std::cout << "ZIMZAMZOOZLE" << endl;
     }
     table[index] = temporary;
-
-
-
-   // if(!table[index])
-   // {
-   //     table[index] = temporary;
-   // }
-   // else
-   // {
-   //     temporary->setNextFamily(table[index]);
-   //     table[index] = temporary;
-   // }
-    //or: if tableindex, temp->setnext = tableindex
-    //then: tablindex = temporary
-
-
-    //family *tempFamily = new family(*newFamily);
-    //std::cout << "outTo" << *tempFamily << endl;
-    //
-    //
-    //if(table[index]){
-    //    std::cout << "PPPPPPPP" << endl;
-    //    temporary = new family(*table[index]);
-    //}
-    //table[index] = new family(*newFamily);
-    //hashNumber = hashBrowns(table[index]->getFID());
-    //if(temporary)
-    //{
-    //    std::cout << "PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY" << endl;
-    //    table[index]->setNextFamily(temporary);
-    //}
-    ////delete temporary;
+    hashBrowns(temporary->getFID());
     temporary = nullptr;
-    std::cout << "HAHAHAHAHAHHASHNUMBER: " << hashNumber % 7877 << endl;
-    std::cout << "outTo " << table[index] << endl;
-    std::cout << "NEWFAMSTUFF" << *newFamily << endl;
-    std::cout << "DOYOUFAMSTUFF" << *table[index] << endl;
+    
+    //std::cout << "outTo " << table[index] << endl;
+    //std::cout << "NEWFAMSTUFF" << *newFamily << endl;
+    //std::cout << "DOYOUFAMSTUFF" << *table[index] << endl;
 
 }
 
@@ -131,6 +101,7 @@ const void hashTable::dumpTable()
     {
         //const char* potato = table[index]->getFID();
         //hashNumber = hashBrowns(potato);
+        //delete [] potato;
         std::cout << "ASCII A " << 'A' / 1 << endl;
         //std::cout << "YEE" << potato << endl;
         //testInt = 
