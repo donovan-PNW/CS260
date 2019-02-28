@@ -7,6 +7,14 @@
 using namespace std;
 //x = multiplier for hash function
 static int x = 32;
+
+struct familyPod
+{
+    family* nuclearFamily;
+    familyPod* next;
+};
+
+
 class hashTable
 {
 
@@ -30,6 +38,7 @@ class hashTable
         size_t hashBrowns(const char* FID);
         const void dumpTable();
         void saysQuack();
+        void navChain(family*& current);
 
 
 

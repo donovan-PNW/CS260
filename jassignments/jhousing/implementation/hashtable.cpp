@@ -2,6 +2,8 @@
 #include"hashtable.h"
 #include<cstring>
 
+
+
 hashTable::hashTable(): table(nullptr), tableSize(0)
 {
 }
@@ -98,6 +100,14 @@ const void hashTable::dumpTable()
         //testInt = 
         if(table[index] != nullptr)
         {
+            //like this: printy(family)
+            //{
+            //    if(family->next != nullptr)
+            //        printy(family)
+            //    else
+            //        cout << family
+            //    call function that says print()
+            //}
             std::cout << index << "ADDRESSS: "<< table[index] << " " << *table[index] << endl;
 
             if(table[index]->getNextFamily() != nullptr)
@@ -113,6 +123,37 @@ const void hashTable::dumpTable()
     }
     std::cout << "outie quattro" << endl;
 }
+
+
+void hashTable::navChain(family*& current)
+{
+    if(current->getNextFamily() != nullptr)
+    {
+        current = current->getNextFamily(); 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
