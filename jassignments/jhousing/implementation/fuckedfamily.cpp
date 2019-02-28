@@ -106,6 +106,7 @@ ostream& operator<<(ostream& out, const family& thisFamily)
     if(thisFamily.familyFriend3)
         out <<  " " << thisFamily.familyFriend3;
 
+    out << "CULPRIT " << thisFamily.whichOne;
     out << endl;
     return out;
 }
@@ -196,14 +197,20 @@ const char* family::getFID()
     return(this->FID);
 }
 
-const family* family::getNextFamily()
-{
-    return(this->nextFamily);
-}
+
 
 void family::setNextFamily(family*& nextLink)
 {
     nextFamily = nextLink;
 }
+
+const family* family::getNextFamily()
+{
+    return(this->nextFamily);
+}
+
+
+
+
 
 

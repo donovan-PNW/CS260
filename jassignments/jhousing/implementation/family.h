@@ -13,6 +13,8 @@ class family
         char *familyFriend1;
         char *familyFriend2;
         char *familyFriend3;
+        family * nextFamily = nullptr;
+        int whichOne = 0;
 
     public:
         family();
@@ -27,6 +29,7 @@ class family
         const char* getFamilyName();
         const int getMemberCount();
         const char* getFamilyFriends();
+        const family * getNextFamily();
 
 
         bool addFriend(const char* friendFID);
@@ -36,6 +39,7 @@ class family
         void setF1(const char* friend1);
         void setF2(const char* friend2);
         void setF3(const char* friend3);
+        void setNextFamily(family*& nextLink);
         
 };
 

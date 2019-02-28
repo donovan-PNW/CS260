@@ -63,6 +63,22 @@ int main()
         familyPtr->addFriend("Jerry");
         ht.addFamily(4, familyPtr);
         delete familyPtr;
+        familyPtr = new family("Tylor", "dusty", 1);
+        familyPtr->addFriend("Tyler");
+        ht.addFamily(4, familyPtr);
+        delete familyPtr;
+        familyPtr = new family("Terry", "dusty", 1);
+        familyPtr->addFriend("Terry");
+        ht.addFamily(4, familyPtr);
+        delete familyPtr;
+        familyPtr = new family("Terry", "dusty", 1);
+        familyPtr->addFriend("Terry");
+        ht.addFamily(5, familyPtr);
+        delete familyPtr;
+        familyPtr = new family("Terry", "dusty", 1);
+        familyPtr->addFriend("Terry");
+        ht.addFamily(6, familyPtr);
+        delete familyPtr;
 
     //}
 

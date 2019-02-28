@@ -37,26 +37,32 @@ hashTable::~hashTable()
 
 void hashTable::addFamily(const int& index, family*& newFamily)
 {
-    family* temporary = nullptr;
     std::cout << "infrom" << &newFamily << endl;
     //family *tempFamily = new family(*newFamily);
     //std::cout << "outTo" << *tempFamily << endl;
-    if(table[index]){
-        std::cout << "PPPPPPPP" << endl;
-        temporary = new family(*table[index]);
-    }
-    table[index] = new family(*newFamily);
-    hashNumber = hashBrowns(table[index]->getFID());
-    if(temporary)
+    if(!table[index])
     {
-        std::cout << "PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY" << endl;
-        table[index]->setNextFamily(temporary);
+        table[index] = new family(*newFamily);
+        hashNumber = hashBrowns(table[index]->getFID());
+        std::cout << "HAHAHAHAHAHHASHNUMBER: " << hashNumber % 7877 << endl;
+        std::cout << "outTo " << table[index] << endl;
     }
-    temporary = nullptr;
-    std::cout << "HAHAHAHAHAHHASHNUMBER: " << hashNumber % 7877 << endl;
-    std::cout << "outTo " << table[index] << endl;
-    std::cout << "NEWFAMSTUFF" << *newFamily << endl;
-    std::cout << "DOYOUFAMSTUFF" << *table[index] << endl;
+    else //organize this later so that it's just one if check before the rest of the function executes above. if(tableindex) this, else the rest.
+    {
+        newFamily->setNextFamily(table[index]);
+        table[index] = new family(*newFamily);
+        std::cout << "YEET BRO" << table[index] << endl << table[index]->getNextFamily();
+    }
+
+
+    //std::cout << "infrom" << &newFamily << endl;
+    ////family *tempFamily = new family(*newFamily);
+    ////std::cout << "outTo" << *tempFamily << endl;
+    //table[index] = new family(*newFamily);
+    //hashNumber = hashBrowns(table[index]->getFID());
+    //std::cout << "HAHAHAHAHAHHASHNUMBER: " << hashNumber % 7877 << endl;
+    //std::cout << "outTo " << table[index] << endl;
+    ////std::cout << "NEWFAMSTUFF" << *newFamily << endl;
 
 }
 
@@ -96,23 +102,23 @@ const void hashTable::dumpTable()
         std::cout << "ASCII A " << 'A' / 1 << endl;
         //std::cout << "YEE" << potato << endl;
         //testInt = 
-        if(table[index] != nullptr)
-        {
-            std::cout << index << "ADDRESSS: "<< table[index] << " " << *table[index] << endl;
-
-            if(table[index]->getNextFamily() != nullptr)
-            {
-                std::cout << "wut" << endl;
-                std::cout << "MAKE PRINT RECURSIVE TO GRAB FROM END OF LIST FIRST!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                std::cout << "AS A SIDE NOTE: YOU NEED TO DELETE LINKED LISTS AS NORMAL, RIGHT NOW THIS JUST DELETES EACH ONE'S HEAD" << endl;
-
-                std::cout << index << "NEXTINLINE " << *table[index]->getNextFamily() << endl;
-            }
-        }
+        //if(table[index])
+        //{
+            std::cout << index << " : "<< table[index] << " " << *table[index] << endl;
+        //}
 
     }
     std::cout << "outie quattro" << endl;
 }
+
+
+
+
+
+
+
+
+
 
 
 

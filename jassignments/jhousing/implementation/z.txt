@@ -1,0 +1,337 @@
+======================================================================
+Testing inserts (should show full table)
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 0
+HAHAHAHAHAHHASHNUMBER: 0
+outTo 0xf6c0d0
+NEWFAMSTUFFFamily ID: Thornburg001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+DOYOUFAMSTUFFFamily ID: Thornburg001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 11
+HAHAHAHAHAHHASHNUMBER: 11
+outTo 0xf6c180
+NEWFAMSTUFFFamily ID: Hoff001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+DOYOUFAMSTUFFFamily ID: Hoff001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 7366
+HAHAHAHAHAHHASHNUMBER: 7366
+outTo 0xf6c230
+NEWFAMSTUFFFamily ID: Littlefield001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+DOYOUFAMSTUFFFamily ID: Littlefield001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 94
+HAHAHAHAHAHHASHNUMBER: 94
+outTo 0xf6c2e0
+NEWFAMSTUFFFamily ID: Dover002
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+DOYOUFAMSTUFFFamily ID: Dover002
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 3465
+HAHAHAHAHAHHASHNUMBER: 3465
+outTo 0xf6c390
+NEWFAMSTUFFFamily ID: Taylor
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+DOYOUFAMSTUFFFamily ID: Taylor
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+PPPPPPPP
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 6547
+PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY
+HAHAHAHAHAHHASHNUMBER: 6547
+outTo 0xf6c4f0
+NEWFAMSTUFFFamily ID: Tylor
+  Name: dusty
+  Members: 1
+  Friends: Tyler
+
+DOYOUFAMSTUFFFamily ID: Tylor
+  Name: dusty
+  Members: 1
+  Friends: Tyler
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+PPPPPPPP
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 3348
+PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY
+HAHAHAHAHAHHASHNUMBER: 3348
+outTo 0xf6c650
+NEWFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+DOYOUFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 3348
+HAHAHAHAHAHHASHNUMBER: 3348
+outTo 0xf6c700
+NEWFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+DOYOUFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+BYEEE
+HIYEEE
+infrom0x7ffe9ce34698
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 3348
+HAHAHAHAHAHHASHNUMBER: 3348
+outTo 0xf6c7b0
+NEWFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+DOYOUFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+BYEEE
+DUMPTABLE 
+ASCII A 65
+0ADDRESSS: 0xf6c0d0 Family ID: Thornburg001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+ASCII A 65
+1ADDRESSS: 0xf6c180 Family ID: Hoff001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+ASCII A 65
+2ADDRESSS: 0xf6c230 Family ID: Littlefield001
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+ASCII A 65
+3ADDRESSS: 0xf6c2e0 Family ID: Dover002
+  Name: dusty
+  Members: 1
+  Friends: Jerry
+
+ASCII A 65
+4ADDRESSS: 0xf6c650 Family ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+wut
+MAKE PRINT RECURSIVE TO GRAB FROM END OF LIST FIRST!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4NEXTINLINE Family ID: Tylor
+  Name: dusty
+  Members: 1
+  Friends: Tyler
+
+ASCII A 65
+5ADDRESSS: 0xf6c700 Family ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+ASCII A 65
+6ADDRESSS: 0xf6c7b0 Family ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+ASCII A 65
+outie quattro
+======================================================================
+Testing searches (should show no errors)
+BYEEE
+DESTROYDEX 0
+BYEEE
+DESTROYDEX 1
+BYEEE
+DESTROYDEX 2
+BYEEE
+DESTROYDEX 3
+BYEEE
+DESTROYDEX 4
+BYEEE
+DESTROYDEX 5
+BYEEE
+DESTROYDEX 6
