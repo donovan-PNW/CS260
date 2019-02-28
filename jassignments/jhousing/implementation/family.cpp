@@ -142,7 +142,7 @@ void family::setF1(const char* friend1)
 
     this->familyFriend1 = new char[strlen(friend1)+1];
     strcpy(this->familyFriend1, friend1);
-    std::cout << "YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" << endl;
+    std::cout << "RAHAROHAOROHA " << endl;
 
 }
 void family::setF2(const char* friend2)
@@ -196,7 +196,7 @@ const char* family::getFID()
     return(this->FID);
 }
 
-const family* family::getNextFamily()
+family* family::getNextFamily()
 {
     return(this->nextFamily);
 }

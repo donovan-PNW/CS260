@@ -29,7 +29,7 @@ class family
         const char* getFamilyName();
         const int getMemberCount();
         const char* getFamilyFriends();
-        const family * getNextFamily();
+        family * getNextFamily();
 
 
         bool addFriend(const char* friendFID);

@@ -1,7 +1,7 @@
 ======================================================================
 Testing inserts (should show full table)
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
 YARFF
 
 
@@ -11,7 +11,7 @@ KSDJF
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 0
 HAHAHAHAHAHHASHNUMBER: 0
-outTo 0x8fe0d0
+outTo 0x7bf0d0
 NEWFAMSTUFFFamily ID: Thornburg001
   Name: dusty
   Members: 1
@@ -24,7 +24,7 @@ DOYOUFAMSTUFFFamily ID: Thornburg001
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
 YARFF
 
 
@@ -34,7 +34,7 @@ KSDJF
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 11
 HAHAHAHAHAHHASHNUMBER: 11
-outTo 0x8fe180
+outTo 0x7bf180
 NEWFAMSTUFFFamily ID: Hoff001
   Name: dusty
   Members: 1
@@ -47,7 +47,7 @@ DOYOUFAMSTUFFFamily ID: Hoff001
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
 YARFF
 
 
@@ -57,7 +57,7 @@ KSDJF
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 7366
 HAHAHAHAHAHHASHNUMBER: 7366
-outTo 0x8fe230
+outTo 0x7bf230
 NEWFAMSTUFFFamily ID: Littlefield001
   Name: dusty
   Members: 1
@@ -70,7 +70,7 @@ DOYOUFAMSTUFFFamily ID: Littlefield001
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
 YARFF
 
 
@@ -80,7 +80,7 @@ KSDJF
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 94
 HAHAHAHAHAHHASHNUMBER: 94
-outTo 0x8fe2e0
+outTo 0x7bf2e0
 NEWFAMSTUFFFamily ID: Dover002
   Name: dusty
   Members: 1
@@ -93,7 +93,7 @@ DOYOUFAMSTUFFFamily ID: Dover002
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
 YARFF
 
 
@@ -103,7 +103,7 @@ KSDJF
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 3465
 HAHAHAHAHAHHASHNUMBER: 3465
-outTo 0x8fe390
+outTo 0x7bf390
 NEWFAMSTUFFFamily ID: Taylor
   Name: dusty
   Members: 1
@@ -116,8 +116,8 @@ DOYOUFAMSTUFFFamily ID: Taylor
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
-PPPPPPPPPPPPPPPPPPPPPPPP
+infrom0x7ffc68e22448
+PPPPPPPP
 YARFF
 
 
@@ -125,23 +125,6 @@ YARFF
 
 KSDJF 
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-HASHBROWN 3465
-HAHAHAHAHAHHASHNUMBER: 3465
-outTo 0x8fe440
-NEWFAMSTUFFFamily ID: Taylor
-  Name: dusty
-  Members: 1
-  Friends: Tyler
-
-DOYOUFAMSTUFFFamily ID: Taylor
-  Name: dusty
-  Members: 1
-  Friends: Tyler
-
-BYEEE
-HIYEEE
-infrom0x7ffeabd85418
-PPPPPPPPPPPPPPPPPPPPPPPP
 YARFF
 
 
@@ -149,22 +132,32 @@ YARFF
 
 KSDJF 
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-HASHBROWN 3465
-HAHAHAHAHAHHASHNUMBER: 3465
-outTo 0x8fe4f0
-NEWFAMSTUFFFamily ID: Taylor
+HASHBROWN 6547
+PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY
+BYEEE
+HAHAHAHAHAHHASHNUMBER: 6547
+outTo 0x7bf4f0
+NEWFAMSTUFFFamily ID: Tylor
   Name: dusty
   Members: 1
-  Friends: Terry
+  Friends: Tyler
 
-DOYOUFAMSTUFFFamily ID: Taylor
+DOYOUFAMSTUFFFamily ID: Tylor
   Name: dusty
   Members: 1
-  Friends: Terry
+  Friends: Tyler
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
+PPPPPPPP
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 YARFF
 
 
@@ -173,8 +166,10 @@ YARFF
 KSDJF 
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 3348
+PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY
+BYEEE
 HAHAHAHAHAHHASHNUMBER: 3348
-outTo 0x8fe5a0
+outTo 0x7bf5a0
 NEWFAMSTUFFFamily ID: Terry
   Name: dusty
   Members: 1
@@ -187,7 +182,7 @@ DOYOUFAMSTUFFFamily ID: Terry
 
 BYEEE
 HIYEEE
-infrom0x7ffeabd85418
+infrom0x7ffc68e22448
 YARFF
 
 
@@ -197,7 +192,30 @@ KSDJF
 YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 HASHBROWN 3348
 HAHAHAHAHAHHASHNUMBER: 3348
-outTo 0x8fe650
+outTo 0x7bf440
+NEWFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+DOYOUFAMSTUFFFamily ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+BYEEE
+HIYEEE
+infrom0x7ffc68e22448
+YARFF
+
+
+
+
+KSDJF 
+YIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+HASHBROWN 3348
+HAHAHAHAHAHHASHNUMBER: 3348
+outTo 0x7bf650
 NEWFAMSTUFFFamily ID: Terry
   Name: dusty
   Members: 1
@@ -211,43 +229,51 @@ DOYOUFAMSTUFFFamily ID: Terry
 BYEEE
 DUMPTABLE 
 ASCII A 65
-0ADDRESSS: 0x8fe0d0 Family ID: Thornburg001
+0ADDRESSS: 0x7bf0d0 Family ID: Thornburg001
   Name: dusty
   Members: 1
   Friends: Jerry
 
 ASCII A 65
-1ADDRESSS: 0x8fe180 Family ID: Hoff001
+1ADDRESSS: 0x7bf180 Family ID: Hoff001
   Name: dusty
   Members: 1
   Friends: Jerry
 
 ASCII A 65
-2ADDRESSS: 0x8fe230 Family ID: Littlefield001
+2ADDRESSS: 0x7bf230 Family ID: Littlefield001
   Name: dusty
   Members: 1
   Friends: Jerry
 
 ASCII A 65
-3ADDRESSS: 0x8fe2e0 Family ID: Dover002
+3ADDRESSS: 0x7bf2e0 Family ID: Dover002
   Name: dusty
   Members: 1
   Friends: Jerry
 
 ASCII A 65
-4ADDRESSS: 0x8fe4f0 Family ID: Taylor
+4ADDRESSS: 0x7bf5a0 Family ID: Terry
+  Name: dusty
+  Members: 1
+  Friends: Terry
+
+wut
+MAKE PRINT RECURSIVE TO GRAB FROM END OF LIST FIRST!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AS A SIDE NOTE: YOU NEED TO DELETE LINKED LISTS AS NORMAL, RIGHT NOW THIS JUST DELETES EACH ONE'S HEAD
+4NEXTINLINE Family ID: Terry
   Name: dusty
   Members: 1
   Friends: Terry
 
 ASCII A 65
-5ADDRESSS: 0x8fe5a0 Family ID: Terry
+5ADDRESSS: 0x7bf440 Family ID: Terry
   Name: dusty
   Members: 1
   Friends: Terry
 
 ASCII A 65
-6ADDRESSS: 0x8fe650 Family ID: Terry
+6ADDRESSS: 0x7bf650 Family ID: Terry
   Name: dusty
   Members: 1
   Friends: Terry

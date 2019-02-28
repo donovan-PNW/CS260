@@ -27,7 +27,15 @@ hashTable::~hashTable()
         {
             if(table[index])
             {
-                delete table[index];
+                family* current = table[index];
+                family* next = nullptr;
+                while(current->getNextFamily() != nullptr)
+                {
+                    next = current->getNextFamily();
+                    delete current;
+                    current = next;
+                }
+                //delete table[index];
                 std::cout <<"DESTROYDEX " << index << endl;
                 table[index] = nullptr;
             }
@@ -43,17 +51,18 @@ void hashTable::addFamily(const int& index, family*& newFamily)
     std::cout << "infrom" << &newFamily << endl;
     //family *tempFamily = new family(*newFamily);
     //std::cout << "outTo" << *tempFamily << endl;
-    if(table[index]){
-        std::cout << "PPPPPPPP" << endl;
-        temporary = new family(*table[index]);
-    }
+    //if(table[index]){
+    //    std::cout << "PPPPPPPP" << endl;
+    //    temporary = new family(*table[index]);
+    //}
     table[index] = new family(*newFamily);
     hashNumber = hashBrowns(table[index]->getFID());
-    if(temporary)
-    {
-        std::cout << "PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY" << endl;
-        table[index]->setNextFamily(temporary);
-    }
+    //if(temporary)
+    //{
+    //    std::cout << "PPPPPPPPPPPPPPPPPPPYYYYYYYYYYYYY" << endl;
+    //    table[index]->setNextFamily(temporary);
+    //}
+    //delete temporary;
     temporary = nullptr;
     std::cout << "HAHAHAHAHAHHASHNUMBER: " << hashNumber % 7877 << endl;
     std::cout << "outTo " << table[index] << endl;
@@ -125,13 +134,13 @@ const void hashTable::dumpTable()
 }
 
 
-void hashTable::navChain(family*& current)
-{
-    if(current->getNextFamily() != nullptr)
-    {
-        current = current->getNextFamily(); 
-    }
-}
+//void hashTable::navChain(family*& current)
+//{
+//    if(current->getNextFamily() != nullptr)
+//    {
+//        current = current->getNextFamily(); 
+//    }
+//}
 
 
 
