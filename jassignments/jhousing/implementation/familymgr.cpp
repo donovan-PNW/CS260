@@ -17,7 +17,9 @@ void familymgr::addFamily(family& famPtr)
     family *fimPinter = new family(famPtr);
     std::cout << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" << endl;
     std::cout << fimPinter << endl;
-    //database.addFamily(1, famPtr);
+    database.addFamLEE(1, fimPinter);
+    delete fimPinter;
+    fimPinter = nullptr;
 
 }
 
