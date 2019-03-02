@@ -17,7 +17,7 @@ void familymgr::addFamily(family& famPtr)
     family *fimPinter = new family(famPtr);
     std::cout << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" << endl;
     std::cout << fimPinter << endl;
-    database.addFamily(1, fimPinter);
+    database.addFamily(fimPinter);
     delete fimPinter;
     fimPinter = nullptr;
 
@@ -25,7 +25,42 @@ void familymgr::addFamily(family& famPtr)
 
 void familymgr::printAllFamilies()
 {
-    database.dumpTable();
+    int hinter = 0 ;
+    //bool truebool = true;
+
+    //this bit is a little fucked, you need to just let it run until the infamily is over
+
+
+
+
+    for(int index = 0; index < 7877; index++)
+    {
+        std::cout << "DICKS" << endl;
+        family* inFamily = database.tablePrint();
+        while(inFamily != nullptr)
+        {
+            std::cout << *inFamily << endl;
+            inFamily = inFamily->getNextFamily();
+            //family * temPointer = inFamily->getNextFamily();
+            //if(inFamily != nullptr);
+            //{
+
+            //    std::cout << inFamily;
+            //    //inFamily = 
+            //    //temPointer = temPointer->getNextFamily();
+            //    //if(temPointer->getNextFamily() != nullptr);
+            //    //{
+            //    //    //std::cout << temPointer->getNextFamily();
+            //    //}
+            //}
+        }
+        
+    
+    }
+    
+        //cout << inFamily;
+
+    //database.dumpTable();
     std::cout << "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" << endl;
 
 }

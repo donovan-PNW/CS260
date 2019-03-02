@@ -52,9 +52,8 @@ hashTable::~hashTable()
     table = nullptr;
 }
 
-void hashTable::addFamily(const int& index, family*& newFamily)
+void hashTable::addFamily(family*& newFamily)
 {
-    //std::cout << "infrom" << &newFamily << endl;
     family* temporary = new family(*newFamily);
     int hashNumber = hashBrowns(newFamily->getFID());
     if(table[hashNumber])
@@ -62,7 +61,7 @@ void hashTable::addFamily(const int& index, family*& newFamily)
         family* upNext = nullptr;
         upNext = table[hashNumber];
         temporary->setNextFamily(upNext);
-        std::cout << "ZIMZAMZOOZLE" << endl;
+        //std::cout << "ZIMZAMZOOZLE" << endl;
     }
     table[hashNumber] = temporary;
     temporary = nullptr;
@@ -80,8 +79,7 @@ void hashTable::addFamily(const int& index, family*& newFamily)
 //JK it works now! moved modulus to after for loop, as per instructions
 size_t hashTable::hashBrowns(const char* FID)
 {
-    size_t hashBrown = 0;
-    int length = strlen(FID);
+    size_t hashBrown = 0; int length = strlen(FID);
 
     for(int index = 0; index < length; index++)
     {
@@ -106,36 +104,58 @@ const void hashTable::dumpTable()
     std::cout << "DUMPTABLE " << endl;
     for(int index = 0; index < tableSize; index++)
     {
-        //const char* potato = table[index]->getFID();
-        //hashNumber = hashBrowns(potato);
-        //delete [] potato;
         std::cout << "ASCII A " << 'A' / 1 << endl;
-        //std::cout << "YEE" << potato << endl;
-        //testInt = 
         if(table[index] != nullptr)
         {
-            //like this: printy(family)
-            //{
-            //    if(family->next != nullptr)
-            //        printy(family)
-            //    else
-            //        cout << family
-            //    call function that says print()
-            //}
             std::cout << index << "ADDRESSS: "<< table[index] << " " << *table[index] << endl;
 
             if(table[index]->getNextFamily() != nullptr)
             {
-                std::cout << "wut" << endl;
-                //std::cout << "MAKE PRINT RECURSIVE TO GRAB FROM END OF LIST FIRST!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                //std::cout << "AS A SIDE NOTE: YOU NEED TO DELETE LINKED LISTS AS NORMAL, RIGHT NOW THIS JUST DELETES EACH ONE'S HEAD" << endl;
-
-                std::cout << index << "NEXTINLINE " << *table[index]->getNextFamily() << endl;
+                //std::cout << index << "NEXTINLINE " << *table[index]->getNextFamily() << endl;
             }
         }
 
     }
     std::cout << "outie quattro" << endl;
+}
+
+
+//fuck dude I might just make this return a struct
+family* hashTable::tablePrint()
+{
+
+//WAIT NO i GET IT NOW!!!!!
+//JUST RETURN THE POINTER TO THE HEAD OF THE LINKED LIST
+//AND THEN HAVE FAMILYMGR PRINT THROUGH ON ITS OWN
+//USING THE WHILE NEXTFAM != NULLPTR FUNCTIONALITY
+
+
+
+
+family* podHead;
+
+    
+    std::cout << "ASCII A " << 'A' / 1 << endl;
+    //if(table[tally] != nullptr)
+    //{
+    podHead = table[tally];
+        //std::cout << tally << "ADDRESSS: " << table[tally] << " " << *table[tally] << endl;
+
+        //if(table[tally]->getNextFamily() != nullptr)
+        //{
+        //    endOfChain = false;
+        //    std::cout << "wut" << endl;
+        //    std::cout << tally << "NEXTINLINE " << *table[tally]->getNextFamily() << endl;
+        //}
+        //else
+        //{
+        //    endOfChain = true;
+        //    tally++;
+        //}
+
+    //}
+    tally++;
+    return podHead;
 }
 
 

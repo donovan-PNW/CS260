@@ -21,8 +21,11 @@ static int TABLEBIG = 7877;
 
 struct familyPod
 {
-    family* nuclearFamily;
-    familyPod* next;
+    family* family1 = nullptr;
+    family* family2 = nullptr;
+    family* family3 = nullptr;
+    family* family4 = nullptr;
+    family* family5 = nullptr;
 };
 
 
@@ -34,7 +37,8 @@ class hashTable
         int tableSize;
         unsigned int hashNumber;
         family* Next;
-        int numberizer = 0;
+        int tally = 0;
+        bool endOfChain = true;
         //hmmmm
 
     public:
@@ -45,10 +49,11 @@ class hashTable
         ~hashTable();
 
         //void addFamily(const char* FID, const family** newFamily);
-        void addFamily(const int& index, family*& newFamily);
+        void addFamily(family*& newFamily);
         const void findFamily(const char* FID);
         size_t hashBrowns(const char* FID);
         const void dumpTable();
+        family* tablePrint();
         void saysQuack();
         void navChain(family*& current);
 
