@@ -56,17 +56,18 @@ void hashTable::addFamily(const int& index, family*& newFamily)
 {
     //std::cout << "infrom" << &newFamily << endl;
     family* temporary = new family(*newFamily);
-    if(table[numberizer])
+    int hashNumber = hashBrowns(newFamily->getFID());
+    if(table[hashNumber])
     {
         family* upNext = nullptr;
-        upNext = table[numberizer];
+        upNext = table[hashNumber];
         temporary->setNextFamily(upNext);
         std::cout << "ZIMZAMZOOZLE" << endl;
     }
-    table[numberizer] = temporary;
-    hashBrowns(temporary->getFID());
+    table[hashNumber] = temporary;
     temporary = nullptr;
-    numberizer++;
+    //numberizer++;
+    //numberizer = numberizer % 7877;
     
     //std::cout << "outTo " << table[index] << endl;
     //std::cout << "NEWFAMSTUFF" << *newFamily << endl;

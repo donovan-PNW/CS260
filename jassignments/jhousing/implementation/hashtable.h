@@ -9,6 +9,16 @@ using namespace std;
 static int x = 32;
 static int TABLEBIG = 7877;
 
+//DUUDE CHANGE TABLEBIG BACK
+
+
+
+
+
+
+
+
+
 struct familyPod
 {
     family* nuclearFamily;
