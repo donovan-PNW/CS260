@@ -13,9 +13,10 @@ familymgr::~familymgr()
 
 void familymgr::addFamily(family& famPtr)
 {
-    std::cout << famPtr << endl;
-    std::cout << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" << endl;
     //std::cout << famPtr << endl;
+    family *fimPinter = new family(famPtr);
+    std::cout << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" << endl;
+    std::cout << fimPinter << endl;
     //database.addFamily(1, famPtr);
 
 }
