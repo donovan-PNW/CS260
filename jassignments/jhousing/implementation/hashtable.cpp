@@ -4,8 +4,13 @@
 
 
 
-hashTable::hashTable(): table(nullptr), tableSize(0)
+hashTable::hashTable(): table(nullptr), tableSize(TABLEBIG)
 {
+    table = new family* [tableSize];
+    for(int index = 0; index < tableSize; index++)
+    {
+        table[index] = nullptr; //new family;
+    }
 }
 
 
@@ -49,18 +54,19 @@ hashTable::~hashTable()
 
 void hashTable::addFamily(const int& index, family*& newFamily)
 {
-    std::cout << "infrom" << &newFamily << endl;
+    //std::cout << "infrom" << &newFamily << endl;
     family* temporary = new family(*newFamily);
-    if(table[index])
+    if(table[numberizer])
     {
         family* upNext = nullptr;
-        upNext = table[index];
+        upNext = table[numberizer];
         temporary->setNextFamily(upNext);
         std::cout << "ZIMZAMZOOZLE" << endl;
     }
-    table[index] = temporary;
+    table[numberizer] = temporary;
     hashBrowns(temporary->getFID());
     temporary = nullptr;
+    numberizer++;
     
     //std::cout << "outTo " << table[index] << endl;
     //std::cout << "NEWFAMSTUFF" << *newFamily << endl;

@@ -7,6 +7,7 @@
 using namespace std;
 //x = multiplier for hash function
 static int x = 32;
+static int TABLEBIG = 7877;
 
 struct familyPod
 {
@@ -23,6 +24,7 @@ class hashTable
         int tableSize;
         unsigned int hashNumber;
         family* Next;
+        int numberizer = 0;
         //hmmmm
 
     public:
