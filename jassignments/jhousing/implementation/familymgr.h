@@ -5,6 +5,7 @@
 #include "hashtable.h"
 using namespace std;
 
+class hashTable;
 class familymgr
 {
     private:
@@ -17,7 +18,7 @@ class familymgr
         ~familymgr();
         familymgr(familymgr& otherFamilyMgr)=delete;
         familymgr operator=(familymgr& otherFamilyMgr)=delete;
-        void addFamily(const family famPtr);
+        void addFamily(family& famPtr);
         void printAllFamilies();
         void printSmallCircle(const char* FID);
 
