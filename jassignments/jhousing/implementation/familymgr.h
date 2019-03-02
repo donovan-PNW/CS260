@@ -14,6 +14,7 @@ class familymgr
 
     public:
         familymgr();
+        ~familymgr();
         familymgr(familymgr& otherFamilyMgr)=delete;
         familymgr operator=(familymgr& otherFamilyMgr)=delete;
         void addFamily(const family famPtr);
