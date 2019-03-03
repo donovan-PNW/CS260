@@ -2,9 +2,10 @@
 #define HEADERS_H
 
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
+
+void borders();
 
 class dataSet
 {
@@ -23,9 +24,7 @@ class dataSet
 class barCharter
 {
     private:
-        char printOut = '*';
         dataSet myData;
-        int spoolNo = 0;
 
     public:
         barCharter();
@@ -34,7 +33,6 @@ class barCharter
         barCharter operator=(barCharter& otherBarChart)=delete;
         void inPutter();
         void outPrinter();
-        void lineSpool();
 
 };
 

@@ -5,9 +5,11 @@ using namespace std;
 
 int main()
 {
+    borders();
     barCharter thisChart;
     thisChart.inPutter();
     thisChart.outPrinter();
+    borders();
 
 
 
@@ -29,15 +31,13 @@ dataSet::~dataSet()
 
 void dataSet::addNumber(int& number)
 {
-    std::cout << number << endl;
+    //std::cout << number << endl;
     count[tally] = number;
 
-    //count[number - 1]++;
-
-    for(int i = 0; i < 10; i++)
-    {
-        std::cout << count[i] << endl;
-    }
+    //for(int i = 0; i < 10; i++)
+    //{
+    //    std::cout << count[i] << endl;
+    //}
     tally++;
 }
 
@@ -48,12 +48,10 @@ int dataSet::numberQuery(int& number)
 
 barCharter::barCharter()
 {
-
 }
 
 barCharter::~barCharter()
 {
-
 }
 
 void barCharter::inPutter()
@@ -69,14 +67,11 @@ void barCharter::inPutter()
         cin.ignore(256, '\n');
         cin >> howMany;
     }
-    //BUGZZVILLE!!!!
-    //THE WHILE LOOP DOESN'T CATCH BAD INPUT ON THE 2ND ONE. iF YOU PUT A NUMBER ABOVE 10 IN
-    //IT JUST FAILS TO ADD ANYTHING SILENTLYJK$^u
     for(int index = 0; index < howMany; index++)
     {
-        cout << "Enter a number between 1 and 10 (including 10): ";
+        cout << "Enter a number between 0 and 10 (including 10): ";
         cin >> thisNumber;
-        while(cin.fail() || thisNumber <= 0 || thisNumber > 10)
+        while(cin.fail() || thisNumber < 0 || thisNumber > 10)
         {
             cout << "ERROR: Not in bounds!! please enter a number between 1 and 10" << endl;
             cin.clear();
@@ -85,8 +80,6 @@ void barCharter::inPutter()
         }
         myData.addNumber(thisNumber);
     }
-    //myData.
-
 }
 
 //void barCharter::outPrinter()
@@ -107,7 +100,7 @@ void barCharter::inPutter()
 //    }
 //}
 
-void barCharter::outPrinter()//lineSpool()
+void barCharter::outPrinter()
 {
     int lineNo;
     int currentOutNumber;
@@ -125,12 +118,15 @@ void barCharter::outPrinter()//lineSpool()
         }
         std::cout << endl;
     }
-
-
-    //spoolNo++;
 }
 
-
+void borders()
+{
+    std::cout << endl;
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    std::cout << endl;
+    std::cout << endl;
+}
 
 
 
