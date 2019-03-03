@@ -19,14 +19,14 @@ static int TABLEBIG = 7877;
 
 
 
-struct familyPod
-{
-    family* family1 = nullptr;
-    family* family2 = nullptr;
-    family* family3 = nullptr;
-    family* family4 = nullptr;
-    family* family5 = nullptr;
-};
+//struct familyPod
+//{
+//    family* family1 = nullptr;
+//    family* family2 = nullptr;
+//    family* family3 = nullptr;
+//    family* family4 = nullptr;
+//    family* family5 = nullptr;
+//};
 
 
 class hashTable
@@ -56,7 +56,7 @@ class hashTable
         family* tablePrint();
         void saysQuack();
         void navChain(family*& current);
-
+        family* seek(const char* FID); 
 
 
 };

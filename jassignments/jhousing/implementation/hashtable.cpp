@@ -120,17 +120,8 @@ const void hashTable::dumpTable()
 }
 
 
-//fuck dude I might just make this return a struct
 family* hashTable::tablePrint()
 {
-
-//WAIT NO i GET IT NOW!!!!!
-//JUST RETURN THE POINTER TO THE HEAD OF THE LINKED LIST
-//AND THEN HAVE FAMILYMGR PRINT THROUGH ON ITS OWN
-//USING THE WHILE NEXTFAM != NULLPTR FUNCTIONALITY
-
-
-
 
 family* podHead;
 
@@ -158,6 +149,36 @@ family* podHead;
     return podHead;
 }
 
+family* hashTable::seek(const char* FID)
+{
+    std::cout << FID << endl;
+    int searchHash = hashTable::hashBrowns(FID);
+    family* familyBack = nullptr;
+    family* inFamily = nullptr;
+
+    familyBack = table[searchHash];
+    std::cout << "searchHash " << searchHash << "FID: " << familyBack->getFID() << endl;
+    for(table
+
+    //for(int i = 0; i < 7877; i++)
+    //{
+    //    //std::cout << "YEOW"<< i << endl;
+    //    inFamily = table[i];
+    //    while(inFamily != nullptr)
+    //    {
+    //        std::cout << inFamily->getFID() << endl;
+    //        if(FID == inFamily->getFID())
+    //        {
+    //            familyBack = inFamily; 
+    //            std::cout << "rrrrrrrrrrr" << endl;
+    //            std::cout << *familyBack << endl;
+    //        }
+    //        inFamily = inFamily->getNextFamily();
+    //    }
+    //}
+
+    return familyBack;
+}
 
 //void hashTable::navChain(family*& current)
 //{

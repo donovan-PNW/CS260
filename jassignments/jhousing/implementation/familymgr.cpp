@@ -25,7 +25,6 @@ void familymgr::addFamily(family& famPtr)
 
 void familymgr::printAllFamilies()
 {
-    int hinter = 0 ;
     //bool truebool = true;
 
     //this bit is a little fucked, you need to just let it run until the infamily is over
@@ -41,14 +40,14 @@ void familymgr::printAllFamilies()
         {
             std::cout << *inFamily << endl;
             inFamily = inFamily->getNextFamily();
-            //family * temPointer = inFamily->getNextFamily();
-            //if(inFamily != nullptr);
+            //family * tempointer = infamily->getnextfamily();
+            //if(infamily != nullptr);
             //{
 
-            //    std::cout << inFamily;
-            //    //inFamily = 
-            //    //temPointer = temPointer->getNextFamily();
-            //    //if(temPointer->getNextFamily() != nullptr);
+            //    std::cout << infamily;
+            //    //infamily = 
+            //    //tempointer = tempointer->getnextfamily();
+            //    //if(tempointer->getnextfamily() != nullptr);
             //    //{
             //    //    //std::cout << temPointer->getNextFamily();
             //    //}
@@ -66,8 +65,13 @@ void familymgr::printAllFamilies()
 }
 void familymgr::printSmallCircle(const char* FID)
 {
+    family* famToPrint = nullptr;
+    famToPrint = database.seek(FID); 
+    if(famToPrint != nullptr)
+    {
+        std::cout << *famToPrint << endl;
+    }
     std::cout << "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" << endl;
-
 }
 
 
