@@ -154,11 +154,8 @@ family* hashTable::seek(const char* FID)
     std::cout << FID << endl;
     int searchHash = hashTable::hashBrowns(FID);
     family* familyBack = nullptr;
-    family* inFamily = nullptr;
-
     familyBack = table[searchHash];
-    std::cout << "searchHash " << searchHash << "FID: " << familyBack->getFID() << endl;
-    for(table
+    //std::cout << "searchHash " << searchHash << "FID: " << familyBack->getFID() << endl;
 
     //for(int i = 0; i < 7877; i++)
     //{

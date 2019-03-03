@@ -1,6 +1,7 @@
 #ifndef FAMILYMGR_H 
 #define FAMILYMGR_H
 #include<iostream>
+#include<cstring>
 #include "family.h"
 #include "hashtable.h"
 using namespace std;

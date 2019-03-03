@@ -67,9 +67,17 @@ void familymgr::printSmallCircle(const char* FID)
 {
     family* famToPrint = nullptr;
     famToPrint = database.seek(FID); 
-    if(famToPrint != nullptr)
+    char* fromFam = nullptr;
+    while(famToPrint != nullptr)
     {
-        std::cout << *famToPrint << endl;
+
+        std::cout << "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" << endl;
+        std::cout << "FID: " << FID << " getFID: " << famToPrint->getFID() << endl;
+        if(strcmp(FID, famToPrint->getFID()) == 0)
+        {
+            std::cout << *famToPrint << endl;
+        }
+        famToPrint = famToPrint->getNextFamily();
     }
     std::cout << "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" << endl;
 }
