@@ -27,7 +27,9 @@ class family
         const char* getFID();
         const char* getFamilyName();
         const int getMemberCount();
-        const char* getFamilyFriends();
+        char* getF1();
+        char* getF2();
+        char* getF3();
         family * getNextFamily();
 
 

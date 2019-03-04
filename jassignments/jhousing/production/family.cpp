@@ -184,6 +184,21 @@ const char* family::getFID()
     return(this->FID);
 }
 
+char* family::getF1()
+{
+    return(this->familyFriend1);
+}
+
+char* family::getF2()
+{
+    return(this->familyFriend2);
+}
+
+char* family::getF3()
+{
+    return(this->familyFriend3);
+}
+
 family* family::getNextFamily()
 {
     return(this->nextFamily);
