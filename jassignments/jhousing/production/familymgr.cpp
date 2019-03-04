@@ -30,7 +30,7 @@ void familymgr::printAllFamilies()
         family* inFamily = database.tablePrint();
         while(inFamily != nullptr)
         {
-            std::cout << *inFamily << endl;
+            std::cout << *inFamily;
             inFamily = inFamily->getNextFamily();
         }
         std::cout << "--------------------" << endl;
