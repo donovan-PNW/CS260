@@ -88,17 +88,17 @@ ostream& operator<<(ostream& out, const family& thisFamily)
     out << "  Friends: " ;
     if(thisFamily.familyFriend1 != nullptr)
     {
-        out <<  thisFamily.familyFriend1;// << " ";
+        out <<  thisFamily.familyFriend1;
     }
     out << " ";
     if(thisFamily.familyFriend2 != nullptr)
     {
-        out << thisFamily.familyFriend2 ;// " ";
+        out << thisFamily.familyFriend2 ;
     }
     out << " ";
     if(thisFamily.familyFriend3 != nullptr)
     {
-        out << thisFamily.familyFriend3;//
+        out << thisFamily.familyFriend3;
     }
     out << " ";
     out << endl;

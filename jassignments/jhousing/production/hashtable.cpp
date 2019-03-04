@@ -118,7 +118,6 @@ family* hashTable::seek(const char* FID)
 { int searchHash = hashTable::hashBrowns(FID);
     family* familyBack = nullptr;
     familyBack = table[searchHash];
-    //std::cout << "FAMBACK: " << *familyBack << endl;
     return familyBack;
 }
 
