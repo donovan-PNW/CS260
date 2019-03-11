@@ -1,0 +1,47 @@
+=== Design and Implementation Plan Questions ===
+
+Below are a few questions about how you will design your program and your
+implementation plan. It is crucial to have a reasonable design and
+implementation plan before you start your program. Without this, success is
+unlikely. The following questions will help guide you in your thinking and
+raise some important questions and issues. There is no single "right" answer
+to each of the questions but there are some "wrong" answers. Some designs and
+plans are better than others. The point here is for you to think about what
+you're going to do.
+
+Make a copy of this file and edit it, adding your answers then turn this
+document in.
+
+----------------------------------------------------------------------
+
+1) What parts of the this program make it so that a tree structure is
+required? That is, why not just store everything in a linked list or hash
+table?
+
+A tree is the best structure because of the recursive nature of this project. For each individual plant, the experiment produces two child plants, and then each of those child plants will create 2 children of their own, and so on until the maximum number of experiments is reached. This would be VERY difficult to keep track of using a single linked list, and you would have multiple generations stacking on top of each other with a resource-expensive iterative process to track down child plants when searching for information. In a hash table, you would have to specify a table size first which would vary greatly depending on the experiment size, and again you would have an issue of the data being organized in a difficut, disjointed, and largely arbitrary way. In this case, a binary tree's nature (one parent, two children of that parent, two children of each child, etc) is self-evident -- it keeps a plant's data neatly organized by a plant's lineage and is an efficient system for following each possible path from root to leaf.
+
+2) Why should the plant class NOT have pointers to other plant clasess?
+
+Just data encapsulation. Keeping plant to itself as a simple container instead of bloating it with more responsibility makes a no-mess solution in a project that can otherwise take on a very tangled structure. Additionally, by having instances of plant link directly to other instances of plant would cause a lot of issues if we were trying to delete individual nodes and needed to reassign pointers -- doing so is hard enough WITH a container class.
+
+3) Why should the treenode class NOT have pointers to the parent node?
+
+It just isn't needed and makes the whole process of creating and destroying more complicated and inefficient. If you as a researcher are looking for the most efficient plant in terms of growth, nutrition, and water requirements from a source/ancestor plant, you'll be moving FROM the original root/ancestor node down TO the leaves to see which line led to the most efficient plant that you have. You're not starting at a leaf and moving backwards to the root. As such, adding a back pointer is just extraneous and adds a whole lot more work for both the computer and the programmer. 
+
+4) This assignment doesn't require the ability to remove nodes from the tree
+(except from the destructor). What would be the problem with allowing a node
+in the middle of the tree to be removed?
+
+It would just break everything. The concept of a binary tree relies on 0,1, or 2 children for each node, with each leaf reachable by the root node by an UNINTERRUPTED path. If you just delete the node that path no longer exists. But you can't just "give" the previous node the deleted node's pointers, either: it is only set up for 1 pointer in that direction, and so two new memory addresses runs afoul of the whole "binary" thing. This means that, if you were to simply delete the node like you would with a linked list, the best you could do is give it one of the two paths, meaning you would lose the other. 
+
+5) This program requires that each node in the tree has exactly 2
+children. What would be a way to allow each node to have 1 or more children
+(no limit)? What would be the challenges with that?
+
+You could make a 2-3 tree or a 2-3-4 tree! These are similar conceptually, but instead of having two pointers to a maximum of 2 or 3 children, they have 3 pointers (or 4 pointers) for a max of 3 or 4 children. These are good because it makes inserting and deleting things a lot more simple (each node can also contain more data than a binary node) but it makes search and traversal a lot more resource-intensive (since you need to make multiple comparisons at each node before continuing down to the next one). Of course you could make as many pointers as you'd like, but you'd see declining returns pretty fast. Although insert/delete is easier, the tree loses its "binary" part, which allows the program to make quicker assumptions. "If it isn't this, it's the other thing." Because of this tradeoff, simplicity is often the better choice to make.
+
+
+
+
+
+
