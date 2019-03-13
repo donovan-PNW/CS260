@@ -39,9 +39,11 @@ class plant
         const int getGrowth();
         const int getNutrition();
         const int getWater();
-
+        const char* getPlantID();
+        //const bool isEqual(const plant& plantA, const plant& plantB);
         const plant& operator=(const plant& otherPlant);
         friend std::ostream& operator<<(std::ostream& out, const plant& thisPlant);
+        friend bool operator==(plant& plantA, plant& plantB);
 };
 
 

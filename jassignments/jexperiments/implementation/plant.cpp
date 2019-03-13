@@ -74,6 +74,33 @@ const plant& plant::operator=(const plant& otherPlant)
     water = otherPlant.water;
     return *this;
 }
+const char* plant::getPlantID()
+{
+    return plantID;
+}
+
+
+
+bool operator==(plant& plantA, plant& plantB)
+{
+    bool isEqual = false;
+    //char* ID1 = plantA.getPlantID();
+    if(strcmp(plantA.plantID, plantB.plantID) == 0)
+    {
+        isEqual = true;
+    }
+    return isEqual;
+}
+
+//const bool plant::isEqual(const plant& plantA, const plant& plantB)
+//{
+//    bool isTheSame = false;
+//    if(strcmp(plantA.plantID, plantB.plantID) == 0)
+//    {
+//        isTheSame = true;
+//    }
+//    return isTheSame;
+//}
 
 ostream& operator<<(ostream& out, const plant& thisPlant)
 {

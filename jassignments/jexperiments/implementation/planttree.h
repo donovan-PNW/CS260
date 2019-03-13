@@ -18,8 +18,9 @@ class planttree
         ~planttree();
 
         void display();
+        const treenode* seek(plant& target, treenode* current);
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
-        void setRoot(plant startingPlant);
+        void setRoot(plant& startingPlant);
         const plant* findBestGrowth();
         const plant* findBestNutrition();
         const plant* findBestWater();
