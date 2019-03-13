@@ -28,7 +28,7 @@ class plant
 
     public:
         plant();
-        plant(plant& otherPlant);
+        plant(const plant& otherPlant);
         plant(const char* newPlantID, int growth, int nutrition, int water);
         ~plant();
 

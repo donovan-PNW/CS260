@@ -6,7 +6,7 @@ plant::plant(): plantID(nullptr), growth(0), nutrition(0), water(0)
 {
 }
 
-plant::plant(plant& otherPlant): plantID(nullptr), growth(otherPlant.growth), nutrition(otherPlant.nutrition),
+plant::plant(const plant& otherPlant): plantID(nullptr), growth(otherPlant.growth), nutrition(otherPlant.nutrition),
     water(otherPlant.water)
 {
     plantID = new char[strlen(otherPlant.plantID)+1];
