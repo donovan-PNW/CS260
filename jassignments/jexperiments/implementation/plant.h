@@ -36,10 +36,10 @@ class plant
         void setGrowth(int& value);
         void setNutrition(int& value);
         void setWater(int& value);
-        const int getGrowth();
-        const int getNutrition();
-        const int getWater();
-        const char* getPlantID();
+        int getGrowth() const;
+        int getNutrition() const;
+        int getWater() const;
+        char* getPlantID() const;
         //const bool isEqual(const plant& plantA, const plant& plantB);
         const plant& operator=(const plant& otherPlant);
         friend std::ostream& operator<<(std::ostream& out, const plant& thisPlant);

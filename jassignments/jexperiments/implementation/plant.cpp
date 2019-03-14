@@ -51,17 +51,17 @@ void plant::setWater(int& value)
     water = value;
 }
 
-const int plant::getGrowth()
+int plant::getGrowth() const
 {
     return growth;
 }
 
-const int plant::getNutrition()
+int plant::getNutrition() const
 {
     return nutrition;
 }
 
-const int plant::getWater()
+int plant::getWater() const
 {
     return water;
 }
@@ -74,7 +74,7 @@ const plant& plant::operator=(const plant& otherPlant)
     water = otherPlant.water;
     return *this;
 }
-const char* plant::getPlantID()
+char* plant::getPlantID() const
 {
     return plantID;
 }

@@ -23,12 +23,12 @@ const planttree& planttree::operator=(const planttree& otherTree)
 {
 }
 
-void planttree::display()
+void planttree::display() const
 {
 }
 
 //current is set at root for first iteration!
-const treenode* planttree::seek(plant& target, treenode* current)
+treenode* planttree::seek(plant& target, treenode* current) const
 {
     if((current == nullptr) || (target == current->individual))
     {
@@ -40,8 +40,12 @@ const treenode* planttree::seek(plant& target, treenode* current)
 
 void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant)
 {
-    //seek(parentPlant, root);
-
+    treenode* current;
+    current = seek(parentPlant, root);
+    current->left = new treenode;
+    current->left->individual = leftPlant;
+    current->right = new treenode;
+    current->right->individual = rightPlant;
 }
 
 void planttree::setRoot(plant& startingPlant)
@@ -52,15 +56,16 @@ void planttree::setRoot(plant& startingPlant)
     root->right = nullptr;
 }
 
-const plant* planttree::findBestGrowth()
+plant* planttree::findBestGrowth() const
+{
+    
+}
+
+plant* planttree::findBestNutrition() const
 {
 }
 
-const plant* planttree::findBestNutrition()
-{
-}
-
-const plant* planttree::findBestWater()
+plant* planttree::findBestWater() const
 {
 }
 

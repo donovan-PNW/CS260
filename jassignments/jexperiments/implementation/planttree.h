@@ -17,13 +17,13 @@ class planttree
         const planttree& operator=(const planttree& otherTree);
         ~planttree();
 
-        void display();
-        const treenode* seek(plant& target, treenode* current);
+        void display() const;
+        treenode* seek(plant& target, treenode* current) const;
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
-        const plant* findBestGrowth();
-        const plant* findBestNutrition();
-        const plant* findBestWater();
+        plant* findBestGrowth() const;
+        plant* findBestNutrition() const;
+        plant* findBestWater() const;
 
 };
 
