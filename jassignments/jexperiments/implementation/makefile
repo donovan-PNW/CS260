@@ -1,22 +1,16 @@
-CC=g++
-CPPFLAGS = -std=c++11 -I. -g
-DEPS = plant.h planttree.h
-OBJ = plant.o planttree.o experiments.o
+all: treeTest
+	
+treeTest: plant.o planttree.o testtree.o
+	g++ -g -Wall -std=c++11 plant.o planttree.o testtree.o -o treeTest
 
-%.o: %c $(DEPS)
-	$(CC) $(CPPFLAGS) -c -o $@ 
+plant.o: plant.cpp
+	g++ -g -Wall -std=c++11 plant.cpp -c
 
-experiments: $(OBJ)
-	$(CC) $(CPPFLAGS) -o $@ $^
-	valgrind --leak-check=yes ./$@
+planttree.o: planttree.cpp
+	g++ -g -Wall -std=c++11 planttree.cpp -c
 
-testtree: plant.o planttree.o testtree.o
-	$(CC) $(CPPFLAGS) -o $@ $^
-	valgrind --leak-check=yes ./$@
-
-testplant: plant.o testplant.o
-	$(CC) $(CPPFLAGS) -o $@ $^
-	valgrind --leak-check=yes ./$@
+testtree.o: testtree.cpp
+	g++ -g -Wall -std=c++11 testtree.cpp -c
 
 make clean:
-	rm -rf *.o testplant
+	rm -rf *.o treeTest

@@ -13,7 +13,7 @@ class planttree
 
     public:
         planttree();
-        planttree(planttree& otherTree);
+        planttree(const planttree& otherTree);
         const planttree& operator=(const planttree& otherTree);
         ~planttree();
 
