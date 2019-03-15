@@ -10,6 +10,7 @@ class planttree
 {
     private:
         treenode* root;
+        treenode* displayTicker;
 
     public:
         planttree();
@@ -18,6 +19,7 @@ class planttree
         ~planttree();
 
         void display() const;
+        void subDisplay(treenode* inNode) const;
         treenode* seek(plant& target, treenode* current) const;
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);

@@ -82,10 +82,8 @@ const plant& plant::operator=(const plant& otherPlant)
 }
 char* plant::getPlantID() const
 { 
-    std::cout << "getPlantID() start" << endl;
     if(plantID != nullptr)
-        std::cout << plantID << endl;
-    std::cout << "getPlantID() end" << endl;
+        std::cout << plantID << "llll" << endl;
     return plantID;
 }
 

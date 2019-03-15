@@ -13,4 +13,4 @@ testtree.o: testtree.cpp
 	g++ -g -Wall -std=c++11 testtree.cpp -c
 
 make clean:
-	rm -rf *.o treeTest
+	rm -rf *.o treeTest out

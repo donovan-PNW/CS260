@@ -8,6 +8,7 @@ using namespace std;
 planttree::planttree()
 {
     root = nullptr;
+    displayTicker = nullptr;
 }
 
 planttree::planttree(const planttree& otherTree)
@@ -26,29 +27,53 @@ const planttree& planttree::operator=(const planttree& otherTree)
 void planttree::display() const
 {
     std::cout << "display()" << endl;
-    std::cout << root->individual.getPlantID();
+    //std::cout << root->individual.getPlantID();
 }
+
+void planttree::subDisplay(treenode* inNode) const
+{
+    
+}
+
 
 //current is set at root for first iteration!
 treenode* planttree::seek(plant& target, treenode* current) const
 {
+    std::cout << "rootalicious! " << endl;
+    std::cout << "AAAAAAAAA" << root->individual.getPlantID() << "BBBBBB" << target.getPlantID();
     std::cout << "target: " << target.getPlantID() << endl;
     std::cout << "current: " << current->individual.getPlantID() << endl;
     //if((current == nullptr) || (target.getPlantID() == current->individual.getPlantID()))
-    if((target.getPlantID() == current->individual.getPlantID()))
+    if((current == nullptr) || (strcmp(target.getPlantID(), current->individual.getPlantID()) == 0))
     {
-        std::cout << "IN: " << current << endl;
-        return current;
+        if(strcmp(target.getPlantID(), current->individual.getPlantID()) == 0)
+        {
+            cout << "FUCK YES!" << endl;
+            return current;
+        }
+        seek(target, current->left);
+        seek(target, current->right);
     }
-    seek(target, current->left);
-    seek(target, current->right);
+    std::cout << "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" << endl;
+    return current;
+    //std::cout << "screwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" << endl;
+    //if((target.getPlantID() == current->individual.getPlantID()))
+    //{
+    //    std::cout << "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj: " << current << endl;
+    //    return current;
+    //}
+    //seek(target, current->left);
+    //seek(target, current->right);
 }
 
 void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant)
 {
+    std::cout << "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" << endl;
     treenode* current;
     //broken!
+    std::cout << "aaaaaaaaaaaaaaaaaaaaaaa" << endl;
     current = seek(parentPlant, root);
+    std::cout << "bbbbbbbbbbbbbbbbbbB" << endl;
     current->left = new treenode;
     current->left->individual = leftPlant;
     current->right = new treenode;
