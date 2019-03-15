@@ -25,6 +25,7 @@ int main()
     std::cout << "addChildren in" << endl;
     pt->addChildren(p1,p2,p3);
     std::cout << "addChildren out" << endl;
+    pt->display();
 
     //plant p4("004",17,18,19);
     //plant p5("005",25,22,20);

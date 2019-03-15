@@ -27,12 +27,23 @@ const planttree& planttree::operator=(const planttree& otherTree)
 void planttree::display() const
 {
     std::cout << "display()" << endl;
+    planttree::subDisplay(root);
     //std::cout << root->individual.getPlantID();
 }
 
 void planttree::subDisplay(treenode* inNode) const
 {
-    
+    std::cout << "subDisplay start" << endl;
+    std::cout << inNode->individual;
+    std::cout << "subdisplay fart" << endl;
+    if(inNode->left != nullptr)
+    {
+        subDisplay(inNode->left);
+    }
+    if(inNode->right != nullptr)
+    {
+        subDisplay(inNode->right);
+    }
 }
 
 
