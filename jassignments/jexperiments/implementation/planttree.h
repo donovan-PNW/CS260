@@ -23,7 +23,7 @@ class planttree
         treenode* seek(plant& target, treenode* current);
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
-        plant* findBestGrowth() const;
+        plant* findBestGrowth();
         plant* findBestNutrition() const;
         plant* findBestWater() const;
 

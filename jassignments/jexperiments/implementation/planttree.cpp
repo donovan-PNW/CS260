@@ -35,7 +35,7 @@ void planttree::subDisplay(treenode* inNode) const
 {
     std::cout << "subDisplay start" << endl;
     std::cout << inNode->individual;
-    std::cout << "subdisplay fart" << endl;
+    std::cout << "subdisplay end" << endl;
     if(inNode->left != nullptr)
     {
         subDisplay(inNode->left);
@@ -55,7 +55,7 @@ treenode* planttree::seek(plant& target, treenode* current)
     {
         if(strcmp(target.getPlantID(), current->individual.getPlantID()) == 0)
         {
-            cout << "FUCK YES!" << endl;
+            cout << "YES!" << endl;
             std::cout << current->individual.getPlantID();
             nextNode = current;
             return current;
@@ -79,6 +79,7 @@ void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPl
     current->left->individual = leftPlant;
     current->right = new treenode;
     current->right->individual = rightPlant;
+    nextNode = nullptr;
 }
 
 void planttree::setRoot(plant& startingPlant)
@@ -89,10 +90,15 @@ void planttree::setRoot(plant& startingPlant)
     root->right = nullptr;
 }
 
-plant* planttree::findBestGrowth() const
+plant* planttree::findBestGrowth()
 {
     
+    
 }
+
+
+
+
 
 plant* planttree::findBestNutrition() const
 {
@@ -101,6 +107,21 @@ plant* planttree::findBestNutrition() const
 plant* planttree::findBestWater() const
 {
 }
+
+//int theGreatest(char type, int top)
+//{
+//    int temporary
+//    switch (type)
+//    case 'G': 
+//        temporary = 
+//
+//    case 'N':
+//
+//
+//    case 'W':
+//
+//
+//}
 
 
 
