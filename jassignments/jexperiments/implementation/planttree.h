@@ -21,6 +21,7 @@ class planttree
         void display() const;
         void subDisplay(treenode* inNode) const;
         treenode* seek(plant& target, treenode* current);
+        treenode* sikh(plant& target, treenode* current);
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
         plant* findBestGrowth();

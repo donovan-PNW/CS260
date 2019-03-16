@@ -47,39 +47,75 @@ void planttree::subDisplay(treenode* inNode) const
 }
 
 //current is set at root for first iteration!
-treenode* planttree::seek(plant& target, treenode* current)
+//treenode* planttree::seek(plant& target, treenode* current)
+//{
+//    std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAatarget: " << target.getPlantID() << endl;
+//    std::cout << "BBBBBBBBBBBBBBBBBBBBBBBBBBBcurrent: " << current->individual.getPlantID() << endl;
+//    if(current != nullptr)
+//    {
+//        if(strcmp(target.getPlantID(), current->individual.getPlantID()) == 0)
+//        {
+//            cout << "YES!" << endl;
+//            std::cout << current->individual.getPlantID();
+//            nextNode = current;
+//            return current;
+//        }
+//    }
+//    if(current->left)
+//        seek(target, current->left);
+//    if(current->right)
+//        seek(target, current->right);
+//    std::cout << "CCCCCCCCCCCCCCCCCCCCCCCCCCCCC: Last target: " << target.getPlantID() << endl;
+//    return nullptr;
+//}
+
+
+
+
+treenode* planttree::sikh(plant& target, treenode* current)
 {
-    std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAatarget: " << target.getPlantID() << endl;
-    std::cout << "BBBBBBBBBBBBBBBBBBBBBBBBBBBcurrent: " << current->individual.getPlantID() << endl;
-    if((current == nullptr) || (strcmp(target.getPlantID(), current->individual.getPlantID()) == 0))
+    treenode* temporary = nullptr;
+    if(current == nullptr)
     {
-        if(strcmp(target.getPlantID(), current->individual.getPlantID()) == 0)
-        {
-            cout << "YES!" << endl;
-            std::cout << current->individual.getPlantID();
-            nextNode = current;
-            return current;
-        }
+        return nullptr;
     }
-    if(current->left)
-        seek(target, current->left);
-    if(current->right)
-        seek(target, current->right);
-    std::cout << "CCCCCCCCCCCCCCCCCCCCCCCCCCCCC: Last target: " << target.getPlantID() << endl;
-    return current;
+    else if(target == current->individual)
+    {
+        std::cout << "THIS IS CURRENT: " << current->individual << endl;
+        std::cout << "THIS IS TARGET " << target << endl;
+        return current;
+    }
+    else
+    {
+        temporary = sikh(target, current->left);
+        if(temporary != nullptr)
+            return temporary;
+        else
+        {
+            return sikh(target, current->right);
+        }
+
+
+    }
 }
+
+
+
+
+
 
 void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant)
 {
     treenode* current;
     //broken!
-    current = seek(parentPlant, root);
-    current = nextNode;
+    //current = seek(parentPlant, root);
+    //current = nextNode;
+    current = sikh(parentPlant, root);
+    std::cout << current->individual << endl;
     current->left = new treenode;
     current->left->individual = leftPlant;
     current->right = new treenode;
     current->right->individual = rightPlant;
-    nextNode = nullptr;
 }
 
 void planttree::setRoot(plant& startingPlant)
