@@ -18,14 +18,11 @@ plant::plant(const char* newPlantID, int newGrowth, int newNutrition, int newWat
 {
     //
     //char* plantID = nullptr;
-    std:: cout << "innnnnnnnnnnnnnnnn: " << newPlantID << endl;
     //std::cout << "Length of in: " << strlen(newPlantID)+1;
     plantID = new char[strlen(newPlantID)+1];
     //std::cout << " " << plantID << "wwwwwwwwwww" << endl; 
 
     strcpy(plantID, newPlantID);
-    std::cout << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX" <<endl;
-    std::cout << newPlantID << endl;
     growth = newGrowth;
     nutrition = newNutrition;
     water = newWater;
@@ -71,10 +68,8 @@ int plant::getWater() const
 
 const plant& plant::operator=(const plant& otherPlant)
 {
-    std::cout << otherPlant.plantID << endl;
     plantID = new char[strlen(otherPlant.plantID)+1];
     strcpy(plantID, otherPlant.plantID);
-    std::cout << "WOOT?" << endl;
     growth = otherPlant.growth;
     nutrition = otherPlant.nutrition;
     water = otherPlant.water;
@@ -82,8 +77,8 @@ const plant& plant::operator=(const plant& otherPlant)
 }
 char* plant::getPlantID() const
 { 
-    if(plantID != nullptr)
-        std::cout << plantID << "llll" << endl;
+    //if(plantID != nullptr)
+    //    std::cout << plantID << "llll" << endl;
     return plantID;
 }
 
@@ -112,15 +107,13 @@ bool operator==(plant& plantA, plant& plantB)
 
 ostream& operator<<(ostream& out, const plant& thisPlant)
 {
-    std::cout << thisPlant.plantID << endl;
     out << "Plant ID: Plant " << thisPlant.plantID;
-    out << "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" << endl; 
     out << " " << thisPlant.growth << "-";
     out << thisPlant.nutrition<< "-";
     out << thisPlant.water << " ";
     out << "(G: " << thisPlant.growth << " N: " << thisPlant.nutrition;
     out << " W: " << thisPlant.water << ")" << endl;
-    out << "change whole plantIDPlant field to come from a string held completely in plant class" << endl;
+    //out << "change whole plantIDPlant field to come from a string held completely in plant class" << endl;
     
     return out;
 }

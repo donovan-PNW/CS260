@@ -65,7 +65,6 @@ treenode* planttree::seek(plant& target, treenode* current) const
         seek(target, current->left);
         seek(target, current->right);
     }
-    std::cout << "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" << endl;
     return current;
     //std::cout << "screwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" << endl;
     //if((target.getPlantID() == current->individual.getPlantID()))
@@ -79,12 +78,9 @@ treenode* planttree::seek(plant& target, treenode* current) const
 
 void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant)
 {
-    std::cout << "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" << endl;
     treenode* current;
     //broken!
-    std::cout << "aaaaaaaaaaaaaaaaaaaaaaa" << endl;
     current = seek(parentPlant, root);
-    std::cout << "bbbbbbbbbbbbbbbbbbB" << endl;
     current->left = new treenode;
     current->left->individual = leftPlant;
     current->right = new treenode;

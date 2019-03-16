@@ -26,16 +26,19 @@ int main()
     pt->addChildren(p1,p2,p3);
     std::cout << "addChildren out" << endl;
     pt->display();
+    std::cout << "next!" << endl;
 
-    //plant p4("004",17,18,19);
-    //plant p5("005",25,22,20);
-    //plant p6("006",30,50,40);
-    //plant p7("007",33,44,55);
+    plant p4("004",17,18,19);
+    plant p5("005",25,22,20);
+    plant p6("006",30,50,40);
+    plant p7("007",33,44,55);
 
-    //pt->addChildren(p2,p4,p5);
-    //pt->addChildren(p3,p6,p7);
 
-    //pt->display();
+    std::cout << "iiiiiiiiiiiiiiii" << endl;
+    pt->addChildren(p2,p4,p5);
+    pt->addChildren(p3,p6,p7);
+
+    pt->display();
 
     //const plant* bestPlant;
 
