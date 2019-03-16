@@ -10,7 +10,7 @@ class planttree
 {
     private:
         treenode* root;
-        treenode* displayTicker;
+        treenode* nextNode = nullptr;
 
     public:
         planttree();
@@ -20,7 +20,7 @@ class planttree
 
         void display() const;
         void subDisplay(treenode* inNode) const;
-        treenode* seek(plant& target, treenode* current) const;
+        treenode* seek(plant& target, treenode* current);
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
         plant* findBestGrowth() const;

@@ -8,7 +8,7 @@ using namespace std;
 planttree::planttree()
 {
     root = nullptr;
-    displayTicker = nullptr;
+    nextNode = nullptr;
 }
 
 planttree::planttree(const planttree& otherTree)
@@ -46,34 +46,27 @@ void planttree::subDisplay(treenode* inNode) const
     }
 }
 
-
 //current is set at root for first iteration!
-treenode* planttree::seek(plant& target, treenode* current) const
+treenode* planttree::seek(plant& target, treenode* current)
 {
-    std::cout << "rootalicious! " << endl;
-    std::cout << "AAAAAAAAA" << root->individual.getPlantID() << "BBBBBB" << target.getPlantID();
-    std::cout << "target: " << target.getPlantID() << endl;
-    std::cout << "current: " << current->individual.getPlantID() << endl;
-    //if((current == nullptr) || (target.getPlantID() == current->individual.getPlantID()))
+    std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAatarget: " << target.getPlantID() << endl;
+    std::cout << "BBBBBBBBBBBBBBBBBBBBBBBBBBBcurrent: " << current->individual.getPlantID() << endl;
     if((current == nullptr) || (strcmp(target.getPlantID(), current->individual.getPlantID()) == 0))
     {
         if(strcmp(target.getPlantID(), current->individual.getPlantID()) == 0)
         {
             cout << "FUCK YES!" << endl;
+            std::cout << current->individual.getPlantID();
+            nextNode = current;
             return current;
         }
-        seek(target, current->left);
-        seek(target, current->right);
     }
+    if(current->left)
+        seek(target, current->left);
+    if(current->right)
+        seek(target, current->right);
+    std::cout << "CCCCCCCCCCCCCCCCCCCCCCCCCCCCC: Last target: " << target.getPlantID() << endl;
     return current;
-    //std::cout << "screwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" << endl;
-    //if((target.getPlantID() == current->individual.getPlantID()))
-    //{
-    //    std::cout << "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj: " << current << endl;
-    //    return current;
-    //}
-    //seek(target, current->left);
-    //seek(target, current->right);
 }
 
 void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant)
@@ -81,6 +74,7 @@ void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPl
     treenode* current;
     //broken!
     current = seek(parentPlant, root);
+    current = nextNode;
     current->left = new treenode;
     current->left->individual = leftPlant;
     current->right = new treenode;
@@ -89,12 +83,8 @@ void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPl
 
 void planttree::setRoot(plant& startingPlant)
 {
-    std::cout << "setroot " << endl;
     root = new treenode;
-    //root->individual(startingPlant);
     root->individual = startingPlant;
-    std::cout << "inStart: " << startingPlant << endl;
-    std::cout << "ROOTINDIE" << root->individual << endl;
     root->left = nullptr;
     root->right = nullptr;
 }

@@ -37,8 +37,10 @@ int main()
     std::cout << "iiiiiiiiiiiiiiii" << endl;
     pt->addChildren(p2,p4,p5);
     pt->addChildren(p3,p6,p7);
+    std::cout << "byeeeeeeeeeeeeeee" << endl;
 
     pt->display();
+    std::cout << "okbutreally" << endl;
 
     //const plant* bestPlant;
 
