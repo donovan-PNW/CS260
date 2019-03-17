@@ -11,18 +11,32 @@ planttree::planttree()
     nextNode = nullptr;
 }
 
-planttree::planttree(const planttree& otherTree)
-{
-    root = otherTree.root; 
-}
+//planttree::planttree(const planttree& otherTree)
+//{
+//    root = otherTree.root; 
+//}
 
 planttree::~planttree()
 {
+    destroyDex(root);
 }
 
-const planttree& planttree::operator=(const planttree& otherTree)
+void planttree::destroyDex(treenode* inNode)
 {
+    cout << "broooooooooooo" << endl;
+    if(inNode != nullptr)
+    {
+        destroyDex(inNode->left);
+        destroyDex(inNode->right);
+        delete inNode;
+        inNode = nullptr;
+    }
 }
+
+
+//const planttree& planttree::operator=(const planttree& otherTree)
+//{
+//}
 
 void planttree::display() const
 {

@@ -14,9 +14,10 @@ class planttree
 
     public:
         planttree();
-        planttree(const planttree& otherTree);
-        const planttree& operator=(const planttree& otherTree);
+        planttree(const planttree& otherTree)=delete;
+        const planttree& operator=(const planttree& otherTree)=delete;
         ~planttree();
+        void destroyDex(treenode* inNode);
 
         void display() const;
         void subDisplay(treenode* inNode, int depth) const;
@@ -25,10 +26,10 @@ class planttree
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
         plant* findBestGrowth();
-        treenode* subFBG(treenode* current, int top);
         plant* findBestNutrition();
-        treenode* subFBN(treenode* current, int top);
         plant* findBestWater();
+        treenode* subFBG(treenode* current, int top);
+        treenode* subFBN(treenode* current, int top);
         treenode* subFBW(treenode* current, int top);
         int theGreatest(const char& type, int& top, treenode* inNode);
 
