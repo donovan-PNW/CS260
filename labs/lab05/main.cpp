@@ -8,6 +8,7 @@ void getValues(int& x,int& y) {
     cin >> x;
     cout << "Enter the second integer: ";
     cin >> y;
+    lineEnder();
 }
 
 
@@ -23,6 +24,7 @@ int main() {
     cout << "1) GCD" << endl;
     cout << "2) LCM" << endl;
     cout << "3) average" << endl;
+    cout << "4) factorial between two values" << endl;
     cout << "0) quit" << endl;
     cout << "Enter choice: ";
 
@@ -35,12 +37,19 @@ int main() {
     switch (choice) {
 	case 1:
         cout << "Greatest common denominator: " << doGCD(x,y) << endl;
+        lineEnder();
 	    break;
 	case 2:
 	    doLCM(x,y);
+        lineEnder();
 	    break;
 	case 3:
 	    doAverage(x,y);
+        lineEnder();
+	    break;
+	case 4:
+	    factorial(x,y);
+        lineEnder();
 	    break;
 	case 0:
 	    done = true;

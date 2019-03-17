@@ -31,3 +31,35 @@ void doAverage(int x, int y)
     int average = sum/2;
     cout << "Average of " << x << " and " << y << " is " << average << endl;
 }
+
+void factorial(int x, int y)
+{
+    int z;
+    if(x >= y)
+        z = x - y;
+    else
+        z = y - x;
+    cout << "difference: " << z << endl;
+    if(z > 20)
+        cout << "Overflow! Difference is too large. You broke c++" << endl;
+    else
+        cout << "factorial of difference: " << factorialHelper(z) << endl;
+}
+
+size_t factorialHelper(int z)
+{
+    if(z == 1)
+        return z;
+    else
+        return (z * factorialHelper(z-1));
+}
+
+void lineEnder()
+{
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
+}
+
+
+
+
+
