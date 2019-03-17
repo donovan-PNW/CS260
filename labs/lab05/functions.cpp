@@ -1,0 +1,33 @@
+#include "functions.h"
+
+using namespace std;
+
+int doGCD(int x, int y)
+{
+    if(x == 0 || y == 0)
+    {
+        return 0;
+    }
+    else if(x == y)
+    {
+        return x;
+    }
+    else if(x >= y)
+    {
+        return doGCD((x - y), y);
+    }
+    else if(x < y)
+    {
+        return doGCD(x, (y - x));
+    }
+}
+void doLCM(int x, int y)
+{
+    cout << "Least common multiple: " << (x * y)/(doGCD(x,y)) << endl;
+}
+void doAverage(int x, int y)
+{
+    int sum = x + y;
+    int average = sum/2;
+    cout << "Average of " << x << " and " << y << " is " << average << endl;
+}
