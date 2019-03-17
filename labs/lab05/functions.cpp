@@ -4,19 +4,20 @@ using namespace std;
 
 int doGCD(int x, int y)
 {
-    if(x == 0 || y == 0)
-    {
-        return 0;
-    }
-    else if(x == y)
+    if((x == 0) || (y == 0) || (x == y))
     {
         return x;
     }
+    //else if(x == y)
+    //{
+    //    return x;
+    //}
     else if(x >= y)
     {
         return doGCD((x - y), y);
     }
-    else if(x < y)
+    //else if(x < y)
+    else
     {
         return doGCD(x, (y - x));
     }

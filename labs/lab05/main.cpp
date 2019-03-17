@@ -53,6 +53,10 @@ int main() {
 	    break;
 	case 0:
 	    done = true;
+        break;
+    default:
+        cout << "not an option! Try again";
+        lineEnder();
     }
   } while (!done);
   
