@@ -1,0 +1,182 @@
+inDisplay
+display()
+subDisplay start
+Plant ID: Plant 001 1-1-1 (G: 1 N: 1 W: 1)
+subdisplay end
+outDisplay
+addChildren in
+THIS IS CURRENT: Plant ID: Plant 001 1-1-1 (G: 1 N: 1 W: 1)
+
+THIS IS TARGET Plant ID: Plant 001 1-1-1 (G: 1 N: 1 W: 1)
+
+Plant ID: Plant 001 1-1-1 (G: 1 N: 1 W: 1)
+
+addChildren out
+display()
+subDisplay start
+Plant ID: Plant 001 1-1-1 (G: 1 N: 1 W: 1)
+subdisplay end
+subDisplay start
+Plant ID: Plant 002 2-2-2 (G: 2 N: 2 W: 2)
+subdisplay end
+subDisplay start
+Plant ID: Plant 003 3-4-5 (G: 3 N: 4 W: 5)
+subdisplay end
+next!
+iiiiiiiiiiiiiiii
+THIS IS CURRENT: Plant ID: Plant 002 2-2-2 (G: 2 N: 2 W: 2)
+
+THIS IS TARGET Plant ID: Plant 002 2-2-2 (G: 2 N: 2 W: 2)
+
+Plant ID: Plant 002 2-2-2 (G: 2 N: 2 W: 2)
+
+THIS IS CURRENT: Plant ID: Plant 003 3-4-5 (G: 3 N: 4 W: 5)
+
+THIS IS TARGET Plant ID: Plant 003 3-4-5 (G: 3 N: 4 W: 5)
+
+Plant ID: Plant 003 3-4-5 (G: 3 N: 4 W: 5)
+
+byeeeeeeeeeeeeeee
+display()
+subDisplay start
+Plant ID: Plant 001 1-1-1 (G: 1 N: 1 W: 1)
+subdisplay end
+subDisplay start
+Plant ID: Plant 002 2-2-2 (G: 2 N: 2 W: 2)
+subdisplay end
+subDisplay start
+Plant ID: Plant 004 17-18-19 (G: 17 N: 18 W: 19)
+subdisplay end
+subDisplay start
+Plant ID: Plant 005 25-22-20 (G: 25 N: 22 W: 20)
+subdisplay end
+subDisplay start
+Plant ID: Plant 003 3-4-5 (G: 3 N: 4 W: 5)
+subdisplay end
+subDisplay start
+Plant ID: Plant 006 30-50-40 (G: 30 N: 50 W: 40)
+subdisplay end
+subDisplay start
+Plant ID: Plant 007 33-44-55 (G: 33 N: 44 W: 55)
+subdisplay end
+okbutreally
+jjjjjjjjjjjjjjjjjjjjjjjjj
+doot doot
+Growwwwth 1
+read current: 
+doot doot
+Growwwwth 1
+read Left
+doot doot
+Growwwwth 2
+read current: 
+doot doot
+Growwwwth 2
+read Left
+doot doot
+Growwwwth 17
+read current: 
+doot doot
+Growwwwth 17
+read Left
+nullptr end
+check These out: 
+read Right
+nullptr end
+local is bigger 
+returning local
+check These out: 
+doot doot
+Growwwwth 17
+doot doot
+Growwwwth 2
+left is bigger 
+read Right
+doot doot
+Growwwwth 25
+read current: 
+doot doot
+Growwwwth 25
+read Left
+nullptr end
+check These out: 
+read Right
+nullptr end
+local is bigger 
+returning local
+doot doot
+Growwwwth 25
+doot doot
+Growwwwth 2
+right is bigger 
+doot doot
+Growwwwth 17
+doot doot
+Growwwwth 25
+check These out: 
+doot doot
+Growwwwth 25
+doot doot
+Growwwwth 1
+left is bigger 
+read Right
+doot doot
+Growwwwth 3
+read current: 
+doot doot
+Growwwwth 3
+read Left
+doot doot
+Growwwwth 30
+read current: 
+doot doot
+Growwwwth 30
+read Left
+nullptr end
+check These out: 
+read Right
+nullptr end
+local is bigger 
+returning local
+check These out: 
+doot doot
+Growwwwth 30
+doot doot
+Growwwwth 3
+left is bigger 
+read Right
+doot doot
+Growwwwth 33
+read current: 
+doot doot
+Growwwwth 33
+read Left
+nullptr end
+check These out: 
+read Right
+nullptr end
+local is bigger 
+returning local
+doot doot
+Growwwwth 33
+doot doot
+Growwwwth 3
+right is bigger 
+doot doot
+Growwwwth 30
+doot doot
+Growwwwth 33
+doot doot
+Growwwwth 33
+doot doot
+Growwwwth 1
+right is bigger 
+doot doot
+Growwwwth 25
+doot doot
+Growwwwth 33
+Plant ID: Plant 007 33-44-55 (G: 33 N: 44 W: 55)
+
+Best growth rate: 
+Plant ID: Plant 007 33-44-55 (G: 33 N: 44 W: 55)
+

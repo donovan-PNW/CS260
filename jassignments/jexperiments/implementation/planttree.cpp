@@ -94,8 +94,6 @@ treenode* planttree::sikh(plant& target, treenode* current)
         {
             return sikh(target, current->right);
         }
-
-
     }
 }
 
@@ -128,11 +126,85 @@ void planttree::setRoot(plant& startingPlant)
 
 plant* planttree::findBestGrowth()
 {
-    
+    treenode* tempPlant = nullptr;
+    cout << "jjjjjjjjjjjjjjjjjjjjjjjjj" << endl;
+    tempPlant = subFBG(root, 0);
+    plant* address = tempPlant->individual.getPlantPointer();
+    //int thisVal = theGreatest('G', )
+    cout << tempPlant->individual << endl; 
+    return address;
     
 }
 
+treenode* planttree::subFBG(treenode* current, int top)
+{
+    int newTop = 0;
+    bool leftOrRightBigger = false;
+    treenode* temporaryLeft = nullptr;
+    treenode* temporaryRight = nullptr;
+    if(current == nullptr)
+    {
+        cout << "nullptr end" << endl;
+        return nullptr;
+    }
+    else if(current->individual.getGrowth() > top)
+    {
+        cout << "read current: " << endl;
+        top = current->individual.getGrowth();
+        cout << "read Left" << endl;
+        temporaryLeft = subFBG(current->left, newTop);
+        cout << "check These out: " << endl;
+        if((temporaryLeft) && temporaryLeft->individual.getGrowth() > current->individual.getGrowth())
+        {
+            cout << "left is bigger " << endl;
+            leftOrRightBigger = true;
+        }
+        cout << "read Right" << endl;
+        temporaryRight = subFBG(current->right, newTop);
+        if((temporaryRight) && temporaryRight->individual.getGrowth() > current->individual.getGrowth())
+        {
+            cout << "right is bigger " << endl;
+            leftOrRightBigger = true;
+        }
+        if(leftOrRightBigger)
+        {
+            if(temporaryLeft->individual.getGrowth() >= temporaryRight ->individual.getGrowth())
+            {
+                std::cout << "returning left " << endl;
+                return temporaryLeft;
+            }
+            else
+                return temporaryRight;
+        }
+        else
+            cout << "local is bigger " << endl;
+            cout << "returning local" << endl;
+            return current;
+    }
+}
 
+
+//void planttree::display() const
+//{
+//    std::cout << "display()" << endl;
+//    planttree::subDisplay(root);
+//    //std::cout << root->individual.getPlantID();
+//}
+//
+//void planttree::subDisplay(treenode* inNode) const
+//{
+//    std::cout << "subDisplay start" << endl;
+//    std::cout << inNode->individual;
+//    std::cout << "subdisplay end" << endl;
+//    if(inNode->left != nullptr)
+//    {
+//        subDisplay(inNode->left);
+//    }
+//    if(inNode->right != nullptr)
+//    {
+//        subDisplay(inNode->right);
+//    }
+//}
 
 
 
@@ -144,19 +216,24 @@ plant* planttree::findBestWater() const
 {
 }
 
-//int theGreatest(char type, int top)
+//REDO THIS SO THAT EACH IS INDIVIDUAL IF PROGRAM IS SLOW
+//int planttree::theGreatest(const char& type, int& top, treenode* inNode)
 //{
-//    int temporary
+//    int temporary = 0;
 //    switch (type)
+//    {
 //    case 'G': 
-//        temporary = 
-//
+//        temporary = inNode->individual.getGrowth();
+//        break;
 //    case 'N':
-//
-//
+//        temporary = inNode->individual.getNutrition();
+//        break;
 //    case 'W':
-//
-//
+//        temporary = inNode->individual.getWater();
+//        break;
+//    }
+//    return temporary;
+//    //just like the print statement except compare each instead of printing it
 //}
 
 

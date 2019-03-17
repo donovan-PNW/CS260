@@ -52,6 +52,8 @@ void plant::setWater(int& value)
 
 int plant::getGrowth() const
 {
+    std::cout << "doot doot" << endl;
+    std::cout << "Growwwwth " << growth << endl;
     return growth;
 }
 
@@ -63,6 +65,11 @@ int plant::getNutrition() const
 int plant::getWater() const
 {
     return water;
+}
+
+plant* plant::getPlantPointer()
+{
+    return this;
 }
 
 

@@ -40,6 +40,8 @@ class plant
         int getNutrition() const;
         int getWater() const;
         char* getPlantID() const;
+        plant* getPlantPointer();
+        
         //const bool isEqual(const plant& plantA, const plant& plantB);
         const plant& operator=(const plant& otherPlant);
         friend std::ostream& operator<<(std::ostream& out, const plant& thisPlant);

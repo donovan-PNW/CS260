@@ -25,8 +25,10 @@ class planttree
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
         plant* findBestGrowth();
+        treenode* subFBG(treenode* current, int top);
         plant* findBestNutrition() const;
         plant* findBestWater() const;
+        int theGreatest(const char& type, int& top, treenode* inNode);
 
 };
 

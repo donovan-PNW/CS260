@@ -42,11 +42,11 @@ int main()
     pt->display();
     std::cout << "okbutreally" << endl;
 
-    //const plant* bestPlant;
+    const plant* bestPlant;
 
-    //cout << "Best growth rate: " << endl;
-    //bestPlant = pt->findBestGrowth();
-    //cout << (*bestPlant) << endl;
+    bestPlant = pt->findBestGrowth();
+    cout << "Best growth rate: " << endl;
+    cout << (*bestPlant) << endl;
 
     //cout << "Best nutritional value: " << endl;
     //bestPlant = pt->findBestNutrition();
