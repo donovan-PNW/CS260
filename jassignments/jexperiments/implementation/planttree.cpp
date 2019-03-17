@@ -27,22 +27,28 @@ const planttree& planttree::operator=(const planttree& otherTree)
 void planttree::display() const
 {
     std::cout << "display()" << endl;
-    planttree::subDisplay(root);
+    planttree::subDisplay(root, 0);
     //std::cout << root->individual.getPlantID();
 }
 
-void planttree::subDisplay(treenode* inNode) const
+void planttree::subDisplay(treenode* inNode, int depth) const
 {
-    std::cout << "subDisplay start" << endl;
+    //std::cout << "subDisplay start" << endl;
+    for(int i = 0; i < depth; i++)
+    {
+        cout << "  ";
+    }
     std::cout << inNode->individual;
-    std::cout << "subdisplay end" << endl;
+    //std::cout << "subdisplay end" << endl;
     if(inNode->left != nullptr)
     {
-        subDisplay(inNode->left);
+        cout << "  ";
+        subDisplay(inNode->left, ++depth);
     }
     if(inNode->right != nullptr)
     {
-        subDisplay(inNode->right);
+        cout << "  ";
+        subDisplay(inNode->right, depth);
     }
 }
 
@@ -127,8 +133,11 @@ void planttree::setRoot(plant& startingPlant)
 plant* planttree::findBestGrowth()
 {
     treenode* tempPlant = nullptr;
-    cout << "jjjjjjjjjjjjjjjjjjjjjjjjj" << endl;
     tempPlant = subFBG(root, 0);
+    //I really have no idea why I needed to do this to get it
+    //to return a pointer. Compiler kept spitting out an error
+    //about converting from plant to plant* on return/assignment/everything else
+    //but also wouldn't accept a reference or a pointer.
     plant* address = tempPlant->individual.getPlantPointer();
     //int thisVal = theGreatest('G', )
     cout << tempPlant->individual << endl; 
@@ -207,14 +216,120 @@ treenode* planttree::subFBG(treenode* current, int top)
 //}
 
 
-
-plant* planttree::findBestNutrition() const
+plant* planttree::findBestNutrition()
 {
+    treenode* tempPlant = nullptr;
+    tempPlant = subFBN(root, 0);
+    plant* address = tempPlant->individual.getPlantPointer();
+    cout << tempPlant->individual << endl; 
+    return address;
+    
 }
 
-plant* planttree::findBestWater() const
+treenode* planttree::subFBN(treenode* current, int top)
 {
+    int newTop = 0;
+    bool leftOrRightBigger = false;
+    treenode* temporaryLeft = nullptr;
+    treenode* temporaryRight = nullptr;
+    if(current == nullptr)
+    {
+        cout << "nullptr end" << endl;
+        return nullptr;
+    }
+    else if(current->individual.getNutrition() > top)
+    {
+        cout << "read current: " << endl;
+        top = current->individual.getNutrition();
+        cout << "read Left" << endl;
+        temporaryLeft = subFBN(current->left, newTop);
+        cout << "check These out: " << endl;
+        if((temporaryLeft) && temporaryLeft->individual.getNutrition() > current->individual.getNutrition())
+        {
+            cout << "left is bigger " << endl;
+            leftOrRightBigger = true;
+        }
+        cout << "read Right" << endl;
+        temporaryRight = subFBN(current->right, newTop);
+        if((temporaryRight) && temporaryRight->individual.getNutrition() > current->individual.getNutrition())
+        {
+            cout << "right is bigger " << endl;
+            leftOrRightBigger = true;
+        }
+        if(leftOrRightBigger)
+        {
+            if(temporaryLeft->individual.getNutrition() >= temporaryRight ->individual.getNutrition())
+            {
+                std::cout << "returning left " << endl;
+                return temporaryLeft;
+            }
+            else
+                return temporaryRight;
+        }
+        else
+            cout << "local is bigger " << endl;
+            cout << "returning local" << endl;
+            return current;
+    }
 }
+
+plant* planttree::findBestWater()
+{
+    treenode* tempPlant = nullptr;
+    tempPlant = subFBW(root, 0);
+    plant* address = tempPlant->individual.getPlantPointer();
+    cout << tempPlant->individual << endl; 
+    return address;
+    
+}
+
+treenode* planttree::subFBW(treenode* current, int top)
+{
+    int newTop = 0;
+    bool leftOrRightBigger = false;
+    treenode* temporaryLeft = nullptr;
+    treenode* temporaryRight = nullptr;
+    if(current == nullptr)
+    {
+        cout << "nullptr end" << endl;
+        return nullptr;
+    }
+    else if(current->individual.getWater() > top)
+    {
+        cout << "read current: " << endl;
+        top = current->individual.getWater();
+        cout << "read Left" << endl;
+        temporaryLeft = subFBW(current->left, newTop);
+        cout << "check These out: " << endl;
+        if((temporaryLeft) && temporaryLeft->individual.getWater() > current->individual.getWater())
+        {
+            cout << "left is bigger " << endl;
+            leftOrRightBigger = true;
+        }
+        cout << "read Right" << endl;
+        temporaryRight = subFBW(current->right, newTop);
+        if((temporaryRight) && temporaryRight->individual.getWater() > current->individual.getWater())
+        {
+            cout << "right is bigger " << endl;
+            leftOrRightBigger = true;
+        }
+        if(leftOrRightBigger)
+        {
+            if(temporaryLeft->individual.getWater() >= temporaryRight ->individual.getWater())
+            {
+                std::cout << "returning left " << endl;
+                return temporaryLeft;
+            }
+            else
+                return temporaryRight;
+        }
+        else
+            cout << "local is bigger " << endl;
+            cout << "returning local" << endl;
+            return current;
+    }
+}
+
 
 //REDO THIS SO THAT EACH IS INDIVIDUAL IF PROGRAM IS SLOW
 //int planttree::theGreatest(const char& type, int& top, treenode* inNode)

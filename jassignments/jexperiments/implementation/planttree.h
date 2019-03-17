@@ -19,15 +19,17 @@ class planttree
         ~planttree();
 
         void display() const;
-        void subDisplay(treenode* inNode) const;
+        void subDisplay(treenode* inNode, int depth) const;
         treenode* seek(plant& target, treenode* current);
         treenode* sikh(plant& target, treenode* current);
         void addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant);
         void setRoot(plant& startingPlant);
         plant* findBestGrowth();
         treenode* subFBG(treenode* current, int top);
-        plant* findBestNutrition() const;
-        plant* findBestWater() const;
+        plant* findBestNutrition();
+        treenode* subFBN(treenode* current, int top);
+        plant* findBestWater();
+        treenode* subFBW(treenode* current, int top);
         int theGreatest(const char& type, int& top, treenode* inNode);
 
 };

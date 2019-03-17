@@ -29,7 +29,7 @@ int main()
     std::cout << "next!" << endl;
 
     plant p4("004",17,18,19);
-    plant p5("005",25,22,20);
+    plant p5("005",25,22,80);
     plant p6("006",30,50,40);
     plant p7("007",33,44,55);
 
@@ -48,13 +48,13 @@ int main()
     cout << "Best growth rate: " << endl;
     cout << (*bestPlant) << endl;
 
-    //cout << "Best nutritional value: " << endl;
-    //bestPlant = pt->findBestNutrition();
-    //cout << (*bestPlant) << endl;
+    cout << "Best nutritional value: " << endl;
+    bestPlant = pt->findBestNutrition();
+    cout << (*bestPlant) << endl;
 
-    //cout << "Best water requirement: " << endl;
-    //bestPlant = pt->findBestWater();
-    //cout << (*bestPlant) << endl;
+    cout << "Best water requirement: " << endl;
+    bestPlant = pt->findBestWater();
+    cout << (*bestPlant) << endl;
 
     //testCopyConstructor(*pt);
 
