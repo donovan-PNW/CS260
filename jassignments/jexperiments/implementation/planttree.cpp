@@ -16,7 +16,6 @@ planttree::planttree(planttree& otherTree)
     //setRoot(otherTree.root->individual);
     copyHelper(root, otherTree.root);
     display();
-    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 }
 
 void planttree::copyHelper(treenode*& inNode, treenode*& copyFrom)
@@ -29,7 +28,6 @@ void planttree::copyHelper(treenode*& inNode, treenode*& copyFrom)
     {
         inNode = new treenode;
         inNode->individual = copyFrom->individual;
-        cout << inNode->individual << endl;
         copyHelper(inNode->left, copyFrom->left);
         copyHelper(inNode->right, copyFrom->right);
     }
@@ -48,7 +46,6 @@ planttree::~planttree()
 
 void planttree::destroyDex(treenode* inNode)
 {
-    cout << "broooooooooooo" << endl;
     if(inNode != nullptr)
     {
         destroyDex(inNode->left);
@@ -65,7 +62,6 @@ void planttree::destroyDex(treenode* inNode)
 
 void planttree::display() const
 {
-    std::cout << "display()" << endl;
     planttree::subDisplay(root, 0);
     //std::cout << root->individual.getPlantID();
 }
@@ -126,8 +122,6 @@ treenode* planttree::sikh(plant& target, treenode* current)
     }
     else if(target == current->individual)
     {
-        std::cout << "THIS IS CURRENT: " << current->individual << endl;
-        std::cout << "THIS IS TARGET " << target << endl;
         return current;
     }
     else
@@ -154,7 +148,6 @@ void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPl
     //current = seek(parentPlant, root);
     //current = nextNode;
     current = sikh(parentPlant, root);
-    std::cout << current->individual << endl;
     current->left = new treenode;
     current->left->individual = leftPlant;
     current->right = new treenode;
@@ -179,7 +172,6 @@ plant* planttree::findBestGrowth()
     //but also wouldn't accept a reference or a pointer.
     plant* address = tempPlant->individual.getPlantPointer();
     //int thisVal = theGreatest('G', )
-    cout << tempPlant->individual << endl; 
     return address;
     
 }
@@ -192,43 +184,38 @@ treenode* planttree::subFBG(treenode* current, int top)
     treenode* temporaryRight = nullptr;
     if(current == nullptr)
     {
-        cout << "nullptr end" << endl;
         return nullptr;
     }
     else if(current->individual.getGrowth() > top)
     {
-        cout << "read current: " << endl;
         top = current->individual.getGrowth();
-        cout << "read Left" << endl;
         temporaryLeft = subFBG(current->left, newTop);
-        cout << "check These out: " << endl;
         if((temporaryLeft) && temporaryLeft->individual.getGrowth() > current->individual.getGrowth())
         {
-            cout << "left is bigger " << endl;
             leftOrRightBigger = true;
         }
-        cout << "read Right" << endl;
         temporaryRight = subFBG(current->right, newTop);
         if((temporaryRight) && temporaryRight->individual.getGrowth() > current->individual.getGrowth())
         {
-            cout << "right is bigger " << endl;
             leftOrRightBigger = true;
         }
         if(leftOrRightBigger)
         {
             if(temporaryLeft->individual.getGrowth() >= temporaryRight ->individual.getGrowth())
             {
-                std::cout << "returning left " << endl;
                 return temporaryLeft;
             }
             else
                 return temporaryRight;
         }
-        else
-            cout << "local is bigger " << endl;
-            cout << "returning local" << endl;
-            return current;
+        //else
+        //{
+        //    cout << "local is bigger " << endl;
+        //    cout << "returning local" << endl;
+        //    return current;
+        //}
     }
+        return current;
 }
 
 
@@ -260,7 +247,6 @@ plant* planttree::findBestNutrition()
     treenode* tempPlant = nullptr;
     tempPlant = subFBN(root, 0);
     plant* address = tempPlant->individual.getPlantPointer();
-    cout << tempPlant->individual << endl; 
     return address;
     
 }
@@ -273,43 +259,38 @@ treenode* planttree::subFBN(treenode* current, int top)
     treenode* temporaryRight = nullptr;
     if(current == nullptr)
     {
-        cout << "nullptr end" << endl;
         return nullptr;
     }
     else if(current->individual.getNutrition() > top)
     {
-        cout << "read current: " << endl;
         top = current->individual.getNutrition();
-        cout << "read Left" << endl;
         temporaryLeft = subFBN(current->left, newTop);
-        cout << "check These out: " << endl;
         if((temporaryLeft) && temporaryLeft->individual.getNutrition() > current->individual.getNutrition())
         {
-            cout << "left is bigger " << endl;
             leftOrRightBigger = true;
         }
-        cout << "read Right" << endl;
         temporaryRight = subFBN(current->right, newTop);
         if((temporaryRight) && temporaryRight->individual.getNutrition() > current->individual.getNutrition())
         {
-            cout << "right is bigger " << endl;
             leftOrRightBigger = true;
         }
         if(leftOrRightBigger)
         {
             if(temporaryLeft->individual.getNutrition() >= temporaryRight ->individual.getNutrition())
             {
-                std::cout << "returning left " << endl;
                 return temporaryLeft;
             }
             else
                 return temporaryRight;
         }
-        else
-            cout << "local is bigger " << endl;
-            cout << "returning local" << endl;
-            return current;
+        //else
+        //{
+        //    cout << "local is bigger " << endl;
+        //    cout << "returning local" << endl;
+        //    return current;
+        //}
     }
+    return current;
 }
 
 plant* planttree::findBestWater()
@@ -317,7 +298,6 @@ plant* planttree::findBestWater()
     treenode* tempPlant = nullptr;
     tempPlant = subFBW(root, 0);
     plant* address = tempPlant->individual.getPlantPointer();
-    cout << tempPlant->individual << endl; 
     return address;
     
 }
@@ -330,43 +310,38 @@ treenode* planttree::subFBW(treenode* current, int top)
     treenode* temporaryRight = nullptr;
     if(current == nullptr)
     {
-        cout << "nullptr end" << endl;
         return nullptr;
     }
     else if(current->individual.getWater() > top)
     {
-        cout << "read current: " << endl;
         top = current->individual.getWater();
-        cout << "read Left" << endl;
         temporaryLeft = subFBW(current->left, newTop);
-        cout << "check These out: " << endl;
         if((temporaryLeft) && temporaryLeft->individual.getWater() > current->individual.getWater())
         {
-            cout << "left is bigger " << endl;
             leftOrRightBigger = true;
         }
-        cout << "read Right" << endl;
         temporaryRight = subFBW(current->right, newTop);
         if((temporaryRight) && temporaryRight->individual.getWater() > current->individual.getWater())
         {
-            cout << "right is bigger " << endl;
             leftOrRightBigger = true;
         }
         if(leftOrRightBigger)
         {
             if(temporaryLeft->individual.getWater() >= temporaryRight ->individual.getWater())
             {
-                std::cout << "returning left " << endl;
                 return temporaryLeft;
             }
             else
                 return temporaryRight;
         }
-        else
-            cout << "local is bigger " << endl;
-            cout << "returning local" << endl;
-            return current;
+        //else
+        //{
+        //    cout << "local is bigger " << endl;
+        //    cout << "returning local" << endl;
+        //    return current;
+        //}
     }
+    return current;
 }
 
 
