@@ -56,7 +56,7 @@ int main()
     bestPlant = pt->findBestWater();
     cout << (*bestPlant) << endl;
 
-    //testCopyConstructor(*pt);
+    testCopyConstructor(*pt);
 
     delete pt;
 

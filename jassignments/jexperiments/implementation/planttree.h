@@ -14,8 +14,9 @@ class planttree
 
     public:
         planttree();
-        planttree(const planttree& otherTree)=delete;
-        const planttree& operator=(const planttree& otherTree)=delete;
+        planttree(planttree& otherTree);
+        void copyHelper(treenode*& inNode, treenode*& copyFrom);
+        //const planttree& operator=(const planttree& otherTree);
         ~planttree();
         void destroyDex(treenode* inNode);
 

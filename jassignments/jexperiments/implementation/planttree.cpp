@@ -11,9 +11,34 @@ planttree::planttree()
     nextNode = nullptr;
 }
 
-//planttree::planttree(const planttree& otherTree)
+planttree::planttree(planttree& otherTree)
+{
+    setRoot(otherTree.root->individual);
+    copyHelper(root, otherTree.root);
+    display();
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+}
+
+void planttree::copyHelper(treenode*& inNode, treenode*& copyFrom)
+{
+    if(copyFrom == nullptr)
+    {
+        inNode = nullptr;
+    }
+    else
+    {
+        inNode = new treenode;
+        inNode->individual = copyFrom->individual;
+        cout << inNode->individual << endl;
+        copyHelper(inNode->left, copyFrom->left);
+        copyHelper(inNode->right, copyFrom->right);
+    }
+
+
+}
+//const planttree& planttree::operator=(const planttree& otherTree)
 //{
-//    root = otherTree.root; 
+//
 //}
 
 planttree::~planttree()
@@ -48,7 +73,7 @@ void planttree::display() const
 void planttree::subDisplay(treenode* inNode, int depth) const
 {
     //std::cout << "subDisplay start" << endl;
-    for(int i = 0; i < depth; i++)
+    for(int i = 1; i < depth; i++)
     {
         cout << "  ";
     }
