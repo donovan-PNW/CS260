@@ -15,7 +15,6 @@ planttree::planttree(planttree& otherTree)
 {
     //setRoot(otherTree.root->individual);
     copyHelper(root, otherTree.root);
-    display();
 }
 
 void planttree::copyHelper(treenode*& inNode, treenode*& copyFrom)
@@ -34,10 +33,6 @@ void planttree::copyHelper(treenode*& inNode, treenode*& copyFrom)
 
 
 }
-//const planttree& planttree::operator=(const planttree& otherTree)
-//{
-//
-//}
 
 planttree::~planttree()
 {
@@ -55,26 +50,19 @@ void planttree::destroyDex(treenode* inNode)
     }
 }
 
-
-//const planttree& planttree::operator=(const planttree& otherTree)
-//{
-//}
-
 void planttree::display() const
 {
     planttree::subDisplay(root, 0);
-    //std::cout << root->individual.getPlantID();
 }
 
 void planttree::subDisplay(treenode* inNode, int depth) const
 {
-    //std::cout << "subDisplay start" << endl;
     for(int i = 1; i < depth; i++)
     {
         cout << "  ";
     }
     std::cout << inNode->individual;
-    //std::cout << "subdisplay end" << endl;
+    cout << endl;
     if(inNode->left != nullptr)
     {
         cout << "  ";

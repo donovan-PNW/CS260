@@ -52,8 +52,6 @@ void plant::setWater(int& value)
 
 int plant::getGrowth() const
 {
-    std::cout << "doot doot" << endl;
-    std::cout << "Growwwwth " << growth << endl;
     return growth;
 }
 
@@ -114,12 +112,12 @@ bool operator==(plant& plantA, plant& plantB)
 
 ostream& operator<<(ostream& out, const plant& thisPlant)
 {
-    out << "Plant ID: Plant " << thisPlant.plantID;
-    out << " " << thisPlant.growth << "-";
-    out << thisPlant.nutrition<< "-";
-    out << thisPlant.water << " ";
-    out << "(G: " << thisPlant.growth << " N: " << thisPlant.nutrition;
-    out << " W: " << thisPlant.water << ")" << endl;
+    out << "Plant ID: " << thisPlant.plantID;
+    //out << " " << thisPlant.growth << "-";
+    //out << thisPlant.nutrition<< "-";
+    //out << thisPlant.water << " ";
+    out << " (G: " << thisPlant.growth << " N: " << thisPlant.nutrition;
+    out << " W: " << thisPlant.water << ")";// << endl;
     //out << "change whole plantIDPlant field to come from a string held completely in plant class" << endl;
     
     return out;
