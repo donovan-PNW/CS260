@@ -13,7 +13,7 @@ planttree::planttree()
 
 planttree::planttree(planttree& otherTree)
 {
-    setRoot(otherTree.root->individual);
+    //setRoot(otherTree.root->individual);
     copyHelper(root, otherTree.root);
     display();
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
