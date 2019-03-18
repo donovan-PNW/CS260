@@ -1,14 +1,3 @@
-
-
-
-
-//- plant -- This class represents a plant. Each plant has an ID as well as a
-//  growth rate factor, nutritional value factor, and water requirement
-//  factor. The plant class should have these data members. The plant ID follows
-//  the format "Plant ??-??-??" where the first two digits are the growth value,
-//  the second two are the nutritional value, and the third two are the water
-//  requirements value.
-
 #ifndef PLANT_H
 #define PLANT_H
 

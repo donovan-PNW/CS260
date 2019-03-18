@@ -75,32 +75,6 @@ void planttree::subDisplay(treenode* inNode, int depth) const
     }
 }
 
-//current is set at root for first iteration!
-//treenode* planttree::seek(plant& target, treenode* current)
-//{
-//    std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAatarget: " << target.getPlantID() << endl;
-//    std::cout << "BBBBBBBBBBBBBBBBBBBBBBBBBBBcurrent: " << current->individual.getPlantID() << endl;
-//    if(current != nullptr)
-//    {
-//        if(strcmp(target.getPlantID(), current->individual.getPlantID()) == 0)
-//        {
-//            cout << "YES!" << endl;
-//            std::cout << current->individual.getPlantID();
-//            nextNode = current;
-//            return current;
-//        }
-//    }
-//    if(current->left)
-//        seek(target, current->left);
-//    if(current->right)
-//        seek(target, current->right);
-//    std::cout << "CCCCCCCCCCCCCCCCCCCCCCCCCCCCC: Last target: " << target.getPlantID() << endl;
-//    return nullptr;
-//}
-
-
-
-
 treenode* planttree::sikh(plant& target, treenode* current)
 {
     treenode* temporary = nullptr;
@@ -132,9 +106,6 @@ treenode* planttree::sikh(plant& target, treenode* current)
 void planttree::addChildren(plant& parentPlant, plant& leftPlant, plant& rightPlant)
 {
     treenode* current;
-    //broken!
-    //current = seek(parentPlant, root);
-    //current = nextNode;
     current = sikh(parentPlant, root);
     current->left = new treenode;
     current->left->individual = leftPlant;
@@ -159,7 +130,6 @@ plant* planttree::findBestGrowth()
     //about converting from plant to plant* on return/assignment/everything else
     //but also wouldn't accept a reference or a pointer.
     plant* address = tempPlant->individual.getPlantPointer();
-    //int thisVal = theGreatest('G', )
     return address;
     
 }
@@ -196,38 +166,9 @@ treenode* planttree::subFBG(treenode* current, int top)
             else
                 return temporaryRight;
         }
-        //else
-        //{
-        //    cout << "local is bigger " << endl;
-        //    cout << "returning local" << endl;
-        //    return current;
-        //}
     }
         return current;
 }
-
-
-//void planttree::display() const
-//{
-//    std::cout << "display()" << endl;
-//    planttree::subDisplay(root);
-//    //std::cout << root->individual.getPlantID();
-//}
-//
-//void planttree::subDisplay(treenode* inNode) const
-//{
-//    std::cout << "subDisplay start" << endl;
-//    std::cout << inNode->individual;
-//    std::cout << "subdisplay end" << endl;
-//    if(inNode->left != nullptr)
-//    {
-//        subDisplay(inNode->left);
-//    }
-//    if(inNode->right != nullptr)
-//    {
-//        subDisplay(inNode->right);
-//    }
-//}
 
 
 plant* planttree::findBestNutrition()
@@ -271,12 +212,6 @@ treenode* planttree::subFBN(treenode* current, int top)
             else
                 return temporaryRight;
         }
-        //else
-        //{
-        //    cout << "local is bigger " << endl;
-        //    cout << "returning local" << endl;
-        //    return current;
-        //}
     }
     return current;
 }
@@ -322,38 +257,9 @@ treenode* planttree::subFBW(treenode* current, int top)
             else
                 return temporaryRight;
         }
-        //else
-        //{
-        //    cout << "local is bigger " << endl;
-        //    cout << "returning local" << endl;
-        //    return current;
-        //}
     }
     return current;
 }
-
-
-//REDO THIS SO THAT EACH IS INDIVIDUAL IF PROGRAM IS SLOW
-//int planttree::theGreatest(const char& type, int& top, treenode* inNode)
-//{
-//    int temporary = 0;
-//    switch (type)
-//    {
-//    case 'G': 
-//        temporary = inNode->individual.getGrowth();
-//        break;
-//    case 'N':
-//        temporary = inNode->individual.getNutrition();
-//        break;
-//    case 'W':
-//        temporary = inNode->individual.getWater();
-//        break;
-//    }
-//    return temporary;
-//    //just like the print statement except compare each instead of printing it
-//}
-
-
 
 
 

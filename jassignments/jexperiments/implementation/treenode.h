@@ -12,11 +12,6 @@ struct treenode
     plant individual;
     treenode *left = nullptr;
     treenode *right = nullptr;
-    //treenode(const plant& nextIndividual):
-    //    individual(nextIndividual), left(0), right(0)
-    //{
-    // 
-    //}
 };
 
 
